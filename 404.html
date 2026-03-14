@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Trang không tồn tại | Kiệt Trần</title>
+  <meta name="description" content="Trang bạn tìm không tồn tại hoặc đã được di chuyển.">
+  <link
+    rel="icon"
+    href="/favicon-32x32.png?v=ed489fb11a9167a4200ff8c4630a2193"
+    type="image/png"
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --text: #0f172a;
+      --muted: #475569;
+      --line: #e2e8f0;
+      --indigo: #4f46e5;
+      --indigo-strong: #3730a3;
+      --sky: #0284c7;
+      --card: rgba(255, 255, 255, 0.8);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 14% 20%, rgba(79, 70, 229, 0.18), transparent 38%),
+        radial-gradient(circle at 86% 12%, rgba(2, 132, 199, 0.16), transparent 42%),
+        linear-gradient(180deg, #f8fbff 0%, #f8fafc 46%, #f2f6fb 100%);
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      overflow: hidden;
+    }
+
+    .grid-overlay {
+      position: fixed;
+      inset: 0;
+      background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+      background-size: 42px 42px;
+      opacity: 0.36;
+      pointer-events: none;
+    }
+
+    .orb {
+      position: fixed;
+      width: 280px;
+      aspect-ratio: 1;
+      border-radius: 999px;
+      filter: blur(40px);
+      z-index: 0;
+      animation: float 11s ease-in-out infinite;
+    }
+
+    .orb.one {
+      left: -90px;
+      bottom: 18vh;
+      background: rgba(79, 70, 229, 0.2);
+    }
+
+    .orb.two {
+      right: -80px;
+      top: 14vh;
+      background: rgba(2, 132, 199, 0.2);
+      animation-delay: -3.8s;
+    }
+
+    .card {
+      position: relative;
+      z-index: 1;
+      width: min(860px, 100%);
+      border: 1px solid rgba(148, 163, 184, 0.32);
+      border-radius: 28px;
+      background: var(--card);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 28px 80px rgba(15, 23, 42, 0.12);
+      padding: 24px;
+      animation: rise 0.7s ease;
+    }
+
+    .card-inner {
+      border: 1px solid rgba(148, 163, 184, 0.32);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.92);
+      padding: clamp(24px, 5vw, 56px);
+      display: grid;
+      gap: 26px;
+    }
+
+    .pill {
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--indigo-strong);
+      background: rgba(79, 70, 229, 0.12);
+      padding: 8px 14px;
+    }
+
+    .pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--indigo);
+      box-shadow: 0 0 0 6px rgba(79, 70, 229, 0.14);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 7.6vw, 4.6rem);
+      line-height: 1;
+      letter-spacing: -0.03em;
+      text-wrap: balance;
+    }
+
+    .code {
+      display: inline-block;
+      margin-right: 14px;
+      padding-right: 18px;
+      border-right: 2px solid rgba(79, 70, 229, 0.25);
+      background: linear-gradient(120deg, var(--indigo) 0%, var(--sky) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .message {
+      margin: 0;
+      max-width: 64ch;
+      color: var(--muted);
+      font-size: clamp(1rem, 2.4vw, 1.2rem);
+      line-height: 1.7;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 4px;
+    }
+
+    .button {
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 700;
+      padding: 13px 18px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .button.primary {
+      color: #ffffff;
+      background: linear-gradient(130deg, var(--indigo) 0%, #2563eb 100%);
+      box-shadow: 0 14px 28px rgba(59, 130, 246, 0.28);
+    }
+
+    .button.secondary {
+      border: 1px solid rgba(71, 85, 105, 0.24);
+      color: var(--text);
+      background: #ffffff;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button.primary:hover {
+      box-shadow: 0 18px 34px rgba(79, 70, 229, 0.32);
+    }
+
+    .button.secondary:hover {
+      background: #f8fafc;
+    }
+
+    .hint {
+      margin: 0;
+      color: #64748b;
+      font-size: 0.95rem;
+    }
+
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-16px);
+      }
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 14px;
+      }
+
+      .card {
+        border-radius: 20px;
+        padding: 12px;
+      }
+
+      .card-inner {
+        border-radius: 16px;
+      }
+
+      .code {
+        display: block;
+        border-right: 0;
+        margin-right: 0;
+        padding-right: 0;
+        margin-bottom: 10px;
+      }
+
+      .actions {
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-overlay" aria-hidden="true"></div>
+  <div class="orb one" aria-hidden="true"></div>
+  <div class="orb two" aria-hidden="true"></div>
+
+  <main class="card" role="main">
+    <section class="card-inner">
+      <span class="pill"><span class="pill-dot" aria-hidden="true"></span>Oops, lạc trang rồi</span>
+      <h1><span class="code">404</span>Không tìm thấy trang bạn đang mở</h1>
+      <p class="message">
+        Link có thể đã đổi, bị xóa, hoặc bạn gõ sai đường dẫn. Nhưng đừng lo, mình đã đặt sẵn 2 lối đi nhanh để bạn quay lại đúng hướng.
+      </p>
+
+      <div class="actions">
+        <a class="button primary" href="https://tranletuankiet.com">Quay về trang chủ</a>
+        <a class="button secondary" href="https://zalo.me/0916758967" target="_blank" rel="noopener noreferrer">Nhận hỗ trợ qua Zalo</a>
+      </div>
+
+      <p class="hint">Mẹo nhanh: kiểm tra lại URL hoặc bỏ dấu / thừa trong đường dẫn.</p>
+    </section>
+  </main>
+</body>
+</html>
