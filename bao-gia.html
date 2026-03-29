@@ -301,6 +301,50 @@
         .note-banner.hidden { display: none; }
         .note-banner .icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
 
+        /* ─── SAVINGS CALLOUT ───────────────────── */
+        .savings-callout {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            background: linear-gradient(135deg, #059669 0%, #10B981 100%);
+            border-radius: var(--radius-lg);
+            padding: 1rem 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 16px rgba(16,185,129,0.25);
+        }
+        .savings-callout.hidden { display: none; }
+        .savings-callout-icon {
+            font-size: 1.75rem;
+            flex-shrink: 0;
+        }
+        .savings-callout-body {
+            flex: 1;
+        }
+        .savings-callout-label {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.8);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.2rem;
+        }
+        .savings-callout-amount {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+        .savings-callout-sub {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.8);
+            margin-top: 0.2rem;
+        }
+        @media (max-width: 640px) {
+            .savings-callout { flex-direction: column; text-align: center; gap: 0.5rem; }
+        }
+
         /* ─── METRIC CARDS ───────────────────────── */
         .metrics-grid {
             display: grid;
@@ -652,6 +696,7 @@
                     <button class="option-btn success-theme" data-group="payment" data-value="nam">
                         💰 Trả Theo Năm
                         <span class="badge-tag">Giảm 20% VPS</span>
+                        <span class="badge-tag">Giảm 30% SePay</span>
                     </button>
                 </div>
             </div>
@@ -681,7 +726,7 @@
         <!-- Metrics -->
         <div class="metrics-grid">
             <div class="metric-card">
-                <div class="mc-label">Chi Phí Duy Trì Hằng Tháng</div>
+                <div class="mc-label">Chi Phí Duy Trì</div>
                 <div class="mc-value" id="mc-monthly">—</div>
                 <div class="mc-sub" id="mc-monthly-sub">VPS + SePay API</div>
             </div>
@@ -693,7 +738,17 @@
             <div class="metric-card" id="mc-savings-card">
                 <div class="mc-label" id="mc-savings-label">Tổng Từ Năm 2 Trở Đi</div>
                 <div class="mc-value" id="mc-savings-value">—</div>
-                <div class="mc-sub" id="mc-savings-sub">Chỉ VPS + SePay (không tư vấn)</div>
+                <div class="mc-sub" id="mc-savings-sub">Chi phí duy trì hằng năm (không phát sinh phí tư vấn)</div>
+            </div>
+        </div>
+
+        <!-- Savings Callout -->
+        <div class="savings-callout hidden" id="savings-callout">
+            <div class="savings-callout-icon">🎉</div>
+            <div class="savings-callout-body">
+                <div class="savings-callout-label">Ưu đãi khi trả theo năm</div>
+                <div class="savings-callout-amount" id="savings-callout-amount">—</div>
+                <div class="savings-callout-sub" id="savings-callout-sub">—</div>
             </div>
         </div>
 
@@ -954,16 +1009,21 @@
         }
         document.getElementById('mc-year1').textContent = fmt(d.year1);
 
+        document.getElementById('mc-savings-label').textContent = 'Tổng Từ Năm 2 Trở Đi';
+        document.getElementById('mc-savings-value').textContent = fmt(d.year2Annual);
+        document.getElementById('mc-savings-sub').textContent = 'Chi phí duy trì hằng năm (không phát sinh phí tư vấn)';
+        document.getElementById('mc-savings-card').className = 'metric-card';
+
+        const callout = document.getElementById('savings-callout');
         if (d.savings) {
-            document.getElementById('mc-savings-label').textContent = 'Tiết Kiệm Khi Trả Năm';
-            document.getElementById('mc-savings-value').textContent = fmt(d.savings);
-            document.getElementById('mc-savings-sub').textContent = 'So với trả từng tháng (từ năm 2)';
-            document.getElementById('mc-savings-card').className = 'metric-card green-card';
+            const monthlyKey = `${state.bank}_${state.volume}_thang`;
+            const dm = PRICING[monthlyKey];
+            document.getElementById('savings-callout-amount').textContent = `Tiết kiệm ${fmt(d.savings)} / năm`;
+            document.getElementById('savings-callout-sub').innerHTML =
+                `Năm 1: ${fmt(dm.year1)} → <strong style="color:#fff;">${fmt(d.year1)}</strong>&nbsp;&nbsp;|&nbsp;&nbsp;Từ năm 2: ${fmt(dm.year2Annual)} → <strong style="color:#fff;">${fmt(d.year2Annual)}</strong>`;
+            callout.classList.remove('hidden');
         } else {
-            document.getElementById('mc-savings-label').textContent = 'Tổng Từ Năm 2 Trở Đi';
-            document.getElementById('mc-savings-value').textContent = fmt(d.year2Annual);
-            document.getElementById('mc-savings-sub').textContent = 'Chi phí duy trì hằng năm (không tư vấn)';
-            document.getElementById('mc-savings-card').className = 'metric-card';
+            callout.classList.add('hidden');
         }
 
         // Breakdown table
@@ -1012,7 +1072,7 @@
                     <div class="row-name">SePay API <span class="tag tag-primary">${d.sepayPkg}</span></div>
                     <div class="row-sub">Cổng nhận biến động số dư ngân hàng real-time</div>
                 </td>
-                <td><span class="tag tag-success">Trả trước 1 năm</span></td>
+                <td><span class="tag tag-success">Trả trước 1 năm</span><span class="tag tag-success" style="margin-left:0.3rem">Giảm 30%</span></td>
                 <td>${fmt(d.sepayAnnual)}<br><span style="font-size:0.75rem;color:var(--text-sub);font-weight:400;">/năm</span></td>
             </tr>`;
         } else {
