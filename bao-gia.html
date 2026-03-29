@@ -1,10 +1,31 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D6HGJE321S"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-D6HGJE321S');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Báo Giá Hệ Thống Tự Động Hóa Thanh Toán</title>
-    <!-- Google Fonts -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Báo Giá Hệ Thống Tự Động Hóa Thanh Toán">
+    <meta property="og:url" content="/bao-gia.html">
+    <meta property="og:image" content="/cover.png">
+    <meta property="og:image:alt" content="Báo Giá Hệ Thống Tự Động Hóa Thanh Toán">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Báo Giá Hệ Thống Tự Động Hóa Thanh Toán">
+    <meta name="twitter:image" content="/cover.png">
+    <link
+      rel="icon"
+      href="/favicon-32x32.png?v=ed489fb11a9167a4200ff8c4630a2193"
+      type="image/png"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -12,1052 +33,1074 @@
         :root {
             --primary: #4F46E5;
             --primary-hover: #4338CA;
+            --primary-light: rgba(79, 70, 229, 0.08);
             --secondary: #6366F1;
             --success: #10B981;
             --success-light: #D1FAE5;
+            --warning: #F59E0B;
+            --warning-light: #FEF3C7;
             --danger: #EF4444;
-            --danger-light: #FEE2E2;
-            --bg-color: #F8FAFC;
+            --bg: #F1F5F9;
             --card-bg: #FFFFFF;
-            --text-main: #0F172A;
-            --text-sub: #475569;
-            --border-color: #E2E8F0;
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            --radius-md: 0.5rem;
-            --radius-lg: 1rem;
-            --radius-xl: 1.5rem;
+            --text: #0F172A;
+            --text-sub: #64748B;
+            --border: #E2E8F0;
+            --radius: 0.75rem;
+            --radius-lg: 1.25rem;
+            --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.06);
+            --shadow-lg: 0 8px 24px rgba(0,0,0,0.1), 0 2px 8px rgba(0,0,0,0.06);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
+            background: var(--bg);
+            color: var(--text);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
         }
 
-        .container {
-            max-width: 1200px;
+        /* ─── LAYOUT ─────────────────────────────── */
+        .page-wrap {
+            max-width: 960px;
             margin: 0 auto;
-            padding: 2rem 1.5rem;
+            padding: 2rem 1.25rem 4rem;
         }
 
-        header {
+        /* ─── HEADER ─────────────────────────────── */
+        .page-header {
             text-align: center;
-            margin-bottom: 4rem;
-            padding-top: 2rem;
+            padding: 2.5rem 1rem 2rem;
+            margin-bottom: 2rem;
         }
-
-        header h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
+        .page-header .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: var(--primary-light);
             color: var(--primary);
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.35rem 0.9rem;
+            border-radius: 99px;
             margin-bottom: 1rem;
-            letter-spacing: -0.025em;
+            letter-spacing: 0.02em;
         }
-
-        header p {
-            font-size: 1.125rem;
+        .page-header h1 {
+            font-size: clamp(1.6rem, 4vw, 2.4rem);
+            font-weight: 800;
+            color: var(--text);
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+            margin-bottom: 0.75rem;
+        }
+        .page-header h1 span { color: var(--primary); }
+        .page-header p {
+            font-size: 1rem;
             color: var(--text-sub);
-            max-width: 800px;
+            max-width: 600px;
             margin: 0 auto;
         }
 
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 700;
+        /* ─── CONFIG PANEL ───────────────────────── */
+        .config-panel {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem;
+            box-shadow: var(--shadow);
             margin-bottom: 1.5rem;
-            color: var(--text-main);
+        }
+        .config-panel-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-sub);
+            margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
-
-        .section-title::before {
+        .config-panel-title::after {
             content: '';
-            display: block;
-            width: 4px;
-            height: 24px;
-            background: var(--primary);
-            border-radius: 4px;
+            flex: 1;
+            height: 1px;
+            background: var(--border);
         }
 
-        /* Pros and Cons Section */
-        .comparison-grid {
+        .config-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .config-step {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            margin-bottom: 4rem;
+            grid-template-columns: 180px 1fr;
+            gap: 1rem;
+            align-items: center;
+        }
+        @media (max-width: 640px) {
+            .config-step { grid-template-columns: 1fr; gap: 0.5rem; }
         }
 
-        @media (min-width: 768px) {
-            .comparison-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        .card {
-            background: var(--card-bg);
-            border-radius: var(--radius-xl);
-            padding: 2rem;
-            box-shadow: var(--shadow-md);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid var(--border-color);
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .card-danger {
-            border-top: 4px solid var(--danger);
-        }
-
-        .card-success {
-            border-top: 4px solid var(--success);
-        }
-
-        .card-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
+        .config-step-label {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 0.6rem;
+        }
+        .step-num {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .step-text {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text);
         }
 
-        .card-danger .card-title { color: var(--danger); }
-        .card-success .card-title { color: var(--success); }
-
-        .list-group {
-            list-style: none;
+        .option-group {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
         }
 
-        .list-group li {
+        .option-btn {
             position: relative;
-            padding-left: 1.75rem;
-            margin-bottom: 1rem;
-            color: var(--text-sub);
-        }
-
-        .list-group.danger li::before {
-            content: '✕';
-            position: absolute;
-            left: 0;
-            color: var(--danger);
-            font-weight: bold;
-        }
-
-        .list-group.success li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--success);
-            font-weight: bold;
-        }
-
-        /* Pricing Table Settings */
-        .pricing-section {
-            margin-bottom: 4rem;
-        }
-
-        .table-responsive {
-            overflow-x: auto;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-md);
+            cursor: pointer;
+            border: 2px solid var(--border);
             background: var(--card-bg);
-            margin-bottom: 2rem;
-            border: 1px solid var(--border-color);
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: left;
-            min-width: 800px;
-        }
-
-        /* Divider between columns: Hạng mục, Ngân hàng Hợp tác, Tất cả Ngân hàng */
-        th:nth-child(2), td:nth-child(2),
-        th:nth-child(4), td:nth-child(4) {
-            border-left: 2px solid #CBD5E1;
-        }
-
-        th {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-weight: 600;
-            padding: 1.25rem 1rem;
-            border-bottom: 2px solid var(--border-color);
-        }
-
-        td {
-            padding: 1.25rem 1rem;
-            border-bottom: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 0.6rem 1.1rem;
+            font-family: inherit;
+            font-size: 0.875rem;
+            font-weight: 500;
             color: var(--text-sub);
-            vertical-align: top;
+            transition: all 0.18s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+            white-space: nowrap;
         }
-
-        tr:last-child td {
-            border-bottom: none;
-        }
-
-        .highlight-row {
-            background-color: rgba(79, 70, 229, 0.03);
-            font-weight: 600;
-        }
-
-        .highlight-row td {
+        .option-btn:hover:not(.active) {
+            border-color: #C7D2FE;
+            background: #EEF2FF;
             color: var(--primary);
         }
-        
-        .consulting-row {
-            background-color: #FFFBEB;
+        .option-btn.active {
+            border-color: var(--primary);
+            background: var(--primary-light);
+            color: var(--primary);
             font-weight: 600;
         }
-        
-        .consulting-row td {
-            color: #B45309;
+        .option-btn.active::after {
+            content: '✓';
+            font-size: 0.7rem;
+            background: var(--primary);
+            color: white;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 0.1rem;
+        }
+        .option-btn .badge-tag {
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 0.15rem 0.45rem;
+            border-radius: 99px;
+            background: var(--success-light);
+            color: #065F46;
+        }
+        .option-btn.active .badge-tag {
+            background: rgba(79,70,229,0.15);
+            color: var(--primary);
+        }
+
+        .option-btn.success-theme.active {
+            border-color: var(--success);
+            background: var(--success-light);
+            color: #065F46;
+        }
+        .option-btn.success-theme.active::after {
+            background: var(--success);
+        }
+        .option-btn.success-theme:hover:not(.active) {
+            border-color: #6EE7B7;
+            background: #ECFDF5;
+            color: #065F46;
+        }
+
+        /* ─── RESULT SECTION ─────────────────────── */
+        #result-section {
+            transition: opacity 0.25s ease;
+        }
+        #result-section.updating {
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        /* Active config summary */
+        .active-summary {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 0.75rem 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.85rem;
+            color: var(--text-sub);
+        }
+        .active-summary strong { color: var(--text); }
+        .summary-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            background: var(--primary-light);
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.8rem;
+            padding: 0.25rem 0.65rem;
+            border-radius: 99px;
+        }
+        .summary-chip.green {
+            background: var(--success-light);
+            color: #065F46;
+        }
+
+        /* Note banner */
+        .note-banner {
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
+            background: var(--warning-light);
+            border: 1px solid #FDE68A;
+            border-left: 4px solid var(--warning);
+            border-radius: 0 var(--radius) var(--radius) 0;
+            padding: 1rem 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.875rem;
+            color: #92400E;
+        }
+        .note-banner.hidden { display: none; }
+        .note-banner .icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+
+        /* ─── METRIC CARDS ───────────────────────── */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        @media (max-width: 640px) {
+            .metrics-grid { grid-template-columns: 1fr; }
+        }
+
+        .metric-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.25rem 1.25rem 1.1rem;
+            box-shadow: var(--shadow);
+        }
+        .metric-card .mc-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-sub);
+            margin-bottom: 0.5rem;
+        }
+        .metric-card .mc-value {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--text);
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+        .metric-card .mc-sub {
+            font-size: 0.75rem;
+            color: var(--text-sub);
+            margin-top: 0.3rem;
+        }
+        .metric-card.highlight {
+            background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+            border-color: transparent;
+        }
+        .metric-card.highlight .mc-label,
+        .metric-card.highlight .mc-sub { color: rgba(255,255,255,0.75); }
+        .metric-card.highlight .mc-value { color: white; }
+
+        .metric-card.green-card {
+            background: linear-gradient(135deg, #059669 0%, #10B981 100%);
+            border-color: transparent;
+        }
+        .metric-card.green-card .mc-label,
+        .metric-card.green-card .mc-sub { color: rgba(255,255,255,0.75); }
+        .metric-card.green-card .mc-value { color: white; }
+
+        .metric-card.hidden { display: none; }
+
+        /* ─── BREAKDOWN TABLE ────────────────────── */
+        .table-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+        .table-card-title {
+            padding: 1.1rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #FAFBFC;
+        }
+
+        .breakdown-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .breakdown-table th {
+            background: #F8FAFC;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-sub);
+            padding: 0.75rem 1.25rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        .breakdown-table th:last-child { text-align: right; }
+        .breakdown-table td {
+            padding: 1rem 1.25rem;
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+        .breakdown-table td:last-child {
+            text-align: right;
+            font-weight: 600;
+            color: var(--text);
+        }
+        .breakdown-table tr:last-child td { border-bottom: none; }
+        .breakdown-table .row-name {
+            font-weight: 600;
+            color: var(--text);
+            font-size: 0.9rem;
+        }
+        .breakdown-table .row-sub {
+            font-size: 0.78rem;
+            color: var(--text-sub);
+            margin-top: 0.2rem;
+            font-weight: 400;
         }
 
         .tag {
             display: inline-block;
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 600;
-            margin-top: 0.5rem;
-            background: var(--bg-color);
-            color: var(--text-sub);
+            padding: 0.2rem 0.55rem;
+            border-radius: 99px;
+            margin-left: 0.4rem;
+            vertical-align: middle;
+        }
+        .tag-primary { background: var(--primary-light); color: var(--primary); }
+        .tag-success { background: var(--success-light); color: #065F46; }
+        .tag-warning { background: var(--warning-light); color: #92400E; }
+        .tag-gray { background: #F1F5F9; color: var(--text-sub); }
+
+        .subtotal-row td {
+            background: var(--primary-light);
+            color: var(--primary) !important;
+            font-weight: 700 !important;
+            font-size: 0.9rem;
+            border-top: 2px solid #C7D2FE;
         }
 
-        .tag.primary { background: rgba(79, 70, 229, 0.1); color: var(--primary); }
-        .tag.success { background: var(--success-light); color: var(--success); }
+        .total-year1-row td {
+            background: #FFFBEB;
+            font-weight: 700 !important;
+        }
+        .total-year1-row td:first-child { color: #92400E !important; }
+        .total-year1-row td:last-child { color: #D97706 !important; font-size: 1.05rem; }
+        .total-year1-row { border-top: 2px solid #FCD34D; }
 
-        .note-card {
-            background: rgba(79, 70, 229, 0.05);
-            border-left: 4px solid var(--primary);
-            padding: 1.5rem;
-            border-radius: 0 var(--radius-md) var(--radius-md) 0;
-            margin-top: 2rem;
-            margin-bottom: 4rem;
+        .total-year2-row td {
+            background: #EFF6FF;
+            font-weight: 700 !important;
         }
-        
-        .note-card p {
-            margin-bottom: 0.5rem;
-        }
+        .total-year2-row td:first-child { color: #1E40AF !important; }
+        .total-year2-row td:last-child { color: #2563EB !important; font-size: 1.05rem; }
+        .total-year2-row { border-top: 2px solid #BFDBFE; }
 
-        .strategy-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-            margin-top: 1.5rem;
+        .savings-row td {
+            background: var(--success-light);
+            font-weight: 700 !important;
         }
+        .savings-row td:first-child { color: #065F46 !important; }
+        .savings-row td:last-child { color: var(--success) !important; }
+        .savings-row.hidden { display: none; }
 
-        @media (min-width: 768px) {
-            .strategy-grid {
-                grid-template-columns: 1fr 1fr 1fr;
-            }
-        }
-
-        .strategy-item {
-            background: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border-color);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .strategy-item h3 {
-            font-size: 1.125rem;
-            color: var(--primary);
-            margin-bottom: 0.75rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .strategy-item p {
-            color: var(--text-sub);
-            font-size: 0.95rem;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .strategy-icon {
-            position: absolute;
-            right: -20px;
-            bottom: -20px;
-            font-size: 100px;
-            opacity: 0.03;
-            z-index: 1;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 5rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-sub);
-        }
-
-        /* Table of Contents Styling */
-        .toc-container {
-            background: var(--card-bg);
-            border-radius: var(--radius-lg);
-            padding: 1.5rem 2rem;
-            margin-bottom: 3rem;
-            border: 1px solid var(--border-color);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .toc-title {
-            font-size: 1.125rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 0.75rem;
-        }
-
-        .toc-list {
-            list-style: none;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 0.75rem;
-        }
-
-        @media (min-width: 768px) {
-            .toc-list {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        .toc-list li a {
-            color: var(--text-sub);
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .toc-list li a:hover {
-            color: var(--primary);
-            transform: translateX(5px);
-        }
-
-        .toc-list li a::before {
-            content: '•';
-            color: var(--primary);
-            font-weight: bold;
-        }
-
-        .toc-sublist {
-            margin-left: 1.5rem;
-            margin-top: 0.25rem;
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 0.25rem;
-        }
-
-        .toc-sublist li a {
+        /* ─── CONSULTING BOX ─────────────────────── */
+        .consulting-box {
+            background: #FFFBEB;
+            border: 1px solid #FDE68A;
+            border-left: 4px solid var(--warning);
+            border-radius: 0 var(--radius) var(--radius) 0;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1.5rem;
             font-size: 0.875rem;
-            opacity: 0.8;
         }
-
-        /* ===== FLOATING NAV ===== */
-        .float-nav {
-            position: fixed;
-            right: 1.5rem;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 1000;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 0.35rem;
-        }
-
-        .float-nav-inner {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--border-color);
-            border-radius: 2rem;
-            padding: 0.75rem 0.6rem;
-            box-shadow: 0 8px 32px rgba(79, 70, 229, 0.12), 0 2px 8px rgba(0,0,0,0.08);
-            display: flex;
-            flex-direction: column;
-            gap: 0.25rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            overflow: hidden;
-            max-width: 2.75rem;
-        }
-
-        .float-nav-inner:hover,
-        .float-nav-inner.expanded {
-            max-width: 220px;
-            padding: 0.75rem 0.9rem;
-            border-radius: 1rem;
-        }
-
-        .float-nav-label {
-            font-size: 0.6rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--text-sub);
-            padding: 0 0.25rem 0.5rem;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 0.25rem;
-            white-space: nowrap;
-            opacity: 0;
-            width: 0;
-            overflow: hidden;
-            transition: opacity 0.25s ease, width 0.25s ease;
-        }
-
-        .float-nav-inner:hover .float-nav-label,
-        .float-nav-inner.expanded .float-nav-label {
-            opacity: 1;
-            width: auto;
-        }
-
-        .float-nav-item {
+        .consulting-box h4 {
+            color: #92400E;
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
             display: flex;
             align-items: center;
-            gap: 0.6rem;
-            text-decoration: none;
-            padding: 0.45rem 0.35rem;
-            border-radius: 0.6rem;
-            transition: all 0.2s ease;
+            gap: 0.4rem;
+        }
+        .consulting-box ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            color: #B45309;
+        }
+        .consulting-box ul li { display: flex; gap: 0.5rem; }
+        .consulting-box ul li::before { content: '✓'; color: var(--warning); font-weight: 700; flex-shrink: 0; }
+
+        /* ─── BANK LIST ──────────────────────────── */
+        .bank-section {
+            margin-bottom: 1.5rem;
+        }
+        .bank-toggle-btn {
+            width: 100%;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1rem 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text);
+            transition: all 0.18s ease;
+        }
+        .bank-toggle-btn:hover { background: #F8FAFC; border-color: #C7D2FE; }
+        .bank-toggle-icon {
+            transition: transform 0.25s ease;
+            font-size: 0.75rem;
             color: var(--text-sub);
-            position: relative;
         }
+        .bank-toggle-btn.open .bank-toggle-icon { transform: rotate(180deg); }
 
-        .float-nav-item:hover {
-            background: rgba(79, 70, 229, 0.08);
-            color: var(--primary);
+        .bank-list-panel {
+            display: none;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-top: none;
+            border-radius: 0 0 var(--radius) var(--radius);
+            padding: 1.25rem;
         }
+        .bank-list-panel.open { display: block; }
 
-        .float-nav-item.active {
-            background: rgba(79, 70, 229, 0.1);
-            color: var(--primary);
+        .bank-group {
+            margin-bottom: 1.25rem;
         }
-
-        .float-nav-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--border-color);
-            flex-shrink: 0;
-            transition: all 0.25s ease;
+        .bank-group:last-child { margin-bottom: 0; }
+        .bank-group-title {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
         }
-
-        .float-nav-item:hover .float-nav-dot,
-        .float-nav-item.active .float-nav-dot {
-            background: var(--primary);
-            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
-            transform: scale(1.25);
+        .bank-group-title.green { color: var(--success); }
+        .bank-group-title.blue { color: var(--primary); }
+        .bank-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
         }
-
-        .float-nav-item.active .float-nav-dot {
-            width: 10px;
-            height: 10px;
-        }
-
-        .float-nav-text {
+        .bank-chip {
             font-size: 0.8rem;
             font-weight: 500;
-            white-space: nowrap;
-            opacity: 0;
-            max-width: 0;
-            overflow: hidden;
-            transition: opacity 0.25s ease 0.05s, max-width 0.3s ease;
+            padding: 0.3rem 0.7rem;
+            border-radius: 0.4rem;
+            border: 1px solid var(--border);
+            background: #F8FAFC;
+            color: var(--text-sub);
+        }
+        .bank-chip.highlight-bank {
+            border-color: #A7F3D0;
+            background: #ECFDF5;
+            color: #065F46;
+            font-weight: 600;
         }
 
-        .float-nav-inner:hover .float-nav-text,
-        .float-nav-inner.expanded .float-nav-text {
-            opacity: 1;
-            max-width: 160px;
+        /* ─── FOOTER ─────────────────────────────── */
+        footer {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-sub);
+            font-size: 0.82rem;
         }
-
-        .float-nav-toggle {
-            background: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 2rem;
-            height: 2rem;
+        footer a { color: var(--primary); text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+        .footer-sources {
+            margin-top: 0.5rem;
             display: flex;
-            align-items: center;
             justify-content: center;
-            cursor: pointer;
-            font-size: 0.85rem;
-            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.35);
-            transition: all 0.2s ease;
-            margin-top: 0.25rem;
-            align-self: center;
-        }
-
-        .float-nav-toggle:hover {
-            background: var(--primary-hover);
-            transform: scale(1.1);
-        }
-
-        .float-nav-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            z-index: 9999;
-            transition: width 0.1s linear;
-            border-radius: 0 2px 2px 0;
-        }
-
-        @media (max-width: 1280px) {
-            .float-nav { right: 0.75rem; }
-        }
-
-        @media (max-width: 768px) {
-            .float-nav { display: none; }
+            gap: 1rem;
+            flex-wrap: wrap;
         }
     </style>
 </head>
 <body>
+<div class="page-wrap">
 
-<!-- Reading progress bar -->
-<div class="float-nav-progress" id="readingProgress"></div>
-
-<!-- Floating Navigation -->
-<nav class="float-nav" id="floatNav" aria-label="Quick navigation">
-    <div class="float-nav-inner" id="floatNavInner">
-        <div class="float-nav-label">📋 Nội dung</div>
-        <a href="#hieu-qua" class="float-nav-item active" data-section="hieu-qua">
-            <span class="float-nav-dot"></span>
-            <span class="float-nav-text">1. Phân Tích Hiệu Quả</span>
-        </a>
-        <a href="#hoan-von" class="float-nav-item" data-section="hoan-von">
-            <span class="float-nav-dot"></span>
-            <span class="float-nav-text">2. Bài Toán ROI</span>
-        </a>
-        <a href="#bao-gia" class="float-nav-item" data-section="bao-gia">
-            <span class="float-nav-dot"></span>
-            <span class="float-nav-text">3. Chi Tiết Báo Giá</span>
-        </a>
-        <a href="#ngan-hang" class="float-nav-item" data-section="ngan-hang">
-            <span class="float-nav-dot"></span>
-            <span class="float-nav-text">4. Danh Sách Ngân Hàng</span>
-        </a>
-        <a href="#tai-sao" class="float-nav-item" data-section="tai-sao">
-            <span class="float-nav-dot"></span>
-            <span class="float-nav-text">5. Tại Sao Chọn?</span>
-        </a>
-        <a href="#chien-luoc" class="float-nav-item" data-section="chien-luoc">
-            <span class="float-nav-dot"></span>
-            <span class="float-nav-text">6. Chiến Lược Chi Phí</span>
-        </a>
-    </div>
-    <button class="float-nav-toggle" id="floatNavToggle" title="Thu gọn / Mở rộng menu" aria-label="Toggle navigation">☰</button>
-</nav>
-
-<div class="container">
-    <header>
-        <h1>Báo Giá Tư Vấn & Triển Khai Hệ Thống</h1>
-        <p>Giải pháp tự động hóa khâu thanh toán & xử lý giao dịch 100% không chạm (Tích hợp cùng SePay, 123Host và các Module n8n Automation)</p>
+    <!-- Header -->
+    <header class="page-header">
+        <div class="badge">⚡ Tự Động Hóa 100%</div>
+        <h1>Báo Giá <span>Hệ Thống Thanh Toán</span><br>Tự Động n8n + SePay</h1>
+        <p>Chọn cấu hình phù hợp bên dưới — bảng giá sẽ cập nhật ngay lập tức.</p>
     </header>
 
-    <!-- Table of Contents -->
-    <nav class="toc-container">
-        <div class="toc-title">
-            <span>📋</span> Danh Mục Nội Dung
-        </div>
-        <ul class="toc-list">
-            <li><a href="#hieu-qua">1. Phân Tích Hiệu Quả Triển Khai</a></li>
-            <li><a href="#hoan-von">2. Bài Toán Hoàn Vốn & Tiết Kiệm (ROI)</a></li>
-            <li>
-                <a href="#bao-gia">3. Chi Tiết Báo Giá Dịch Vụ</a>
-                <ul class="toc-sublist">
-                    <li><a href="#gia-1500">3.1. Quy mô 1.500 Giao dịch/Tháng</a></li>
-                    <li><a href="#gia-2300">3.2. Quy mô 2.300 Giao dịch/Tháng</a></li>
-                </ul>
-            </li>
-            <li><a href="#ngan-hang">4. Danh Sách Ngân Hàng Hỗ Trợ</a></li>
-            <li><a href="#tai-sao">5. Tại Sao Chọn SePay & 123Host?</a></li>
-            <li><a href="#chien-luoc">6. Chiến Lược Tối Ưu Chi Phí</a></li>
-        </ul>
-    </nav>
+    <!-- Config Panel -->
+    <div class="config-panel">
+        <div class="config-panel-title">⚙️ Chọn Cấu Hình Của Bạn</div>
+        <div class="config-steps">
 
-    <!-- Section 1: Hiệu quả -->
-    <h2 class="section-title" id="hieu-qua">1. Phân Tích Hiệu Quả Triển Khai</h2>
-    <div class="comparison-grid">
-        <div class="card card-danger">
-            <h3 class="card-title">
-                <span>❌</span> Trước khi triển khai (Thủ công)
-            </h3>
-            <ul class="list-group danger">
-                <li><strong>Mất nhiều thời gian:</strong> Kế toán hoặc CSKH phải đối soát từng số dư, từng mã đơn hàng gây lãng phí nguồn nhân lực.</li>
-                <li><strong>Gây trải nghiệm kém:</strong> Khách hàng phải chờ đợi nhân viên gạch nợ thủ công mới được kích hoạt dịch vụ, nhất là ngoài giờ hành chính.</li>
-                <li><strong>Rủi ro sai sót, lừa đảo:</strong> Dễ kiểm tra nhầm bill giả (Lừa đảo biên lai), nhầm số tiền hoặc mã đơn.</li>
-                <li><strong>Khó khăn trong Scale:</strong> Khi đơn hàng tăng từ chục lên ngàn đơn/ngày, hệ thống thủ công sẽ quá tải và tắc nghẽn.</li>
-            </ul>
-        </div>
-        
-        <div class="card card-success">
-            <h3 class="card-title">
-                <span>✅</span> Sau khi triển khai (Tự động hóa 100%)
-            </h3>
-            <ul class="list-group success">
-                <li><strong>Xử lý tức thì (1-3s):</strong> Nhận tiền ➔ Gạch nợ ➔ Kích hoạt ➔ Gửi mail hoàn toàn tự động 24/7/365.</li>
-                <li><strong>Chính xác tuyệt đối:</strong> Loại bỏ 100% rủi ro bill giả, kiểm tra sai số tiền hay sai mã đơn do hệ thống xác thực trực tiếp qua sao kê ngân hàng.</li>
-                <li><strong>Tối ưu chi phí & thời gian:</strong> Giải phóng nhân sự khỏi công việc đối soát thủ công nhàm chán lặp đi lặp lại, tăng năng suất xử lý. Giúp đội ngũ tập trung vào nghiệp vụ cốt lõi hay CSKH để tạo ra nhiều doanh thu hơn.</li>
-                <li><strong>Bứt phá doanh thu:</strong> Phục vụ tức thì mang lại trải nghiệm chuyên nghiệp. Hệ thống dễ dàng xử lý hàng chục nghìn giao dịch mà không gián đoạn.</li>
-            </ul>
+            <!-- Step 1: Bank type -->
+            <div class="config-step">
+                <div class="config-step-label">
+                    <span class="step-num">1</span>
+                    <span class="step-text">Loại Ngân Hàng</span>
+                </div>
+                <div class="option-group" id="group-bank">
+                    <button class="option-btn success-theme active" data-group="bank" data-value="hoptac">
+                        🟢 Ngân Hàng Hợp Tác
+                        <span class="badge-tag">Tiết kiệm 35%</span>
+                    </button>
+                    <button class="option-btn" data-group="bank" data-value="tatca">
+                        🔵 Tất Cả Ngân Hàng
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 2: Volume -->
+            <div class="config-step">
+                <div class="config-step-label">
+                    <span class="step-num">2</span>
+                    <span class="step-text">Quy Mô Giao Dịch</span>
+                </div>
+                <div class="option-group" id="group-volume">
+                    <button class="option-btn active" data-group="volume" data-value="1500">
+                        📦 1.500 GD / Tháng
+                    </button>
+                    <button class="option-btn" data-group="volume" data-value="2300">
+                        📦 2.300 GD / Tháng
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 3: Payment -->
+            <div class="config-step">
+                <div class="config-step-label">
+                    <span class="step-num">3</span>
+                    <span class="step-text">Hình Thức Thanh Toán</span>
+                </div>
+                <div class="option-group" id="group-payment">
+                    <button class="option-btn active" data-group="payment" data-value="thang">
+                        📅 Trả Theo Tháng
+                    </button>
+                    <button class="option-btn success-theme" data-group="payment" data-value="nam">
+                        💰 Trả Theo Năm
+                        <span class="badge-tag">Giảm 20% VPS</span>
+                    </button>
+                </div>
+            </div>
+
         </div>
     </div>
 
-    <!-- Section 2: Hoàn vốn ROI -->
-    <h2 class="section-title" id="hoan-von">2. Bài Toán Hoàn Vốn & Tiết Kiệm (ROI)</h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-bottom: 4rem;">
-        
-        <!-- Thủ công -->
-        <div style="background: #FEF2F2; border: 1px solid #FECACA; border-radius: var(--radius-lg); padding: 1.5rem; position: relative; overflow: hidden;">
-            <div style="position: absolute; top: -15px; right: -15px; font-size: 5rem; opacity: 0.1;">⏱️</div>
-            <h3 style="color: #991B1B; font-size: 1.125rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;"><span>🔴</span> Quy Trình Xử Lý Thủ Công</h3>
-            <p style="color: #B91C1C; font-size: 0.95rem; margin-bottom: 1.25rem;">Xác nhận CK, chuyển tiếp tin nhắn, đối soát quỹ, chụp màn hình lệnh (<strong>5 phút/đơn</strong>).</p>
-            
-            <ul style="list-style: none; padding: 0; color: #7F1D1D; font-size: 0.95rem; display: flex; flex-direction: column; gap: 0.75rem;">
-                <li style="display: flex; justify-content: space-between; border-bottom: 1px dashed #FCA5A5; padding-bottom: 0.5rem;">
-                    <span>Khối lượng:</span>
-                    <strong>1.500 Đơn/tháng</strong>
-                </li>
-                <li style="display: flex; justify-content: space-between; border-bottom: 1px dashed #FCA5A5; padding-bottom: 0.5rem;">
-                    <span>Thời gian hao phí:</span>
-                    <strong>125 Giờ/tháng</strong>
-                </li>
-                <li style="display: flex; justify-content: space-between; border-bottom: 1px dashed #FCA5A5; padding-bottom: 0.5rem;">
-                    <span>Định mức nhân sự:</span>
-                    <strong>50.000 đ/giờ</strong> (Kế toán)
-                </li>
-                <li style="display: flex; justify-content: space-between; padding-top: 0.25rem;">
-                    <span style="font-weight: 600;">Tổng chi phí "rò rỉ":</span>
-                    <strong style="font-size: 1.1rem;">6.250.000 đ/tháng</strong>
-                </li>
-            </ul>
+    <!-- Result Section -->
+    <div id="result-section">
+
+        <!-- Active config summary -->
+        <div class="active-summary" id="active-summary">
+            <strong>Đang xem:</strong>
+            <span class="summary-chip" id="sum-bank">Ngân Hàng Hợp Tác</span>
+            <span style="color:var(--border)">•</span>
+            <span class="summary-chip" id="sum-volume">1.500 GD/tháng</span>
+            <span style="color:var(--border)">•</span>
+            <span class="summary-chip" id="sum-payment">Trả theo Tháng</span>
         </div>
 
-        <!-- Tự động -->
-        <div style="background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: var(--radius-lg); padding: 1.5rem; position: relative; overflow: hidden; box-shadow: 0 10px 15px -3px rgba(34, 197, 94, 0.1);">
-            <div style="position: absolute; top: -15px; right: -15px; font-size: 5rem; opacity: 0.1;">⚡</div>
-            <h3 style="color: #166534; font-size: 1.125rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;"><span>🟢</span> Áp Dụng Tự Động Hóa</h3>
-            <p style="color: #15803D; font-size: 0.95rem; margin-bottom: 1.25rem;">Hệ thống nhận biến động, gạch nợ và phản hồi khách tự động chỉ trong <strong>3 Giây</strong>.</p>
-            
-            <ul style="list-style: none; padding: 0; color: #14532D; font-size: 0.95rem; display: flex; flex-direction: column; gap: 0.75rem;">
-                <li style="display: flex; justify-content: space-between; border-bottom: 1px dashed #86EFAC; padding-bottom: 0.5rem;">
-                    <span>Khối lượng:</span>
-                    <strong>Không giới hạn (~0 đ)</strong>
-                </li>
-                <li style="display: flex; justify-content: space-between; border-bottom: 1px dashed #86EFAC; padding-bottom: 0.5rem;">
-                    <span>Chi phí nhân sự:</span>
-                    <strong>0 Giờ/tháng</strong>
-                </li>
-                <li style="display: flex; justify-content: space-between; border-bottom: 1px dashed #86EFAC; padding-bottom: 0.5rem;">
-                    <span>Rủi ro sai sót:</span>
-                    <strong>0%</strong> (Chính xác 100%)
-                </li>
-                <li style="display: flex; justify-content: space-between; padding-top: 0.25rem;">
-                    <span style="font-weight: 600;">Tiết kiệm dòng tiền:</span>
-                    <strong style="font-size: 1.15rem; color: #16A34A;">+75.000.000 đ/Năm</strong>
-                </li>
-            </ul>
+        <!-- Note banner (hidden by default) -->
+        <div class="note-banner hidden" id="note-banner">
+            <span class="icon">⚠️</span>
+            <div id="note-banner-text"></div>
         </div>
-    </div>
 
-    <!-- Section 3: Pricing Table -->
-    <h2 class="section-title" id="bao-gia">3. Chi Tiết Báo Giá Mảng Dịch Vụ</h2>
-    <p style="margin-bottom: 1.5rem; color: var(--text-sub);">
-        Để tối ưu ngân sách, Quý khách hàng có thể chọn thanh toán hàng tháng hoặc tối ưu đến 30% bằng cách thanh toán hàng năm.<br>
-        <span style="font-size: 0.9em; display: inline-block; margin-top: 0.5rem; background: var(--success-light); color: var(--success); padding: 0.25rem 0.75rem; border-radius: 9999px;">
-            🔗 Nguồn tham khảo: <a href="https://sepay.vn/bang-gia.html" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: 500;">Bảng giá SePay</a> | <a href="https://123host.vn/vps-n8n.html" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: 500;">Bảng giá VPS 123Host n8n</a>
-        </span>
-    </p>
-
-    <div class="pricing-section">
-        <h3 id="gia-1500" style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-main);">3.1. Quy mô 1.500 Giao dịch / Tháng</h3>
-        <div class="table-responsive">
-            <table>
-                <thead>
-                    <tr>
-                        <th width="28%">Hạng mục Dịch vụ</th>
-                        <th width="18%" style="background-color: var(--success-light); color: #065F46; border-top: 3px solid var(--success);">Ngân hàng Hợp tác<br><span style="font-size: 0.85rem; font-weight: 500; opacity: 0.8;">(Trả theo Tháng)</span></th>
-                        <th width="18%" style="background-color: var(--success-light); color: #065F46; border-top: 3px solid var(--success);">Ngân hàng Hợp tác<br><span style="font-size: 0.85rem; font-weight: 500; opacity: 0.8;">(Trả theo Năm)</span></th>
-                        <th width="18%" style="background-color: rgba(79, 70, 229, 0.1); color: #312E81; border-top: 3px solid var(--primary);">Tất cả Ngân hàng*<br><span style="font-size: 0.85rem; font-weight: 500; opacity: 0.8;">(Trả theo Tháng)</span></th>
-                        <th width="18%" style="background-color: rgba(79, 70, 229, 0.1); color: #312E81; border-top: 3px solid var(--primary);">Tất cả Ngân hàng*<br><span style="font-size: 0.85rem; font-weight: 500; opacity: 0.8;">(Trả theo Năm)</span></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="consulting-row">
-                        <td>
-                            <strong>Tư Vấn & Triển Khai</strong>
-                            <div style="font-size: 0.85em; margin-top: 4px;">Xây dựng luồng kỹ thuật n8n</div>
-                        </td>
-                        <td>5.900.000 đ<br><span class="tag">Trả 1 lần</span></td>
-                        <td>5.900.000 đ<br><span class="tag">Trả 1 lần</span></td>
-                        <td>5.900.000 đ<br><span class="tag">Trả 1 lần</span></td>
-                        <td>5.900.000 đ<br><span class="tag">Trả 1 lần</span></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <strong>VPS 123Host (n8n NVMe - P1)</strong>
-                        </td>
-                        <td>239.000 đ/tháng</td>
-                        <td>2.294.400 đ/năm<br><span class="tag success">Giảm 20%</span></td>
-                        <td>239.000 đ/tháng</td>
-                        <td>2.294.400 đ/năm<br><span class="tag success">Giảm 20%</span></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <strong>SePay API</strong>
-                        </td>
-                        <td>
-                            850.000 đ/tháng<br>
-                            <span class="tag primary">Gói Growth</span>
-                        </td>
-                        <td>
-                            7.140.000 đ/năm<br>
-                            <span class="tag primary">Gói Growth</span>
-                        </td>
-                        <td>
-                            1.430.000 đ/tháng<br>
-                            <span class="tag primary">Gói Pinnacle (2.3k gd)*</span>
-                        </td>
-                        <td>
-                            12.012.000 đ/năm<br>
-                            <span class="tag primary">Gói Pinnacle (2.3k gd)*</span>
-                        </td>
-                    </tr>
-                    <tr class="highlight-row">
-                        <td><strong>Tổng duy trì hệ thống</strong></td>
-                        <td>1.089.000 đ /Tháng</td>
-                        <td>9.434.400 đ /Năm</td>
-                        <td>1.669.000 đ /Tháng</td>
-                        <td>14.306.400 đ /Năm</td>
-                    </tr>
-                    <tr style="background-color: #FEF3C7; border: 2px solid #F59E0B;">
-                        <td style="border-left: 4px solid #D97706;">
-                            <strong style="color: #92400E; font-size: 1.05rem;">💰 TỔNG THANH TOÁN NĂM 1</strong><br>
-                            <span style="font-size: 0.85em; color: #B45309;">(Bao gồm cả Phí Tư vấn & Triển Khai)</span>
-                        </td>
-                        <td><span style="color: #92400E; opacity: 0.8;">18.968.000 đ</span><br><span style="font-size: 0.85rem; color: #B45309;">(Trả từng tháng)</span></td>
-                        <td><strong style="color: #D97706; font-size: 1.25rem;">15.334.400 đ</strong><br><span style="font-size: 0.85rem; color: #92400E; font-weight: 600;">(Trả theo năm)</span></td>
-                        <td><span style="color: #92400E; opacity: 0.8;">25.928.000 đ</span><br><span style="font-size: 0.85rem; color: #B45309;">(Trả từng tháng)</span></td>
-                        <td><strong style="color: #D97706; font-size: 1.25rem;">20.206.400 đ</strong><br><span style="font-size: 0.85rem; color: #92400E; font-weight: 600;">(Trả theo năm)</span></td>
-                    </tr>
-                    <tr style="background-color: #E0E7FF; border: 2px solid #6366F1;">
-                        <td style="border-left: 4px solid #4338CA;">
-                            <strong style="color: #3730A3; font-size: 1.05rem;">🔄 TỔNG THANH TOÁN TỪ NĂM 2</strong><br>
-                            <span style="font-size: 0.85em; color: #4F46E5;">(Chỉ gồm gói gia hạn hệ thống SePay + VPS 123Host)</span>
-                        </td>
-                        <td><span style="color: #3730A3; opacity: 0.8;">13.068.000 đ</span><br><span style="font-size: 0.85rem; color: #4F46E5;">(Trả từng tháng)</span></td>
-                        <td><strong style="color: #4338CA; font-size: 1.15rem;">9.434.400 đ</strong><br><span style="font-size: 0.85rem; color: #3730A3; font-weight: 600;">(Trả theo năm)</span></td>
-                        <td><span style="color: #3730A3; opacity: 0.8;">20.028.000 đ</span><br><span style="font-size: 0.85rem; color: #4F46E5;">(Trả từng tháng)</span></td>
-                        <td><strong style="color: #4338CA; font-size: 1.15rem;">14.306.400 đ</strong><br><span style="font-size: 0.85rem; color: #3730A3; font-weight: 600;">(Trả theo năm)</span></td>
-                    </tr>
-                    <tr style="background-color: var(--success-light); font-weight: 600;">
-                        <td style="color: #065F46;">💰 Ưu đãi dòng tiền</td>
-                        <td></td>
-                        <td style="color: #065F46;">Tiết kiệm 3.633.600 đ</td>
-                        <td></td>
-                        <td style="color: #065F46;">Tiết kiệm 5.721.600 đ</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div style="background-color: #FFFBEB; border-left: 4px solid #F59E0B; padding: 1rem; border-radius: 0 0.5rem 0.5rem 0; margin-top: 1rem; color: #92400E; font-size: 0.95rem; font-weight: 500; display: flex; gap: 0.5rem; align-items: flex-start;">
-            <span style="font-size: 1.1rem;">⚠️</span>
-            <div><strong>Lưu ý quan trọng:</strong> Đối với tùy chọn "Tất cả ngân hàng", SePay áp dụng mức tối thiểu từ <strong style="color: #B45309;">Gói Pinnacle (2.300 gd/tháng)</strong>. <br>Do đó đây sẽ là lựa chọn thay thế cho bảng giá 1.500 giao dịch của bạn đối với mọi ngân hàng.</div>
-        </div>
-    </div>
-
-    <div class="pricing-section">
-        <h3 id="gia-2300" style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-main);">3.2. Quy mô 2.300 Giao dịch / Tháng</h3>
-        <div class="table-responsive">
-            <table>
-                <thead>
-                    <tr>
-                        <th width="28%">Hạng mục Dịch vụ</th>
-                        <th width="18%" style="background-color: var(--success-light); color: #065F46; border-top: 3px solid var(--success);">Ngân hàng Hợp tác<br><span style="font-size: 0.85rem; font-weight: 500; opacity: 0.8;">(Trả theo Tháng)</span></th>
-                        <th width="18%" style="background-color: var(--success-light); color: #065F46; border-top: 3px solid var(--success);">Ngân hàng Hợp tác<br><span style="font-size: 0.85rem; font-weight: 500; opacity: 0.8;">(Trả theo Năm)</span></th>
-                        <th width="18%" style="background-color: rgba(79, 70, 229, 0.1); color: #312E81; border-top: 3px solid var(--primary);">Tất cả Ngân hàng<br><span style="font-size: 0.85rem; font-weight: 500; opacity: 0.8;">(Trả theo Tháng)</span></th>
-                        <th width="18%" style="background-color: rgba(79, 70, 229, 0.1); color: #312E81; border-top: 3px solid var(--primary);">Tất cả Ngân hàng<br><span style="font-size: 0.85rem; font-weight: 500; opacity: 0.8;">(Trả theo Năm)</span></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="consulting-row">
-                        <td>
-                            <strong>Tư Vấn & Triển Khai</strong>
-                            <div style="font-size: 0.85em; margin-top: 4px;">Xây dựng luồng kỹ thuật n8n</div>
-                        </td>
-                        <td>5.900.000 đ<br><span class="tag">Trả 1 lần</span></td>
-                        <td>5.900.000 đ<br><span class="tag">Trả 1 lần</span></td>
-                        <td>5.900.000 đ<br><span class="tag">Trả 1 lần</span></td>
-                        <td>5.900.000 đ<br><span class="tag">Trả 1 lần</span></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <strong>VPS 123Host (n8n NVMe - P1)</strong>
-                        </td>
-                        <td>239.000 đ/tháng</td>
-                        <td>2.294.400 đ/năm<br><span class="tag success">Giảm 20%</span></td>
-                        <td>239.000 đ/tháng</td>
-                        <td>2.294.400 đ/năm<br><span class="tag success">Giảm 20%</span></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <strong>SePay API</strong>
-                        </td>
-                        <td>
-                            1.190.000 đ/tháng<br>
-                            <span class="tag primary">Gói Stellar</span>
-                        </td>
-                        <td>
-                            9.996.000 đ/năm<br>
-                            <span class="tag primary">Gói Stellar</span>
-                        </td>
-                        <td>
-                            1.430.000 đ/tháng<br>
-                            <span class="tag primary">Gói Pinnacle</span>
-                        </td>
-                        <td>
-                            12.012.000 đ/năm<br>
-                            <span class="tag primary">Gói Pinnacle</span>
-                        </td>
-                    </tr>
-                    <tr class="highlight-row">
-                        <td><strong>Tổng duy trì hệ thống</strong></td>
-                        <td>1.429.000 đ /Tháng</td>
-                        <td>12.290.400 đ /Năm</td>
-                        <td>1.669.000 đ /Tháng</td>
-                        <td>14.306.400 đ /Năm</td>
-                    </tr>
-                    <tr style="background-color: #FEF3C7; border: 2px solid #F59E0B;">
-                        <td style="border-left: 4px solid #D97706;">
-                            <strong style="color: #92400E; font-size: 1.05rem;">💰 TỔNG THANH TOÁN NĂM 1</strong><br>
-                            <span style="font-size: 0.85em; color: #B45309;">(Bao gồm cả Phí Tư vấn & Triển Khai)</span>
-                        </td>
-                        <td><span style="color: #92400E; opacity: 0.8;">23.048.000 đ</span><br><span style="font-size: 0.85rem; color: #B45309;">(Trả từng tháng)</span></td>
-                        <td><strong style="color: #D97706; font-size: 1.25rem;">18.190.400 đ</strong><br><span style="font-size: 0.85rem; color: #92400E; font-weight: 600;">(Trả theo năm)</span></td>
-                        <td><span style="color: #92400E; opacity: 0.8;">25.928.000 đ</span><br><span style="font-size: 0.85rem; color: #B45309;">(Trả từng tháng)</span></td>
-                        <td><strong style="color: #D97706; font-size: 1.25rem;">20.206.400 đ</strong><br><span style="font-size: 0.85rem; color: #92400E; font-weight: 600;">(Trả theo năm)</span></td>
-                    </tr>
-                    <tr style="background-color: #E0E7FF; border: 2px solid #6366F1;">
-                        <td style="border-left: 4px solid #4338CA;">
-                            <strong style="color: #3730A3; font-size: 1.05rem;">🔄 TỔNG THANH TOÁN TỪ NĂM 2</strong><br>
-                            <span style="font-size: 0.85em; color: #4F46E5;">(Chỉ gồm gói gia hạn hệ thống SePay + VPS 123Host)</span>
-                        </td>
-                        <td><span style="color: #3730A3; opacity: 0.8;">17.148.000 đ</span><br><span style="font-size: 0.85rem; color: #4F46E5;">(Trả từng tháng)</span></td>
-                        <td><strong style="color: #4338CA; font-size: 1.15rem;">12.290.400 đ</strong><br><span style="font-size: 0.85rem; color: #3730A3; font-weight: 600;">(Trả theo năm)</span></td>
-                        <td><span style="color: #3730A3; opacity: 0.8;">20.028.000 đ</span><br><span style="font-size: 0.85rem; color: #4F46E5;">(Trả từng tháng)</span></td>
-                        <td><strong style="color: #4338CA; font-size: 1.15rem;">14.306.400 đ</strong><br><span style="font-size: 0.85rem; color: #3730A3; font-weight: 600;">(Trả theo năm)</span></td>
-                    </tr>
-                    <tr style="background-color: var(--success-light); font-weight: 600;">
-                        <td style="color: #065F46;">💰 Ưu đãi dòng tiền</td>
-                        <td></td>
-                        <td style="color: #065F46;">Tiết kiệm 4.857.600 đ</td>
-                        <td></td>
-                        <td style="color: #065F46;">Tiết kiệm 5.721.600 đ</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    
-    <!-- Section 4: Details -->
-    <div class="note-card" style="margin-bottom: 2rem;">
-        <strong>Lưu ý đặc biệt về Phí Tư Vấn:</strong> 
-        <p>Phí <strong>Tư vấn và Triển khai</strong> là khoản phí thanh toán <strong>1 lần duy nhất cho mỗi dự án</strong>. Từ năm thứ 2 trở đi, hoàn toàn <strong>KHÔNG</strong> thu thêm phí này, doanh nghiệp chỉ cần chi trả phí gia hạn để duy trì máy chủ cài đặt và API.</p>
-        <p style="margin-top: 1rem; font-weight: 600;">Gói Tư vấn & Triển khai ĐÃ BAO GỒM toàn bộ hạng mục:</p>
-        <ul style="list-style: disc; padding-left: 1.5rem; color: var(--text-sub); margin-top: 0.5rem;">
-            <li>Tư vấn quy trình và xây dựng luồng xử lý nghiệp vụ tự động hóa chuẩn xác nhất.</li>
-            <li>Đấu nối, thiết lập kết nối API trung gian giữa SePay, 123Host và nền tảng của Doanh nghiệp (CRM, Website, Sheets...).</li>
-            <li>Xây dựng hệ thống báo cáo, đối soát tập trung chuyên nghiệp, cảnh báo Bot nhắc nợ.</li>
-            <li>Hỗ trợ kỹ thuật, xử lý sự cố và tối ưu hóa quy trình trong suốt thời gian kích hoạt hệ thống.</li>
-            <li>Đào tạo, hướng dẫn sử dụng và bàn giao 100% công nghệ để doanh nghiệp chủ động vận hành sau này.</li>
-            <li>Bảo trì và nâng cấp hệ thống <em>(Lưu ý: Tùy theo tính năng bảo trì và nâng cấp mà có thể phát sinh thêm chi phí)</em>.</li>
-        </ul>
-    </div>
-
-    <h2 class="section-title" id="ngan-hang">4. Danh Sách Ngân Hàng Hỗ Trợ</h2>
-    <div style="display: grid; grid-template-columns: 1fr; gap: 2rem; margin-bottom: 4rem;">
-        <div style="background: white; border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.5rem; border-top: 4px solid var(--success);">
-            <h3 style="color: var(--success); font-size: 1.125rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;"><span>🟢</span> Nhóm Ngân Hàng Hợp Tác (10 Ngân hàng)</h3>
-            <p style="font-size: 0.95rem; color: var(--text-sub); margin-bottom: 1.5rem;">Được áp dụng bảng giá rẻ hơn 35% trên dịch vụ SePay. Hãy đảm bảo tài khoản nhận tiền thuộc danh sách sau:</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
-                <span style="display: inline-block; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-weight: 500; font-size: 0.9rem;">MB Bank</span>
-                <span style="display: inline-block; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-weight: 500; font-size: 0.9rem;">ACB</span>
-                <span style="display: inline-block; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-weight: 500; font-size: 0.9rem;">VPBank</span>
-                <span style="display: inline-block; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-weight: 500; font-size: 0.9rem;">Sacombank</span>
-                <span style="display: inline-block; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-weight: 500; font-size: 0.9rem;">VietinBank</span>
-                <span style="display: inline-block; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-weight: 500; font-size: 0.9rem;">BIDV</span>
-                <span style="display: inline-block; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-weight: 500; font-size: 0.9rem;">MSB</span>
-                <span style="display: inline-block; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-weight: 500; font-size: 0.9rem;">TPBank</span>
-                <span style="display: inline-block; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-weight: 500; font-size: 0.9rem;">Kienlongbank</span>
-                <span style="display: inline-block; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-weight: 500; font-size: 0.9rem;">OCB</span>
+        <!-- Metrics -->
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="mc-label">Chi Phí Duy Trì Hằng Tháng</div>
+                <div class="mc-value" id="mc-monthly">—</div>
+                <div class="mc-sub" id="mc-monthly-sub">VPS + SePay API</div>
+            </div>
+            <div class="metric-card highlight">
+                <div class="mc-label">Tổng Thanh Toán Năm 1</div>
+                <div class="mc-value" id="mc-year1">—</div>
+                <div class="mc-sub">Bao gồm phí tư vấn & triển khai</div>
+            </div>
+            <div class="metric-card" id="mc-savings-card">
+                <div class="mc-label" id="mc-savings-label">Tổng Từ Năm 2 Trở Đi</div>
+                <div class="mc-value" id="mc-savings-value">—</div>
+                <div class="mc-sub" id="mc-savings-sub">Chỉ VPS + SePay (không tư vấn)</div>
             </div>
         </div>
 
-        <div style="background: white; border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.5rem; border-top: 4px solid var(--primary);">
-            <h3 style="color: var(--primary); font-size: 1.125rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;"><span>🔵</span> Nhóm Tất Cả Ngân Hàng (30+ Ngân hàng)</h3>
-            <p style="font-size: 0.95rem; color: var(--text-sub); margin-bottom: 1.5rem;">Hỗ trợ 100% các ngân hàng phổ biến thuộc hệ thống Napas, bao gồm 10 ngân hàng trên và nổi bật như:</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
-                <span style="display: inline-block; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-weight: 500; font-size: 0.9rem;">Vietcombank</span>
-                <span style="display: inline-block; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-weight: 500; font-size: 0.9rem;">Techcombank</span>
-                <span style="display: inline-block; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-weight: 500; font-size: 0.9rem;">Agribank</span>
-                <span style="display: inline-block; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-weight: 500; font-size: 0.9rem;">VIB</span>
-                <span style="display: inline-block; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-weight: 500; font-size: 0.9rem;">SHB</span>
-                <span style="display: inline-block; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-weight: 500; font-size: 0.9rem;">HDBank</span>
-                <span style="display: inline-block; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-weight: 500; font-size: 0.9rem;">Shinhanbank</span>
-                <span style="display: inline-block; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-weight: 500; font-size: 0.9rem;">Eximbank</span>
-                <span style="display: inline-block; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-weight: 500; font-size: 0.9rem;">PublicBank VN</span>
-                <span style="display: inline-block; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-weight: 500; font-size: 0.9rem;">ABBank</span>
-                <span style="display: inline-block; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-weight: 500; font-size: 0.9rem;">LPBank</span>
-                <span style="display: inline-block; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-weight: 500; font-size: 0.9rem;">Bac A Bank</span>
-                <span style="display: inline-block; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-weight: 500; font-size: 0.9rem;">SeA Bank</span>
-                <span style="display: inline-block; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-weight: 500; font-size: 0.9rem;">BVBank</span>
-                <span style="display: inline-block; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-weight: 500; font-size: 0.9rem;">NCB</span>
-                <span style="display: inline-block; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-weight: 500; font-size: 0.9rem;">Woori VN</span>
-                <span style="display: inline-block; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-weight: 500; font-size: 0.9rem;">Viet A Bank</span>
-                <span style="display: inline-block; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-weight: 500; font-size: 0.9rem;">VietBank</span>
-                <span style="display: inline-block; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-weight: 500; font-size: 0.9rem;">Nam A Bank</span>
-                <span style="display: inline-block; background: #F8FAFC; border: 1px solid #E2E8F0; padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-weight: 500; font-size: 0.9rem;">PG Bank</span>
+        <!-- Breakdown Table -->
+        <div class="table-card">
+            <div class="table-card-title">📋 Chi Tiết Chi Phí</div>
+            <div style="overflow-x:auto">
+                <table class="breakdown-table">
+                    <thead>
+                        <tr>
+                            <th style="width:55%">Hạng Mục Dịch Vụ</th>
+                            <th>Gói / Ghi Chú</th>
+                            <th>Đơn Giá</th>
+                        </tr>
+                    </thead>
+                    <tbody id="breakdown-tbody">
+                        <!-- filled by JS -->
+                    </tbody>
+                </table>
             </div>
         </div>
-    </div>
 
-    <h2 class="section-title" id="tai-sao">5. Tại Sao Chọn SePay & Máy Chủ 123Host?</h2>
-    <div class="strategy-grid" style="margin-bottom: 4rem;">
-        <div class="strategy-item" style="align-items: flex-start;">
-            <span class="strategy-icon" style="margin-top: 0.25rem;">⚡</span>
-            <div>
-                <strong style="font-size: 1.05rem;">Cổng Thanh Toán SePay</strong>
-                <ul style="list-style: disc; padding-left: 1.25rem; margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.95rem; color: var(--text-sub);">
-                    <li><strong>Tốc độ Real-time:</strong> Thông báo giao dịch cực nhanh chỉ từ 2-3 giây.</li>
-                    <li><strong>Chịu tải cao:</strong> Xử lý mượt mà hàng nghìn đơn/ngày không gián đoạn.</li>
-                    <li><strong>Hỗ trợ thần tốc:</strong> Đội ngũ kỹ thuật túc trực, phản hồi và giúp đỡ xử lý lỗi giao dịch 24/7 cực kỳ sát sao.</li>
-                </ul>
-            </div>
+        <!-- Consulting details box -->
+        <div class="consulting-box">
+            <h4>💼 Phí Tư Vấn & Triển Khai — Thanh Toán 1 Lần Duy Nhất</h4>
+            <ul>
+                <li>Tư vấn quy trình & xây dựng luồng xử lý nghiệp vụ tự động hóa chuẩn xác.</li>
+                <li>Đấu nối, thiết lập kết nối API giữa SePay, 123Host và nền tảng của doanh nghiệp (CRM, Website, Sheets...).</li>
+                <li>Xây dựng hệ thống báo cáo, đối soát tập trung, cảnh báo Bot nhắc nợ.</li>
+                <li>Hỗ trợ kỹ thuật & xử lý sự cố trong suốt thời gian kích hoạt hệ thống.</li>
+                <li>Đào tạo, hướng dẫn sử dụng & bàn giao 100% công nghệ để chủ động vận hành.</li>
+                <li>Bảo trì & nâng cấp hệ thống <em>(có thể phát sinh thêm chi phí tùy tính năng)</em>.</li>
+            </ul>
         </div>
-        <div class="strategy-item" style="align-items: flex-start;">
-            <span class="strategy-icon" style="margin-top: 0.25rem;">🚀</span>
-            <div>
-                <strong style="font-size: 1.05rem;">Máy Chủ VPS 123Host (Tối ưu n8n)</strong>
-                <ul style="list-style: disc; padding-left: 1.25rem; margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.95rem; color: var(--text-sub);">
-                    <li><strong>Tốc độ nguyên bản:</strong> Data Center tại VN + Ổ cứng NVMe Enterprise giúp hệ thống n8n chạy với hiệu năng tối đa.</li>
-                    <li><strong>Bảo mật & Tự động Backup:</strong> Tính năng Tường lửa chống DDoS và cơ chế <strong>tự động sao lưu dữ liệu (Auto-backup)</strong> theo ngày, bảo vệ luồng thiết lập cấu hình của bạn an toàn 100%.</li>
-                    <li><strong>Hỗ trợ kỹ thuật 24/7:</strong> Đội ngũ support server riêng biệt, tư vấn và xử lý mọi sự cố máy chủ nhanh chóng bất kể ngày đêm.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
 
-    <h2 class="section-title" id="chien-luoc">6. Chiến Lược Lựa Chọn & Tối Ưu Chi Phí</h2>
-    <div class="strategy-grid">
-        <div class="strategy-item">
-            <span class="strategy-icon">🏦</span>
-            <h3>Chiến lược Ngân hàng</h3>
-            <p>Để tận dụng tối đa lợi ích dòng tiền, hãy sử dụng 1 trong 10 <strong>Ngân hàng hợp tác</strong> (MBBank, ACB, VPBank...). Việc này sẽ giúp Doanh nghiệp tiết kiệm lên đến 40% chi phí API mỗi tháng nhờ được trợ giá từ SePay.</p>
-        </div>
-        <div class="strategy-item">
-            <span class="strategy-icon">📅</span>
-            <h3>Chiến lược Thanh toán</h3>
-            <p>Khuyến nghị nên chọn <strong>Trả trước 1 năm</strong> thay vì trả từng tháng. Doanh nghiệp sẽ tiết kiệm được 20% - 30% chi phí cố định cho VPS thay vì phải nộp tiền từng đợt lẻ tẻ.</p>
-        </div>
-        <div class="strategy-item">
-            <span class="strategy-icon">🚀</span>
-            <h3>Cam kết của Kiệt</h3>
-            <p>Chuyển giao toàn bộ quyền vận hành. Sau khi Setup xong, hệ thống là của Bạn! Hệ thống lưu trữ tại máy chủ ảo độc lập VPS do chính bạn sở hữu.</p>
+    </div><!-- /result-section -->
+
+    <!-- Bank List -->
+    <div class="bank-section">
+        <button class="bank-toggle-btn" id="bank-toggle-btn" onclick="toggleBankList()">
+            <span>🏦 Danh Sách Ngân Hàng Được Hỗ Trợ</span>
+            <span class="bank-toggle-icon">▼</span>
+        </button>
+        <div class="bank-list-panel" id="bank-list-panel">
+            <div class="bank-group">
+                <div class="bank-group-title green">🟢 Ngân Hàng Hợp Tác — 10 Ngân Hàng (Giá rẻ hơn 35%)</div>
+                <p style="font-size:0.8rem;color:var(--text-sub);margin-bottom:0.75rem;">Đảm bảo tài khoản nhận tiền thuộc danh sách dưới đây để được hưởng mức giá ưu đãi:</p>
+                <div class="bank-chips">
+                    <span class="bank-chip highlight-bank">MB Bank</span>
+                    <span class="bank-chip highlight-bank">ACB</span>
+                    <span class="bank-chip highlight-bank">VPBank</span>
+                    <span class="bank-chip highlight-bank">Sacombank</span>
+                    <span class="bank-chip highlight-bank">VietinBank</span>
+                    <span class="bank-chip highlight-bank">BIDV</span>
+                    <span class="bank-chip highlight-bank">MSB</span>
+                    <span class="bank-chip highlight-bank">TPBank</span>
+                    <span class="bank-chip highlight-bank">Kienlongbank</span>
+                    <span class="bank-chip highlight-bank">OCB</span>
+                </div>
+            </div>
+            <div class="bank-group">
+                <div class="bank-group-title blue">🔵 Tất Cả Ngân Hàng — 30+ Ngân Hàng (Hỗ trợ toàn bộ Napas)</div>
+                <p style="font-size:0.8rem;color:var(--text-sub);margin-bottom:0.75rem;">Bao gồm 10 ngân hàng trên và thêm các ngân hàng phổ biến như:</p>
+                <div class="bank-chips">
+                    <span class="bank-chip">Vietcombank</span>
+                    <span class="bank-chip">Techcombank</span>
+                    <span class="bank-chip">Agribank</span>
+                    <span class="bank-chip">VIB</span>
+                    <span class="bank-chip">SHB</span>
+                    <span class="bank-chip">HDBank</span>
+                    <span class="bank-chip">Shinhanbank</span>
+                    <span class="bank-chip">Eximbank</span>
+                    <span class="bank-chip">PublicBank VN</span>
+                    <span class="bank-chip">ABBank</span>
+                    <span class="bank-chip">LPBank</span>
+                    <span class="bank-chip">Bac A Bank</span>
+                    <span class="bank-chip">SeA Bank</span>
+                    <span class="bank-chip">BVBank</span>
+                    <span class="bank-chip">NCB</span>
+                    <span class="bank-chip">Woori VN</span>
+                    <span class="bank-chip">Viet A Bank</span>
+                    <span class="bank-chip">VietBank</span>
+                    <span class="bank-chip">Nam A Bank</span>
+                    <span class="bank-chip">PG Bank</span>
+                    <span class="bank-chip" style="background:#F1F5F9;color:var(--text-sub);font-style:italic;">& nhiều ngân hàng khác...</span>
+                </div>
+            </div>
         </div>
     </div>
 
     <footer>
-        <p>© 2026 Bảng Báo Giá Tư Vấn Tự Động Hóa. Tài liệu được thiết kế riêng cho Quý Đối tác.</p>
+        <p>Báo giá có hiệu lực từ Q2/2025. Giá có thể thay đổi theo chính sách của từng nhà cung cấp.</p>
+        <div class="footer-sources">
+            <a href="https://sepay.vn/bang-gia.html" target="_blank">📌 Bảng giá SePay</a>
+            <a href="https://123host.vn/vps-n8n.html" target="_blank">📌 Bảng giá VPS 123Host</a>
+        </div>
     </footer>
-</div>
+
+</div><!-- /page-wrap -->
 
 <script>
-    // ===== Reading Progress Bar =====
-    const progressBar = document.getElementById('readingProgress');
-    window.addEventListener('scroll', () => {
-        const scrollTop = window.scrollY;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-        progressBar.style.width = pct + '%';
-    });
-
-    // ===== Scroll Spy (IntersectionObserver) =====
-    const sections = ['hieu-qua', 'hoan-von', 'bao-gia', 'ngan-hang', 'tai-sao', 'chien-luoc'];
-    const navItems = document.querySelectorAll('.float-nav-item');
-
-    const setActive = (id) => {
-        navItems.forEach(item => {
-            item.classList.toggle('active', item.dataset.section === id);
-        });
+    // ─── DATA ──────────────────────────────────────────────────────────────────
+    const PRICING = {
+        hoptac_1500_thang: {
+            sepayPkg: 'Gói Growth',
+            sepayMonthly: 850000,
+            vpsMonthly: 239000,
+            vpsNote: null,
+            consulting: 5900000,
+            maintenanceMonthly: 1089000,
+            year1: 18968000,
+            year2Annual: 13068000,
+            savings: null,
+            pinnacleNote: false,
+        },
+        hoptac_1500_nam: {
+            sepayPkg: 'Gói Growth',
+            sepayAnnual: 7140000,
+            vpsAnnual: 2294400,
+            vpsNote: 'Giảm 20% khi trả năm',
+            consulting: 5900000,
+            maintenanceAnnual: 9434400,
+            year1: 15334400,
+            year2Annual: 9434400,
+            savings: 3633600,
+            pinnacleNote: false,
+        },
+        hoptac_2300_thang: {
+            sepayPkg: 'Gói Stellar',
+            sepayMonthly: 1190000,
+            vpsMonthly: 239000,
+            vpsNote: null,
+            consulting: 5900000,
+            maintenanceMonthly: 1429000,
+            year1: 23048000,
+            year2Annual: 17148000,
+            savings: null,
+            pinnacleNote: false,
+        },
+        hoptac_2300_nam: {
+            sepayPkg: 'Gói Stellar',
+            sepayAnnual: 9996000,
+            vpsAnnual: 2294400,
+            vpsNote: 'Giảm 20% khi trả năm',
+            consulting: 5900000,
+            maintenanceAnnual: 12290400,
+            year1: 18190400,
+            year2Annual: 12290400,
+            savings: 4857600,
+            pinnacleNote: false,
+        },
+        tatca_1500_thang: {
+            sepayPkg: 'Gói Pinnacle (tối thiểu)',
+            sepayMonthly: 1430000,
+            vpsMonthly: 239000,
+            vpsNote: null,
+            consulting: 5900000,
+            maintenanceMonthly: 1669000,
+            year1: 25928000,
+            year2Annual: 20028000,
+            savings: null,
+            pinnacleNote: true,
+        },
+        tatca_1500_nam: {
+            sepayPkg: 'Gói Pinnacle (tối thiểu)',
+            sepayAnnual: 12012000,
+            vpsAnnual: 2294400,
+            vpsNote: 'Giảm 20% khi trả năm',
+            consulting: 5900000,
+            maintenanceAnnual: 14306400,
+            year1: 20206400,
+            year2Annual: 14306400,
+            savings: 5721600,
+            pinnacleNote: true,
+        },
+        tatca_2300_thang: {
+            sepayPkg: 'Gói Pinnacle',
+            sepayMonthly: 1430000,
+            vpsMonthly: 239000,
+            vpsNote: null,
+            consulting: 5900000,
+            maintenanceMonthly: 1669000,
+            year1: 25928000,
+            year2Annual: 20028000,
+            savings: null,
+            pinnacleNote: false,
+        },
+        tatca_2300_nam: {
+            sepayPkg: 'Gói Pinnacle',
+            sepayAnnual: 12012000,
+            vpsAnnual: 2294400,
+            vpsNote: 'Giảm 20% khi trả năm',
+            consulting: 5900000,
+            maintenanceAnnual: 14306400,
+            year1: 20206400,
+            year2Annual: 14306400,
+            savings: 5721600,
+            pinnacleNote: false,
+        },
     };
 
-    const observerOptions = { rootMargin: '-20% 0px -60% 0px', threshold: 0 };
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                setActive(entry.target.id);
-            }
+    // ─── STATE ─────────────────────────────────────────────────────────────────
+    let state = { bank: 'hoptac', volume: '1500', payment: 'thang' };
+
+    // ─── FORMAT ────────────────────────────────────────────────────────────────
+    function fmt(n) {
+        return n.toLocaleString('vi-VN') + ' đ';
+    }
+
+    // ─── RENDER ────────────────────────────────────────────────────────────────
+    function render() {
+        const section = document.getElementById('result-section');
+        section.classList.add('updating');
+        setTimeout(() => {
+            _doRender();
+            section.classList.remove('updating');
+        }, 120);
+    }
+
+    function _doRender() {
+        const key = `${state.bank}_${state.volume}_${state.payment}`;
+        const d = PRICING[key];
+        const isAnnual = state.payment === 'nam';
+        const bankLabel = state.bank === 'hoptac' ? 'Ngân Hàng Hợp Tác' : 'Tất Cả Ngân Hàng';
+        const volLabel = state.volume === '1500' ? '1.500 GD/tháng' : '2.300 GD/tháng';
+        const payLabel = isAnnual ? 'Trả theo Năm' : 'Trả theo Tháng';
+
+        // Summary chips
+        document.getElementById('sum-bank').textContent = bankLabel;
+        document.getElementById('sum-volume').textContent = volLabel;
+        document.getElementById('sum-payment').textContent = payLabel;
+
+        const sumBank = document.getElementById('sum-bank');
+        sumBank.className = 'summary-chip' + (state.bank === 'hoptac' ? ' green' : '');
+
+        const sumPayment = document.getElementById('sum-payment');
+        sumPayment.className = 'summary-chip' + (isAnnual ? ' green' : '');
+
+        // Note banner
+        const noteBanner = document.getElementById('note-banner');
+        const noteBannerText = document.getElementById('note-banner-text');
+        if (d.pinnacleNote) {
+            noteBannerText.innerHTML = '<strong>Lưu ý về gói SePay:</strong> Đối với tùy chọn <strong>Tất cả Ngân Hàng</strong>, SePay áp dụng mức tối thiểu <strong>Gói Pinnacle (2.300 GD/tháng)</strong>. Vì vậy dù bạn chọn quy mô 1.500 GD, chi phí SePay vẫn tính theo Gói Pinnacle — giá hiển thị dưới đây đã phản ánh điều này.';
+            noteBanner.classList.remove('hidden');
+        } else {
+            noteBanner.classList.add('hidden');
+        }
+
+        // Metric cards
+        if (isAnnual) {
+            document.getElementById('mc-monthly').textContent = fmt(d.maintenanceAnnual);
+            document.getElementById('mc-monthly-sub').textContent = 'VPS + SePay API / năm';
+        } else {
+            document.getElementById('mc-monthly').textContent = fmt(d.maintenanceMonthly);
+            document.getElementById('mc-monthly-sub').textContent = 'VPS + SePay API / tháng';
+        }
+        document.getElementById('mc-year1').textContent = fmt(d.year1);
+
+        if (d.savings) {
+            document.getElementById('mc-savings-label').textContent = 'Tiết Kiệm Khi Trả Năm';
+            document.getElementById('mc-savings-value').textContent = fmt(d.savings);
+            document.getElementById('mc-savings-sub').textContent = 'So với trả từng tháng (từ năm 2)';
+            document.getElementById('mc-savings-card').className = 'metric-card green-card';
+        } else {
+            document.getElementById('mc-savings-label').textContent = 'Tổng Từ Năm 2 Trở Đi';
+            document.getElementById('mc-savings-value').textContent = fmt(d.year2Annual);
+            document.getElementById('mc-savings-sub').textContent = 'Chi phí duy trì hằng năm (không tư vấn)';
+            document.getElementById('mc-savings-card').className = 'metric-card';
+        }
+
+        // Breakdown table
+        const tbody = document.getElementById('breakdown-tbody');
+        let rows = '';
+
+        // Row 1: Consulting
+        rows += `
+        <tr style="background:#FFFBEB">
+            <td>
+                <div class="row-name">Tư Vấn & Triển Khai <span class="tag tag-warning">Trả 1 lần</span></div>
+                <div class="row-sub">Xây dựng luồng kỹ thuật n8n, đấu nối API, bàn giao & đào tạo</div>
+            </td>
+            <td><span style="font-size:0.8rem;color:#B45309;font-weight:500;">Phí một lần duy nhất</span></td>
+            <td style="color:#D97706 !important">${fmt(d.consulting)}</td>
+        </tr>`;
+
+        // Row 2: VPS
+        if (isAnnual) {
+            rows += `
+            <tr>
+                <td>
+                    <div class="row-name">VPS 123Host (n8n NVMe - P1)</div>
+                    <div class="row-sub">Máy chủ cài đặt & vận hành hệ thống n8n</div>
+                </td>
+                <td><span class="tag tag-success">Trả trước 1 năm</span>${d.vpsNote ? `<span class="tag tag-success" style="margin-left:0.3rem">Giảm 20%</span>` : ''}</td>
+                <td>${fmt(d.vpsAnnual)}<br><span style="font-size:0.75rem;color:var(--text-sub);font-weight:400;">/năm</span></td>
+            </tr>`;
+        } else {
+            rows += `
+            <tr>
+                <td>
+                    <div class="row-name">VPS 123Host (n8n NVMe - P1)</div>
+                    <div class="row-sub">Máy chủ cài đặt & vận hành hệ thống n8n</div>
+                </td>
+                <td><span class="tag tag-gray">Thanh toán hằng tháng</span></td>
+                <td>${fmt(d.vpsMonthly)}<br><span style="font-size:0.75rem;color:var(--text-sub);font-weight:400;">/tháng</span></td>
+            </tr>`;
+        }
+
+        // Row 3: SePay
+        if (isAnnual) {
+            rows += `
+            <tr>
+                <td>
+                    <div class="row-name">SePay API <span class="tag tag-primary">${d.sepayPkg}</span></div>
+                    <div class="row-sub">Cổng nhận biến động số dư ngân hàng real-time</div>
+                </td>
+                <td><span class="tag tag-success">Trả trước 1 năm</span></td>
+                <td>${fmt(d.sepayAnnual)}<br><span style="font-size:0.75rem;color:var(--text-sub);font-weight:400;">/năm</span></td>
+            </tr>`;
+        } else {
+            rows += `
+            <tr>
+                <td>
+                    <div class="row-name">SePay API <span class="tag tag-primary">${d.sepayPkg}</span></div>
+                    <div class="row-sub">Cổng nhận biến động số dư ngân hàng real-time</div>
+                </td>
+                <td><span class="tag tag-gray">Thanh toán hằng tháng</span></td>
+                <td>${fmt(d.sepayMonthly)}<br><span style="font-size:0.75rem;color:var(--text-sub);font-weight:400;">/tháng</span></td>
+            </tr>`;
+        }
+
+        // Subtotal row
+        if (isAnnual) {
+            rows += `
+            <tr class="subtotal-row">
+                <td colspan="2"><strong>Tổng Chi Phí Duy Trì Hệ Thống</strong></td>
+                <td>${fmt(d.maintenanceAnnual)}<br><span style="font-size:0.75rem;opacity:0.8;font-weight:500;">/năm</span></td>
+            </tr>`;
+        } else {
+            rows += `
+            <tr class="subtotal-row">
+                <td colspan="2"><strong>Tổng Chi Phí Duy Trì Hệ Thống</strong></td>
+                <td>${fmt(d.maintenanceMonthly)}<br><span style="font-size:0.75rem;opacity:0.8;font-weight:500;">/tháng</span></td>
+            </tr>`;
+        }
+
+        // Year 1 total
+        rows += `
+        <tr class="total-year1-row">
+            <td>
+                <strong>💰 Tổng Thanh Toán Năm 1</strong>
+                <div class="row-sub" style="color:#B45309;">Bao gồm phí Tư Vấn & Triển Khai một lần</div>
+            </td>
+            <td><span style="font-size:0.8rem;color:#92400E;font-weight:500;">${isAnnual ? 'Trả trước theo năm' : 'Trả từng tháng'}</span></td>
+            <td>${fmt(d.year1)}</td>
+        </tr>`;
+
+        // Year 2+ total
+        rows += `
+        <tr class="total-year2-row">
+            <td>
+                <strong>🔄 Tổng Thanh Toán Từ Năm 2</strong>
+                <div class="row-sub" style="color:#3B82F6;">Chỉ gồm VPS + SePay (không phát sinh phí tư vấn)</div>
+            </td>
+            <td><span style="font-size:0.8rem;color:#1D4ED8;font-weight:500;">${isAnnual ? 'Trả trước theo năm' : 'Quy đổi hằng năm'}</span></td>
+            <td>${fmt(d.year2Annual)}</td>
+        </tr>`;
+
+        // Savings row (only for annual)
+        if (d.savings) {
+            rows += `
+            <tr class="savings-row">
+                <td>
+                    <strong>🎉 Ưu Đãi Dòng Tiền (Trả Năm vs Trả Tháng)</strong>
+                    <div class="row-sub" style="color:#065F46;">Số tiền tiết kiệm mỗi năm khi chọn trả trước</div>
+                </td>
+                <td><span style="font-size:0.8rem;color:#065F46;font-weight:500;">So với trả từng tháng</span></td>
+                <td style="color:var(--success) !important">- ${fmt(d.savings)}</td>
+            </tr>`;
+        }
+
+        tbody.innerHTML = rows;
+    }
+
+    // ─── OPTION BUTTONS ────────────────────────────────────────────────────────
+    document.querySelectorAll('.option-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const group = btn.dataset.group;
+            const value = btn.dataset.value;
+
+            // Update active state in button group
+            document.querySelectorAll(`.option-btn[data-group="${group}"]`).forEach(b => {
+                b.classList.remove('active');
+            });
+            btn.classList.add('active');
+
+            state[group] = value;
+            render();
         });
-    }, observerOptions);
-
-    sections.forEach(id => {
-        const el = document.getElementById(id);
-        if (el) observer.observe(el);
     });
 
-    // ===== Smooth Scroll =====
-    navItems.forEach(item => {
-        item.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = item.getAttribute('href').slice(1);
-            const target = document.getElementById(targetId);
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        });
-    });
+    // ─── BANK LIST TOGGLE ──────────────────────────────────────────────────────
+    function toggleBankList() {
+        const btn = document.getElementById('bank-toggle-btn');
+        const panel = document.getElementById('bank-list-panel');
+        btn.classList.toggle('open');
+        panel.classList.toggle('open');
+    }
 
-    // ===== Toggle Pin (click to pin expanded) =====
-    const navInner = document.getElementById('floatNavInner');
-    const toggleBtn = document.getElementById('floatNavToggle');
-    let pinned = false;
-
-    toggleBtn.addEventListener('click', () => {
-        pinned = !pinned;
-        navInner.classList.toggle('expanded', pinned);
-        toggleBtn.textContent = pinned ? '✕' : '☰';
-        toggleBtn.title = pinned ? 'Thu gọn menu' : 'Ghim menu mở rộng';
-    });
+    // ─── INIT ──────────────────────────────────────────────────────────────────
+    render();
 </script>
-
 </body>
 </html>
