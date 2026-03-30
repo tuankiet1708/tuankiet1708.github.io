@@ -1041,12 +1041,23 @@
             <td style="color:#D97706 !important">${fmt(d.consulting)}</td>
         </tr>`;
 
+        // Group header: Phần Mềm & Hạ Tầng (with total price)
+        rows += `
+        <tr class="subtotal-row" style="border-top:2px solid #E2E8F0;">
+            <td>
+                <strong>Phần Mềm & Hạ Tầng</strong>
+                <div class="row-sub">VPS 123Host + SePay API</div>
+            </td>
+            <td><span style="font-size:0.8rem;font-weight:500;">${isAnnual ? 'Trả trước theo năm' : 'Thanh toán hằng tháng'}</span></td>
+            <td>${fmt(isAnnual ? d.maintenanceAnnual : d.maintenanceMonthly)}<br><span style="font-size:0.75rem;opacity:0.8;font-weight:500;">${isAnnual ? '/năm' : '/tháng'}</span></td>
+        </tr>`;
+
         // Row 2: VPS
         if (isAnnual) {
             rows += `
-            <tr>
-                <td>
-                    <div class="row-name">VPS 123Host (n8n NVMe - P1)</div>
+            <tr style="background-color:#F8FAFC;">
+                <td style="padding-left:2.75rem;">
+                    <div class="row-name"><span style="color:#94A3B8;margin-right:0.35rem;">└</span>VPS 123Host (n8n NVMe - P1)</div>
                     <div class="row-sub">Máy chủ cài đặt & vận hành hệ thống n8n</div>
                 </td>
                 <td><span class="tag tag-success">Trả trước 1 năm</span>${d.vpsNote ? `<span class="tag tag-success" style="margin-left:0.3rem">Giảm 20%</span>` : ''}</td>
@@ -1054,9 +1065,9 @@
             </tr>`;
         } else {
             rows += `
-            <tr>
-                <td>
-                    <div class="row-name">VPS 123Host (n8n NVMe - P1)</div>
+            <tr style="background-color:#F8FAFC;">
+                <td style="padding-left:2.75rem;">
+                    <div class="row-name"><span style="color:#94A3B8;margin-right:0.35rem;">└</span>VPS 123Host (n8n NVMe - P1)</div>
                     <div class="row-sub">Máy chủ cài đặt & vận hành hệ thống n8n</div>
                 </td>
                 <td><span class="tag tag-gray">Thanh toán hằng tháng</span></td>
@@ -1067,9 +1078,9 @@
         // Row 3: SePay
         if (isAnnual) {
             rows += `
-            <tr>
-                <td>
-                    <div class="row-name">SePay API <span class="tag tag-primary">${d.sepayPkg}</span></div>
+            <tr style="background-color:#F8FAFC;">
+                <td style="padding-left:2.75rem;">
+                    <div class="row-name"><span style="color:#94A3B8;margin-right:0.35rem;">└</span>SePay API <span class="tag tag-primary">${d.sepayPkg}</span></div>
                     <div class="row-sub">Cổng nhận biến động số dư ngân hàng real-time</div>
                 </td>
                 <td><span class="tag tag-success">Trả trước 1 năm</span><span class="tag tag-success" style="margin-left:0.3rem">Giảm 30%</span></td>
@@ -1077,28 +1088,13 @@
             </tr>`;
         } else {
             rows += `
-            <tr>
-                <td>
-                    <div class="row-name">SePay API <span class="tag tag-primary">${d.sepayPkg}</span></div>
+            <tr style="background-color:#F8FAFC;">
+                <td style="padding-left:2.75rem;">
+                    <div class="row-name"><span style="color:#94A3B8;margin-right:0.35rem;">└</span>SePay API <span class="tag tag-primary">${d.sepayPkg}</span></div>
                     <div class="row-sub">Cổng nhận biến động số dư ngân hàng real-time</div>
                 </td>
                 <td><span class="tag tag-gray">Thanh toán hằng tháng</span></td>
                 <td>${fmt(d.sepayMonthly)}<br><span style="font-size:0.75rem;color:var(--text-sub);font-weight:400;">/tháng</span></td>
-            </tr>`;
-        }
-
-        // Subtotal row
-        if (isAnnual) {
-            rows += `
-            <tr class="subtotal-row">
-                <td colspan="2"><strong>Tổng Chi Phí Duy Trì Hệ Thống</strong></td>
-                <td>${fmt(d.maintenanceAnnual)}<br><span style="font-size:0.75rem;opacity:0.8;font-weight:500;">/năm</span></td>
-            </tr>`;
-        } else {
-            rows += `
-            <tr class="subtotal-row">
-                <td colspan="2"><strong>Tổng Chi Phí Duy Trì Hệ Thống</strong></td>
-                <td>${fmt(d.maintenanceMonthly)}<br><span style="font-size:0.75rem;opacity:0.8;font-weight:500;">/tháng</span></td>
             </tr>`;
         }
 
