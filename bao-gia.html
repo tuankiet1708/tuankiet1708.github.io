@@ -405,7 +405,7 @@
         .table-card {
             background: var(--card-bg);
             border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
             box-shadow: var(--shadow);
             overflow: hidden;
             margin-bottom: 1.5rem;
@@ -478,28 +478,23 @@
         .tag-gray { background: #F1F5F9; color: var(--text-sub); }
 
         .subtotal-row td {
-            background: var(--primary-light);
-            color: var(--primary) !important;
             font-weight: 700 !important;
             font-size: 0.9rem;
-            border-top: 2px solid #C7D2FE;
         }
 
         .total-year1-row td {
-            background: #FFFBEB;
+            background: #FEF3C7;
             font-weight: 700 !important;
         }
-        .total-year1-row td:first-child { color: #92400E !important; }
-        .total-year1-row td:last-child { color: #D97706 !important; font-size: 1.05rem; }
-        .total-year1-row { border-top: 2px solid #FCD34D; }
+        .total-year1-row td:first-child { border-left: 4px solid #D97706 !important; }
+        .total-year1-row { border: 2px solid #F59E0B; }
 
         .total-year2-row td {
-            background: #EFF6FF;
+            background: #E0E7FF;
             font-weight: 700 !important;
         }
-        .total-year2-row td:first-child { color: #1E40AF !important; }
-        .total-year2-row td:last-child { color: #2563EB !important; font-size: 1.05rem; }
-        .total-year2-row { border-top: 2px solid #BFDBFE; }
+        .total-year2-row td:first-child { border-left: 4px solid #4338CA !important; }
+        .total-year2-row { border: 2px solid #6366F1; }
 
         .savings-row td {
             background: var(--success-light);
@@ -1032,20 +1027,20 @@
 
         // Row 1: Consulting
         rows += `
-        <tr style="background:#FFFBEB">
+        <tr>
             <td>
                 <div class="row-name">Tư Vấn & Triển Khai <span class="tag tag-warning">Trả 1 lần</span></div>
                 <div class="row-sub">Xây dựng luồng kỹ thuật n8n, đấu nối API, bàn giao & đào tạo</div>
             </td>
-            <td><span style="font-size:0.8rem;color:#B45309;font-weight:500;">Phí một lần duy nhất</span></td>
-            <td style="color:#D97706 !important">${fmt(d.consulting)}</td>
+            <td><span style="font-size:0.8rem;font-weight:500;">Phí một lần duy nhất</span></td>
+            <td>${fmt(d.consulting)}</td>
         </tr>`;
 
         // Group header: Phần Mềm & Hạ Tầng (with total price)
         rows += `
-        <tr class="subtotal-row" style="border-top:2px solid #E2E8F0;">
+        <tr style="border-top:2px solid #E2E8F0;">
             <td>
-                <strong>Phần Mềm & Hạ Tầng</strong>
+                <div class="row-name">Phần Mềm & Hạ Tầng</div>
                 <div class="row-sub">VPS 123Host + SePay API</div>
             </td>
             <td><span style="font-size:0.8rem;font-weight:500;">${isAnnual ? 'Trả trước theo năm' : 'Thanh toán hằng tháng'}</span></td>
@@ -1102,22 +1097,22 @@
         rows += `
         <tr class="total-year1-row">
             <td>
-                <strong>💰 TỔNG THANH TOÁN NĂM 1</strong>
-                <div class="row-sub" style="color:#B45309;">Bao gồm phí Tư Vấn & Triển Khai một lần</div>
+                <strong style="color:#92400E;font-size:1.05rem;">💰 TỔNG THANH TOÁN NĂM 1</strong><br>
+                <span style="font-size:0.85em;color:#B45309;">(Bao gồm cả Phí Tư vấn & Triển Khai)</span>
             </td>
-            <td><span style="font-size:0.8rem;color:#92400E;font-weight:500;">${isAnnual ? 'Trả trước theo năm' : 'Quy đổi hằng năm'}</span></td>
-            <td>${fmt(d.year1)}</td>
+            <td><span style="font-size:0.8rem;color:#B45309;font-weight:500;">${isAnnual ? 'Trả trước theo năm' : 'Quy đổi hằng năm'}</span></td>
+            <td>${isAnnual ? `<strong style="color:#D97706;font-size:1.25rem;">${fmt(d.year1)}</strong>` : `<span style="color:#92400E;opacity:0.8;">${fmt(d.year1)}</span>`}</td>
         </tr>`;
 
         // Year 2+ total
         rows += `
         <tr class="total-year2-row">
             <td>
-                <strong>🔄 TỔNG THANH TOÁN TỪ NĂM 2</strong>
-                <div class="row-sub" style="color:#3B82F6;">Chỉ gồm VPS + SePay (không phát sinh phí tư vấn)</div>
+                <strong style="color:#3730A3;font-size:1.05rem;">🔄 TỔNG THANH TOÁN TỪ NĂM 2</strong><br>
+                <span style="font-size:0.85em;color:#4F46E5;">(Chỉ gồm gói gia hạn hệ thống SePay + VPS 123Host)</span>
             </td>
-            <td><span style="font-size:0.8rem;color:#1D4ED8;font-weight:500;">${isAnnual ? 'Trả trước theo năm' : 'Quy đổi hằng năm'}</span></td>
-            <td>${fmt(d.year2Annual)}</td>
+            <td><span style="font-size:0.8rem;color:#4F46E5;font-weight:500;">${isAnnual ? 'Trả trước theo năm' : 'Quy đổi hằng năm'}</span></td>
+            <td>${isAnnual ? `<strong style="color:#4338CA;font-size:1.15rem;">${fmt(d.year2Annual)}</strong>` : `<span style="color:#3730A3;opacity:0.8;">${fmt(d.year2Annual)}</span>`}</td>
         </tr>`;
 
         // Savings row (only for annual)
