@@ -405,7 +405,7 @@
         .table-card {
             background: var(--card-bg);
             border: 1px solid var(--border);
-            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+            border-radius: var(--radius-lg);
             box-shadow: var(--shadow);
             overflow: hidden;
             margin-bottom: 1.5rem;
@@ -487,14 +487,14 @@
             font-weight: 700 !important;
         }
         .total-year1-row td:first-child { border-left: 4px solid #D97706 !important; }
-        .total-year1-row { border: 2px solid #F59E0B; }
+        .total-year1-row { border-top: 2px solid #F59E0B; }
 
         .total-year2-row td {
             background: #E0E7FF;
             font-weight: 700 !important;
         }
         .total-year2-row td:first-child { border-left: 4px solid #4338CA !important; }
-        .total-year2-row { border: 2px solid #6366F1; }
+        .total-year2-row { border-top: 2px solid #6366F1; }
 
         .savings-row td {
             background: var(--success-light);
@@ -1056,7 +1056,7 @@
                     <div class="row-sub">Máy chủ cài đặt & vận hành hệ thống n8n</div>
                 </td>
                 <td><span class="tag tag-success">Trả trước 1 năm</span>${d.vpsNote ? `<span class="tag tag-success" style="margin-left:0.3rem">Giảm 20%</span>` : ''}</td>
-                <td>${fmt(d.vpsAnnual)}<br><span style="font-size:0.75rem;color:var(--text-sub);font-weight:400;">/năm</span></td>
+                <td style="font-weight:400;">${fmt(d.vpsAnnual)}<br><span style="font-size:0.75rem;color:var(--text-sub);">/năm</span></td>
             </tr>`;
         } else {
             rows += `
@@ -1066,7 +1066,7 @@
                     <div class="row-sub">Máy chủ cài đặt & vận hành hệ thống n8n</div>
                 </td>
                 <td><span class="tag tag-gray">Thanh toán hằng tháng</span></td>
-                <td>${fmt(d.vpsMonthly)}<br><span style="font-size:0.75rem;color:var(--text-sub);font-weight:400;">/tháng</span></td>
+                <td style="font-weight:400;">${fmt(d.vpsMonthly)}<br><span style="font-size:0.75rem;color:var(--text-sub);">/tháng</span></td>
             </tr>`;
         }
 
@@ -1079,7 +1079,7 @@
                     <div class="row-sub">Cổng nhận biến động số dư ngân hàng real-time</div>
                 </td>
                 <td><span class="tag tag-success">Trả trước 1 năm</span><span class="tag tag-success" style="margin-left:0.3rem">Giảm 30%</span></td>
-                <td>${fmt(d.sepayAnnual)}<br><span style="font-size:0.75rem;color:var(--text-sub);font-weight:400;">/năm</span></td>
+                <td style="font-weight:400;">${fmt(d.sepayAnnual)}<br><span style="font-size:0.75rem;color:var(--text-sub);">/năm</span></td>
             </tr>`;
         } else {
             rows += `
@@ -1089,13 +1089,13 @@
                     <div class="row-sub">Cổng nhận biến động số dư ngân hàng real-time</div>
                 </td>
                 <td><span class="tag tag-gray">Thanh toán hằng tháng</span></td>
-                <td>${fmt(d.sepayMonthly)}<br><span style="font-size:0.75rem;color:var(--text-sub);font-weight:400;">/tháng</span></td>
+                <td style="font-weight:400;">${fmt(d.sepayMonthly)}<br><span style="font-size:0.75rem;color:var(--text-sub);">/tháng</span></td>
             </tr>`;
         }
 
         // Year 1 total
         rows += `
-        <tr class="total-year1-row">
+        <tr class="total-year1-row"${isAnnual ? ' style="border:2px solid #F59E0B;"' : ''}>
             <td>
                 <strong style="color:#92400E;font-size:1.05rem;">💰 TỔNG THANH TOÁN NĂM 1</strong><br>
                 <span style="font-size:0.85em;color:#B45309;">(Bao gồm cả Phí Tư vấn & Triển Khai)</span>
@@ -1106,7 +1106,7 @@
 
         // Year 2+ total
         rows += `
-        <tr class="total-year2-row">
+        <tr class="total-year2-row"${isAnnual ? ' style="border:2px solid #6366F1;"' : ''}>
             <td>
                 <strong style="color:#3730A3;font-size:1.05rem;">🔄 TỔNG THANH TOÁN TỪ NĂM 2</strong><br>
                 <span style="font-size:0.85em;color:#4F46E5;">(Chỉ gồm gói gia hạn hệ thống SePay + VPS 123Host)</span>
