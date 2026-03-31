@@ -493,6 +493,15 @@
             height: 10px;
         }
 
+        .float-nav-item--sub {
+            display: none;
+        }
+
+        .float-nav-inner:hover .float-nav-item--sub,
+        .float-nav-inner.expanded .float-nav-item--sub {
+            display: flex;
+        }
+
         .float-nav-text {
             font-size: 0.8rem;
             font-weight: 500;
@@ -573,6 +582,26 @@
             <span class="float-nav-dot"></span>
             <span class="float-nav-text">3. Chi Tiết Báo Giá</span>
         </a>
+        <a href="#gia-180" class="float-nav-item float-nav-item--sub" data-section="gia-180">
+            <span class="float-nav-dot"></span>
+            <span class="float-nav-text">↳ 180 GD (Startup)</span>
+        </a>
+        <a href="#gia-600" class="float-nav-item float-nav-item--sub" data-section="gia-600">
+            <span class="float-nav-dot"></span>
+            <span class="float-nav-text">↳ 600 GD (Basic)</span>
+        </a>
+        <a href="#gia-1000" class="float-nav-item float-nav-item--sub" data-section="gia-1000">
+            <span class="float-nav-dot"></span>
+            <span class="float-nav-text">↳ 1.000 GD (VIP)</span>
+        </a>
+        <a href="#gia-1500" class="float-nav-item float-nav-item--sub" data-section="gia-1500">
+            <span class="float-nav-dot"></span>
+            <span class="float-nav-text">↳ 1.500 GD (Growth)</span>
+        </a>
+        <a href="#gia-2300" class="float-nav-item float-nav-item--sub" data-section="gia-2300">
+            <span class="float-nav-dot"></span>
+            <span class="float-nav-text">↳ 2.300 GD (Stellar)</span>
+        </a>
         <a href="#ngan-hang" class="float-nav-item" data-section="ngan-hang">
             <span class="float-nav-dot"></span>
             <span class="float-nav-text">4. Danh Sách Ngân Hàng</span>
@@ -610,8 +639,11 @@
             <li>
                 <a href="#bao-gia">3. Chi Tiết Báo Giá Dịch Vụ</a>
                 <ul class="toc-sublist">
-                    <li><a href="#gia-1500">3.1. Quy mô 1.500 Giao dịch/Tháng</a></li>
-                    <li><a href="#gia-2300">3.2. Quy mô 2.300 Giao dịch/Tháng</a></li>
+                    <li><a href="#gia-180">3.1. Quy mô 180 Giao dịch/Tháng (STARTUP)</a></li>
+                    <li><a href="#gia-600">3.2. Quy mô 600 Giao dịch/Tháng (BASIC)</a></li>
+                    <li><a href="#gia-1000">3.3. Quy mô 1.000 Giao dịch/Tháng (VIP)</a></li>
+                    <li><a href="#gia-1500">3.4. Quy mô 1.500 Giao dịch/Tháng (GROWTH)</a></li>
+                    <li><a href="#gia-2300">3.5. Quy mô 2.300 Giao dịch/Tháng (STELLAR)</a></li>
                 </ul>
             </li>
             <li><a href="#ngan-hang">4. Danh Sách Ngân Hàng Hỗ Trợ</a></li>
@@ -715,7 +747,235 @@
     </p>
 
     <div class="pricing-section">
-        <h3 id="gia-1500" style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-main);">3.1. Quy mô 1.500 Giao dịch / Tháng</h3>
+        <h3 id="gia-180" style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-main);">3.1. Quy mô 180 Giao dịch / Tháng (STARTUP)</h3>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th width="28%" rowspan="2" style="vertical-align: middle;">Hạng mục Dịch vụ</th>
+                        <th colspan="2" style="background-color: var(--success-light); color: #065F46; border-top: 3px solid var(--success); border-left: 2px solid #CBD5E1; text-align: center;">Ngân hàng Hợp tác</th>
+                        <th colspan="2" style="background-color: rgba(79, 70, 229, 0.1); color: #312E81; border-top: 3px solid var(--primary); border-left: 2px solid #CBD5E1; text-align: center;">Tất cả Ngân hàng*</th>
+                    </tr>
+                    <tr>
+                        <th width="18%" style="background-color: var(--success-light); color: #065F46; border-left: 2px solid #CBD5E1;">Trả theo Tháng</th>
+                        <th width="18%" style="background-color: var(--success-light); color: #065F46; border-left: none;">Trả theo Năm</th>
+                        <th width="18%" style="background-color: rgba(79, 70, 229, 0.1); color: #312E81; border-left: 2px solid #CBD5E1;">Trả theo Tháng</th>
+                        <th width="18%" style="background-color: rgba(79, 70, 229, 0.1); color: #312E81; border-left: none;">Trả theo Năm</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="consulting-row">
+                        <td><strong>Tư Vấn & Triển Khai</strong><div style="font-size: 0.85em; margin-top: 4px; font-weight: 400;">Xây dựng luồng kỹ thuật n8n</div></td>
+                        <td>5.900.000 đ<br><span class="tag">Trả 1 lần</span></td>
+                        <td>5.900.000 đ<br><span class="tag">Trả 1 lần</span></td>
+                        <td>5.900.000 đ<br><span class="tag">Trả 1 lần</span></td>
+                        <td>5.900.000 đ<br><span class="tag">Trả 1 lần</span></td>
+                    </tr>
+                    <tr class="highlight-row" style="border-top: 2px solid #E2E8F0;">
+                        <td><strong>Phần Mềm & Hạ Tầng</strong><div style="font-size: 0.82em; color: var(--text-sub); font-weight: 400; margin-top: 2px;">VPS 123Host + SePay API</div></td>
+                        <td>359.000 đ /Tháng</td>
+                        <td>3.302.400 đ /Năm</td>
+                        <td>1.669.000 đ /Tháng</td>
+                        <td>14.306.400 đ /Năm</td>
+                    </tr>
+                    <tr style="background-color:#F8FAFC;">
+                        <td style="padding-left: 2.75rem;"><span style="color:#94A3B8;margin-right:0.35rem;">└</span><strong>VPS 123Host (n8n NVMe - P1)</strong><div style="font-size: 0.85em; margin-top: 4px; font-weight: 400; color: var(--text-sub);">Máy chủ cài đặt & vận hành hệ thống n8n</div></td>
+                        <td>239.000 đ/tháng</td>
+                        <td>2.294.400 đ/năm<br><span class="tag success">Giảm 20%</span></td>
+                        <td>239.000 đ/tháng</td>
+                        <td>2.294.400 đ/năm<br><span class="tag success">Giảm 20%</span></td>
+                    </tr>
+                    <tr style="background-color:#F8FAFC;">
+                        <td style="padding-left: 2.75rem;"><span style="color:#94A3B8;margin-right:0.35rem;">└</span><strong>SePay API</strong><div style="font-size: 0.85em; margin-top: 4px; font-weight: 400; color: var(--text-sub);">Cổng nhận biến động số dư ngân hàng real-time</div></td>
+                        <td>120.000 đ/tháng<br><span class="tag primary">Gói Startup</span></td>
+                        <td>1.008.000 đ/năm<br><span class="tag primary">Gói Startup</span><span class="tag success">Giảm 30%</span></td>
+                        <td>1.430.000 đ/tháng<br><span class="tag primary">Gói Pinnacle (2.3k gd)*</span></td>
+                        <td>12.012.000 đ/năm<br><span class="tag primary">Gói Pinnacle (2.3k gd)*</span><span class="tag success">Giảm 30%</span></td>
+                    </tr>
+                    <tr style="background-color: #FEF3C7; border: 2px solid #F59E0B;">
+                        <td style="border-left: 4px solid #D97706;"><strong style="color: #92400E; font-size: 1.05rem;">💰 TỔNG THANH TOÁN NĂM 1</strong><br><span style="font-size: 0.85em; color: #B45309;">(Bao gồm cả Phí Tư vấn & Triển Khai)</span></td>
+                        <td><span style="color: #92400E; opacity: 0.8;">10.208.000 đ</span><br><span style="font-size:0.8rem;color:#B45309;">(Quy đổi hằng năm)</span></td>
+                        <td><strong style="color: #D97706; font-size: 1.25rem;">9.202.400 đ</strong><br><span style="font-size:0.8rem;color:#B45309;">(Trả trước theo năm)</span></td>
+                        <td><span style="color: #92400E; opacity: 0.8;">25.928.000 đ</span><br><span style="font-size:0.8rem;color:#B45309;">(Quy đổi hằng năm)</span></td>
+                        <td><strong style="color: #D97706; font-size: 1.25rem;">20.206.400 đ</strong><br><span style="font-size:0.8rem;color:#B45309;">(Trả trước theo năm)</span></td>
+                    </tr>
+                    <tr style="background-color: #E0E7FF; border: 2px solid #6366F1;">
+                        <td style="border-left: 4px solid #4338CA;"><strong style="color: #3730A3; font-size: 1.05rem;">🔄 TỔNG THANH TOÁN TỪ NĂM 2</strong><br><span style="font-size: 0.85em; color: #4F46E5;">(Chỉ gồm gói gia hạn hệ thống SePay + VPS 123Host)</span></td>
+                        <td><span style="color: #3730A3; opacity: 0.8;">4.308.000 đ</span><br><span style="font-size:0.8rem;color:#4F46E5;">(Quy đổi hằng năm)</span></td>
+                        <td><strong style="color: #4338CA; font-size: 1.15rem;">3.302.400 đ</strong><br><span style="font-size:0.8rem;color:#4F46E5;">(Trả trước theo năm)</span></td>
+                        <td><span style="color: #3730A3; opacity: 0.8;">20.028.000 đ</span><br><span style="font-size:0.8rem;color:#4F46E5;">(Quy đổi hằng năm)</span></td>
+                        <td><strong style="color: #4338CA; font-size: 1.15rem;">14.306.400 đ</strong><br><span style="font-size:0.8rem;color:#4F46E5;">(Trả trước theo năm)</span></td>
+                    </tr>
+                    <tr style="background-color: var(--success-light); font-weight: 600;">
+                        <td style="color: #065F46;">💰 Ưu đãi dòng tiền</td>
+                        <td></td>
+                        <td style="color: #065F46;">Tiết kiệm 1.005.600 đ</td>
+                        <td></td>
+                        <td style="color: #065F46;">Tiết kiệm 5.721.600 đ</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="background-color: #FFFBEB; border-left: 4px solid #F59E0B; padding: 1rem; border-radius: 0 0.5rem 0.5rem 0; margin-top: 1rem; color: #92400E; font-size: 0.95rem; font-weight: 500; display: flex; gap: 0.5rem; align-items: flex-start;">
+            <span style="font-size: 1.1rem;">⚠️</span>
+            <div><strong>Lưu ý quan trọng:</strong> Đối với tùy chọn "Tất cả ngân hàng", SePay áp dụng mức tối thiểu từ <strong style="color: #B45309;">Gói Pinnacle (2.300 gd/tháng)</strong>. <br>Do đó đây sẽ là lựa chọn thay thế cho bảng giá 180 giao dịch của bạn đối với mọi ngân hàng.</div>
+        </div>
+    </div>
+
+    <div class="pricing-section">
+        <h3 id="gia-600" style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-main);">3.2. Quy mô 600 Giao dịch / Tháng (BASIC)</h3>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th width="28%" rowspan="2" style="vertical-align: middle;">Hạng mục Dịch vụ</th>
+                        <th colspan="2" style="background-color: var(--success-light); color: #065F46; border-top: 3px solid var(--success); border-left: 2px solid #CBD5E1; text-align: center;">Ngân hàng Hợp tác</th>
+                        <th colspan="2" style="background-color: rgba(79, 70, 229, 0.1); color: #312E81; border-top: 3px solid var(--primary); border-left: 2px solid #CBD5E1; text-align: center;">Tất cả Ngân hàng*</th>
+                    </tr>
+                    <tr>
+                        <th width="18%" style="background-color: var(--success-light); color: #065F46; border-left: 2px solid #CBD5E1;">Trả theo Tháng</th>
+                        <th width="18%" style="background-color: var(--success-light); color: #065F46; border-left: none;">Trả theo Năm</th>
+                        <th width="18%" style="background-color: rgba(79, 70, 229, 0.1); color: #312E81; border-left: 2px solid #CBD5E1;">Trả theo Tháng</th>
+                        <th width="18%" style="background-color: rgba(79, 70, 229, 0.1); color: #312E81; border-left: none;">Trả theo Năm</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="consulting-row">
+                        <td><strong>Tư Vấn & Triển Khai</strong><div style="font-size: 0.85em; margin-top: 4px; font-weight: 400;">Xây dựng luồng kỹ thuật n8n</div></td>
+                        <td>5.900.000 đ<br><span class="tag">Trả 1 lần</span></td>
+                        <td>5.900.000 đ<br><span class="tag">Trả 1 lần</span></td>
+                        <td>5.900.000 đ<br><span class="tag">Trả 1 lần</span></td>
+                        <td>5.900.000 đ<br><span class="tag">Trả 1 lần</span></td>
+                    </tr>
+                    <tr class="highlight-row" style="border-top: 2px solid #E2E8F0;">
+                        <td><strong>Phần Mềm & Hạ Tầng</strong><div style="font-size: 0.82em; color: var(--text-sub); font-weight: 400; margin-top: 2px;">VPS 123Host + SePay API</div></td>
+                        <td>607.000 đ /Tháng</td>
+                        <td>5.385.600 đ /Năm</td>
+                        <td>1.669.000 đ /Tháng</td>
+                        <td>14.306.400 đ /Năm</td>
+                    </tr>
+                    <tr style="background-color:#F8FAFC;">
+                        <td style="padding-left: 2.75rem;"><span style="color:#94A3B8;margin-right:0.35rem;">└</span><strong>VPS 123Host (n8n NVMe - P1)</strong><div style="font-size: 0.85em; margin-top: 4px; font-weight: 400; color: var(--text-sub);">Máy chủ cài đặt & vận hành hệ thống n8n</div></td>
+                        <td>239.000 đ/tháng</td>
+                        <td>2.294.400 đ/năm<br><span class="tag success">Giảm 20%</span></td>
+                        <td>239.000 đ/tháng</td>
+                        <td>2.294.400 đ/năm<br><span class="tag success">Giảm 20%</span></td>
+                    </tr>
+                    <tr style="background-color:#F8FAFC;">
+                        <td style="padding-left: 2.75rem;"><span style="color:#94A3B8;margin-right:0.35rem;">└</span><strong>SePay API</strong><div style="font-size: 0.85em; margin-top: 4px; font-weight: 400; color: var(--text-sub);">Cổng nhận biến động số dư ngân hàng real-time</div></td>
+                        <td>368.000 đ/tháng<br><span class="tag primary">Gói Basic</span></td>
+                        <td>3.091.200 đ/năm<br><span class="tag primary">Gói Basic</span><span class="tag success">Giảm 30%</span></td>
+                        <td>1.430.000 đ/tháng<br><span class="tag primary">Gói Pinnacle (2.3k gd)*</span></td>
+                        <td>12.012.000 đ/năm<br><span class="tag primary">Gói Pinnacle (2.3k gd)*</span><span class="tag success">Giảm 30%</span></td>
+                    </tr>
+                    <tr style="background-color: #FEF3C7; border: 2px solid #F59E0B;">
+                        <td style="border-left: 4px solid #D97706;"><strong style="color: #92400E; font-size: 1.05rem;">💰 TỔNG THANH TOÁN NĂM 1</strong><br><span style="font-size: 0.85em; color: #B45309;">(Bao gồm cả Phí Tư vấn & Triển Khai)</span></td>
+                        <td><span style="color: #92400E; opacity: 0.8;">13.184.000 đ</span><br><span style="font-size:0.8rem;color:#B45309;">(Quy đổi hằng năm)</span></td>
+                        <td><strong style="color: #D97706; font-size: 1.25rem;">11.285.600 đ</strong><br><span style="font-size:0.8rem;color:#B45309;">(Trả trước theo năm)</span></td>
+                        <td><span style="color: #92400E; opacity: 0.8;">25.928.000 đ</span><br><span style="font-size:0.8rem;color:#B45309;">(Quy đổi hằng năm)</span></td>
+                        <td><strong style="color: #D97706; font-size: 1.25rem;">20.206.400 đ</strong><br><span style="font-size:0.8rem;color:#B45309;">(Trả trước theo năm)</span></td>
+                    </tr>
+                    <tr style="background-color: #E0E7FF; border: 2px solid #6366F1;">
+                        <td style="border-left: 4px solid #4338CA;"><strong style="color: #3730A3; font-size: 1.05rem;">🔄 TỔNG THANH TOÁN TỪ NĂM 2</strong><br><span style="font-size: 0.85em; color: #4F46E5;">(Chỉ gồm gói gia hạn hệ thống SePay + VPS 123Host)</span></td>
+                        <td><span style="color: #3730A3; opacity: 0.8;">7.284.000 đ</span><br><span style="font-size:0.8rem;color:#4F46E5;">(Quy đổi hằng năm)</span></td>
+                        <td><strong style="color: #4338CA; font-size: 1.15rem;">5.385.600 đ</strong><br><span style="font-size:0.8rem;color:#4F46E5;">(Trả trước theo năm)</span></td>
+                        <td><span style="color: #3730A3; opacity: 0.8;">20.028.000 đ</span><br><span style="font-size:0.8rem;color:#4F46E5;">(Quy đổi hằng năm)</span></td>
+                        <td><strong style="color: #4338CA; font-size: 1.15rem;">14.306.400 đ</strong><br><span style="font-size:0.8rem;color:#4F46E5;">(Trả trước theo năm)</span></td>
+                    </tr>
+                    <tr style="background-color: var(--success-light); font-weight: 600;">
+                        <td style="color: #065F46;">💰 Ưu đãi dòng tiền</td>
+                        <td></td>
+                        <td style="color: #065F46;">Tiết kiệm 1.898.400 đ</td>
+                        <td></td>
+                        <td style="color: #065F46;">Tiết kiệm 5.721.600 đ</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="background-color: #FFFBEB; border-left: 4px solid #F59E0B; padding: 1rem; border-radius: 0 0.5rem 0.5rem 0; margin-top: 1rem; color: #92400E; font-size: 0.95rem; font-weight: 500; display: flex; gap: 0.5rem; align-items: flex-start;">
+            <span style="font-size: 1.1rem;">⚠️</span>
+            <div><strong>Lưu ý quan trọng:</strong> Đối với tùy chọn "Tất cả ngân hàng", SePay áp dụng mức tối thiểu từ <strong style="color: #B45309;">Gói Pinnacle (2.300 gd/tháng)</strong>. <br>Do đó đây sẽ là lựa chọn thay thế cho bảng giá 600 giao dịch của bạn đối với mọi ngân hàng.</div>
+        </div>
+    </div>
+
+    <div class="pricing-section">
+        <h3 id="gia-1000" style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-main);">3.3. Quy mô 1.000 Giao dịch / Tháng (VIP)</h3>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th width="28%" rowspan="2" style="vertical-align: middle;">Hạng mục Dịch vụ</th>
+                        <th colspan="2" style="background-color: var(--success-light); color: #065F46; border-top: 3px solid var(--success); border-left: 2px solid #CBD5E1; text-align: center;">Ngân hàng Hợp tác</th>
+                        <th colspan="2" style="background-color: rgba(79, 70, 229, 0.1); color: #312E81; border-top: 3px solid var(--primary); border-left: 2px solid #CBD5E1; text-align: center;">Tất cả Ngân hàng*</th>
+                    </tr>
+                    <tr>
+                        <th width="18%" style="background-color: var(--success-light); color: #065F46; border-left: 2px solid #CBD5E1;">Trả theo Tháng</th>
+                        <th width="18%" style="background-color: var(--success-light); color: #065F46; border-left: none;">Trả theo Năm</th>
+                        <th width="18%" style="background-color: rgba(79, 70, 229, 0.1); color: #312E81; border-left: 2px solid #CBD5E1;">Trả theo Tháng</th>
+                        <th width="18%" style="background-color: rgba(79, 70, 229, 0.1); color: #312E81; border-left: none;">Trả theo Năm</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="consulting-row">
+                        <td><strong>Tư Vấn & Triển Khai</strong><div style="font-size: 0.85em; margin-top: 4px; font-weight: 400;">Xây dựng luồng kỹ thuật n8n</div></td>
+                        <td>5.900.000 đ<br><span class="tag">Trả 1 lần</span></td>
+                        <td>5.900.000 đ<br><span class="tag">Trả 1 lần</span></td>
+                        <td>5.900.000 đ<br><span class="tag">Trả 1 lần</span></td>
+                        <td>5.900.000 đ<br><span class="tag">Trả 1 lần</span></td>
+                    </tr>
+                    <tr class="highlight-row" style="border-top: 2px solid #E2E8F0;">
+                        <td><strong>Phần Mềm & Hạ Tầng</strong><div style="font-size: 0.82em; color: var(--text-sub); font-weight: 400; margin-top: 2px;">VPS 123Host + SePay API</div></td>
+                        <td>828.000 đ /Tháng</td>
+                        <td>7.242.000 đ /Năm</td>
+                        <td>1.669.000 đ /Tháng</td>
+                        <td>14.306.400 đ /Năm</td>
+                    </tr>
+                    <tr style="background-color:#F8FAFC;">
+                        <td style="padding-left: 2.75rem;"><span style="color:#94A3B8;margin-right:0.35rem;">└</span><strong>VPS 123Host (n8n NVMe - P1)</strong><div style="font-size: 0.85em; margin-top: 4px; font-weight: 400; color: var(--text-sub);">Máy chủ cài đặt & vận hành hệ thống n8n</div></td>
+                        <td>239.000 đ/tháng</td>
+                        <td>2.294.400 đ/năm<br><span class="tag success">Giảm 20%</span></td>
+                        <td>239.000 đ/tháng</td>
+                        <td>2.294.400 đ/năm<br><span class="tag success">Giảm 20%</span></td>
+                    </tr>
+                    <tr style="background-color:#F8FAFC;">
+                        <td style="padding-left: 2.75rem;"><span style="color:#94A3B8;margin-right:0.35rem;">└</span><strong>SePay API</strong><div style="font-size: 0.85em; margin-top: 4px; font-weight: 400; color: var(--text-sub);">Cổng nhận biến động số dư ngân hàng real-time</div></td>
+                        <td>589.000 đ/tháng<br><span class="tag primary">Gói VIP</span></td>
+                        <td>4.947.600 đ/năm<br><span class="tag primary">Gói VIP</span><span class="tag success">Giảm 30%</span></td>
+                        <td>1.430.000 đ/tháng<br><span class="tag primary">Gói Pinnacle (2.3k gd)*</span></td>
+                        <td>12.012.000 đ/năm<br><span class="tag primary">Gói Pinnacle (2.3k gd)*</span><span class="tag success">Giảm 30%</span></td>
+                    </tr>
+                    <tr style="background-color: #FEF3C7; border: 2px solid #F59E0B;">
+                        <td style="border-left: 4px solid #D97706;"><strong style="color: #92400E; font-size: 1.05rem;">💰 TỔNG THANH TOÁN NĂM 1</strong><br><span style="font-size: 0.85em; color: #B45309;">(Bao gồm cả Phí Tư vấn & Triển Khai)</span></td>
+                        <td><span style="color: #92400E; opacity: 0.8;">15.836.000 đ</span><br><span style="font-size:0.8rem;color:#B45309;">(Quy đổi hằng năm)</span></td>
+                        <td><strong style="color: #D97706; font-size: 1.25rem;">13.142.000 đ</strong><br><span style="font-size:0.8rem;color:#B45309;">(Trả trước theo năm)</span></td>
+                        <td><span style="color: #92400E; opacity: 0.8;">25.928.000 đ</span><br><span style="font-size:0.8rem;color:#B45309;">(Quy đổi hằng năm)</span></td>
+                        <td><strong style="color: #D97706; font-size: 1.25rem;">20.206.400 đ</strong><br><span style="font-size:0.8rem;color:#B45309;">(Trả trước theo năm)</span></td>
+                    </tr>
+                    <tr style="background-color: #E0E7FF; border: 2px solid #6366F1;">
+                        <td style="border-left: 4px solid #4338CA;"><strong style="color: #3730A3; font-size: 1.05rem;">🔄 TỔNG THANH TOÁN TỪ NĂM 2</strong><br><span style="font-size: 0.85em; color: #4F46E5;">(Chỉ gồm gói gia hạn hệ thống SePay + VPS 123Host)</span></td>
+                        <td><span style="color: #3730A3; opacity: 0.8;">9.936.000 đ</span><br><span style="font-size:0.8rem;color:#4F46E5;">(Quy đổi hằng năm)</span></td>
+                        <td><strong style="color: #4338CA; font-size: 1.15rem;">7.242.000 đ</strong><br><span style="font-size:0.8rem;color:#4F46E5;">(Trả trước theo năm)</span></td>
+                        <td><span style="color: #3730A3; opacity: 0.8;">20.028.000 đ</span><br><span style="font-size:0.8rem;color:#4F46E5;">(Quy đổi hằng năm)</span></td>
+                        <td><strong style="color: #4338CA; font-size: 1.15rem;">14.306.400 đ</strong><br><span style="font-size:0.8rem;color:#4F46E5;">(Trả trước theo năm)</span></td>
+                    </tr>
+                    <tr style="background-color: var(--success-light); font-weight: 600;">
+                        <td style="color: #065F46;">💰 Ưu đãi dòng tiền</td>
+                        <td></td>
+                        <td style="color: #065F46;">Tiết kiệm 2.694.000 đ</td>
+                        <td></td>
+                        <td style="color: #065F46;">Tiết kiệm 5.721.600 đ</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="background-color: #FFFBEB; border-left: 4px solid #F59E0B; padding: 1rem; border-radius: 0 0.5rem 0.5rem 0; margin-top: 1rem; color: #92400E; font-size: 0.95rem; font-weight: 500; display: flex; gap: 0.5rem; align-items: flex-start;">
+            <span style="font-size: 1.1rem;">⚠️</span>
+            <div><strong>Lưu ý quan trọng:</strong> Đối với tùy chọn "Tất cả ngân hàng", SePay áp dụng mức tối thiểu từ <strong style="color: #B45309;">Gói Pinnacle (2.300 gd/tháng)</strong>. <br>Do đó đây sẽ là lựa chọn thay thế cho bảng giá 1.000 giao dịch của bạn đối với mọi ngân hàng.</div>
+        </div>
+    </div>
+
+    <div class="pricing-section">
+        <h3 id="gia-1500" style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-main);">3.4. Quy mô 1.500 Giao dịch / Tháng (GROWTH)</h3>
         <div class="table-responsive">
             <table>
                 <thead>
@@ -823,7 +1083,7 @@
     </div>
 
     <div class="pricing-section">
-        <h3 id="gia-2300" style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-main);">3.2. Quy mô 2.300 Giao dịch / Tháng</h3>
+        <h3 id="gia-2300" style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-main);">3.5. Quy mô 2.300 Giao dịch / Tháng (STELLAR)</h3>
         <div class="table-responsive">
             <table>
                 <thead>
@@ -1053,12 +1313,15 @@
     });
 
     // ===== Scroll Spy (IntersectionObserver) =====
-    const sections = ['hieu-qua', 'hoan-von', 'bao-gia', 'ngan-hang', 'tai-sao', 'chien-luoc'];
+    const sections = ['hieu-qua', 'hoan-von', 'bao-gia', 'gia-180', 'gia-600', 'gia-1000', 'gia-1500', 'gia-2300', 'ngan-hang', 'tai-sao', 'chien-luoc'];
     const navItems = document.querySelectorAll('.float-nav-item');
+
+    const giaSubIds = new Set(['gia-180', 'gia-600', 'gia-1000', 'gia-1500', 'gia-2300']);
 
     const setActive = (id) => {
         navItems.forEach(item => {
-            item.classList.toggle('active', item.dataset.section === id);
+            const s = item.dataset.section;
+            item.classList.toggle('active', s === id || (s === 'bao-gia' && giaSubIds.has(id)));
         });
     };
 

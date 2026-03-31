@@ -633,7 +633,7 @@
     <header class="page-header">
         <div class="badge">⚡ Tự Động Hóa 100%</div>
         <h1>Báo Giá <span>Hệ Thống Thanh Toán</span><br>Tự Động n8n + SePay</h1>
-        <p>Chọn cấu hình phù hợp bên dưới — bảng giá sẽ cập nhật ngay lập tức.</p>
+        <p>Chọn cấu hình phù hợp bên dưới - bảng giá sẽ cập nhật ngay lập tức.</p>
         <div style="margin-top:1.25rem;display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;">
             <a href="bao-gia-chi-tiet.html" style="padding:0.5rem 1.25rem;background:var(--primary);color:#fff;border-radius:999px;font-size:0.875rem;font-weight:600;text-decoration:none;">📊 Xem Phân Tích Chi Tiết & ROI →</a>
             <a href="/" style="padding:0.5rem 1.25rem;background:#fff;color:var(--primary);border:1px solid var(--border);border-radius:999px;font-size:0.875rem;font-weight:600;text-decoration:none;">← Trang Chủ</a>
@@ -669,6 +669,15 @@
                     <span class="step-text">Quy Mô Giao Dịch</span>
                 </div>
                 <div class="option-group" id="group-volume">
+                    <button class="option-btn" data-group="volume" data-value="180">
+                        📦 180 GD / Tháng
+                    </button>
+                    <button class="option-btn" data-group="volume" data-value="600">
+                        📦 600 GD / Tháng
+                    </button>
+                    <button class="option-btn" data-group="volume" data-value="1000">
+                        📦 1.000 GD / Tháng
+                    </button>
                     <button class="option-btn active" data-group="volume" data-value="1500">
                         📦 1.500 GD / Tháng
                     </button>
@@ -722,17 +731,17 @@
         <div class="metrics-grid">
             <div class="metric-card">
                 <div class="mc-label">Chi Phí Duy Trì</div>
-                <div class="mc-value" id="mc-monthly">—</div>
+                <div class="mc-value" id="mc-monthly">-</div>
                 <div class="mc-sub" id="mc-monthly-sub">VPS + SePay API</div>
             </div>
             <div class="metric-card highlight">
                 <div class="mc-label">Tổng Thanh Toán Năm 1</div>
-                <div class="mc-value" id="mc-year1">—</div>
+                <div class="mc-value" id="mc-year1">-</div>
                 <div class="mc-sub">Bao gồm phí tư vấn & triển khai</div>
             </div>
             <div class="metric-card" id="mc-savings-card">
                 <div class="mc-label" id="mc-savings-label">Tổng Từ Năm 2 Trở Đi</div>
-                <div class="mc-value" id="mc-savings-value">—</div>
+                <div class="mc-value" id="mc-savings-value">-</div>
                 <div class="mc-sub" id="mc-savings-sub">Chi phí duy trì hằng năm (không phát sinh phí tư vấn)</div>
             </div>
         </div>
@@ -742,8 +751,8 @@
             <div class="savings-callout-icon">🎉</div>
             <div class="savings-callout-body">
                 <div class="savings-callout-label">Ưu đãi khi trả theo năm</div>
-                <div class="savings-callout-amount" id="savings-callout-amount">—</div>
-                <div class="savings-callout-sub" id="savings-callout-sub">—</div>
+                <div class="savings-callout-amount" id="savings-callout-amount">-</div>
+                <div class="savings-callout-sub" id="savings-callout-sub">-</div>
             </div>
         </div>
 
@@ -768,7 +777,7 @@
 
         <!-- Consulting details box -->
         <div class="consulting-box">
-            <h4>💼 Phí Tư Vấn & Triển Khai — Thanh Toán 1 Lần Duy Nhất</h4>
+            <h4>💼 Phí Tư Vấn & Triển Khai - Thanh Toán 1 Lần Duy Nhất</h4>
             <ul>
                 <li>Tư vấn quy trình & xây dựng luồng xử lý nghiệp vụ tự động hóa chuẩn xác.</li>
                 <li>Đấu nối, thiết lập kết nối API giữa SePay, 123Host và nền tảng của doanh nghiệp (CRM, Website, Sheets...).</li>
@@ -789,7 +798,7 @@
         </button>
         <div class="bank-list-panel" id="bank-list-panel">
             <div class="bank-group">
-                <div class="bank-group-title green">🟢 Ngân Hàng Hợp Tác — 10 Ngân Hàng (Giá rẻ hơn 35%)</div>
+                <div class="bank-group-title green">🟢 Ngân Hàng Hợp Tác - 10 Ngân Hàng (Giá rẻ hơn 35%)</div>
                 <p style="font-size:0.8rem;color:var(--text-sub);margin-bottom:0.75rem;">Đảm bảo tài khoản nhận tiền thuộc danh sách dưới đây để được hưởng mức giá ưu đãi:</p>
                 <div class="bank-chips">
                     <span class="bank-chip highlight-bank" style="display:inline-flex;align-items:center;gap:0.4rem;"><img src="https://www.google.com/s2/favicons?domain=mbbank.com.vn&sz=32" width="18" height="18" style="border-radius:3px;flex-shrink:0;" alt="">MB Bank</span>
@@ -805,7 +814,7 @@
                 </div>
             </div>
             <div class="bank-group">
-                <div class="bank-group-title blue">🔵 Tất Cả Ngân Hàng — 30+ Ngân Hàng (Hỗ trợ toàn bộ Napas)</div>
+                <div class="bank-group-title blue">🔵 Tất Cả Ngân Hàng - 30+ Ngân Hàng (Hỗ trợ toàn bộ Napas)</div>
                 <p style="font-size:0.8rem;color:var(--text-sub);margin-bottom:0.75rem;">Bao gồm 10 ngân hàng trên và thêm các ngân hàng phổ biến như:</p>
                 <div class="bank-chips">
                     <span class="bank-chip" style="display:inline-flex;align-items:center;gap:0.4rem;"><img src="https://www.google.com/s2/favicons?domain=vietcombank.com.vn&sz=32" width="18" height="18" style="border-radius:3px;flex-shrink:0;" alt="">Vietcombank</span>
@@ -828,7 +837,7 @@
                     <span class="bank-chip" style="display:inline-flex;align-items:center;gap:0.4rem;"><img src="https://www.google.com/s2/favicons?domain=vietbank.com.vn&sz=32" width="18" height="18" style="border-radius:3px;flex-shrink:0;" alt="">VietBank</span>
                     <span class="bank-chip" style="display:inline-flex;align-items:center;gap:0.4rem;"><img src="https://www.google.com/s2/favicons?domain=namabank.com.vn&sz=32" width="18" height="18" style="border-radius:3px;flex-shrink:0;" alt="">Nam A Bank</span>
                     <span class="bank-chip" style="display:inline-flex;align-items:center;gap:0.4rem;"><img src="https://www.google.com/s2/favicons?domain=pgbank.com.vn&sz=32" width="18" height="18" style="border-radius:3px;flex-shrink:0;" alt="">PG Bank</span>
-                    <span class="bank-chip" style="background:#F1F5F9;color:var(--text-sub);font-style:italic;">& nhiều ngân hàng khác...</span>
+                    <!-- <span class="bank-chip" style="background:#F1F5F9;color:var(--text-sub);font-style:italic;">& nhiều ngân hàng khác...</span> -->
                 </div>
             </div>
         </div>
@@ -849,6 +858,78 @@
 <script>
     // ─── DATA ──────────────────────────────────────────────────────────────────
     const PRICING = {
+        hoptac_180_thang: {
+            sepayPkg: 'Gói Startup',
+            sepayMonthly: 120000,
+            vpsMonthly: 239000,
+            vpsNote: null,
+            consulting: 5900000,
+            maintenanceMonthly: 359000,
+            year1: 10208000,
+            year2Annual: 4308000,
+            savings: null,
+            pinnacleNote: false,
+        },
+        hoptac_180_nam: {
+            sepayPkg: 'Gói Startup',
+            sepayAnnual: 1008000,
+            vpsAnnual: 2294400,
+            vpsNote: 'Giảm 20% khi trả năm',
+            consulting: 5900000,
+            maintenanceAnnual: 3302400,
+            year1: 9202400,
+            year2Annual: 3302400,
+            savings: 1005600,
+            pinnacleNote: false,
+        },
+        hoptac_600_thang: {
+            sepayPkg: 'Gói Basic',
+            sepayMonthly: 368000,
+            vpsMonthly: 239000,
+            vpsNote: null,
+            consulting: 5900000,
+            maintenanceMonthly: 607000,
+            year1: 13184000,
+            year2Annual: 7284000,
+            savings: null,
+            pinnacleNote: false,
+        },
+        hoptac_600_nam: {
+            sepayPkg: 'Gói Basic',
+            sepayAnnual: 3091200,
+            vpsAnnual: 2294400,
+            vpsNote: 'Giảm 20% khi trả năm',
+            consulting: 5900000,
+            maintenanceAnnual: 5385600,
+            year1: 11285600,
+            year2Annual: 5385600,
+            savings: 1898400,
+            pinnacleNote: false,
+        },
+        hoptac_1000_thang: {
+            sepayPkg: 'Gói VIP',
+            sepayMonthly: 589000,
+            vpsMonthly: 239000,
+            vpsNote: null,
+            consulting: 5900000,
+            maintenanceMonthly: 828000,
+            year1: 15836000,
+            year2Annual: 9936000,
+            savings: null,
+            pinnacleNote: false,
+        },
+        hoptac_1000_nam: {
+            sepayPkg: 'Gói VIP',
+            sepayAnnual: 4947600,
+            vpsAnnual: 2294400,
+            vpsNote: 'Giảm 20% khi trả năm',
+            consulting: 5900000,
+            maintenanceAnnual: 7242000,
+            year1: 13142000,
+            year2Annual: 7242000,
+            savings: 2694000,
+            pinnacleNote: false,
+        },
         hoptac_1500_thang: {
             sepayPkg: 'Gói Growth',
             sepayMonthly: 850000,
@@ -966,11 +1047,15 @@
     }
 
     function _doRender() {
-        const key = `${state.bank}_${state.volume}_${state.payment}`;
+        // For tatca, volumes ≤ 1500 all map to Pinnacle (2300 gd minimum)
+        const effectiveVolume = (state.bank === 'tatca' && ['180', '600', '1000', '1500'].includes(state.volume))
+            ? '1500' : state.volume;
+        const key = `${state.bank}_${effectiveVolume}_${state.payment}`;
         const d = PRICING[key];
         const isAnnual = state.payment === 'nam';
         const bankLabel = state.bank === 'hoptac' ? 'Ngân Hàng Hợp Tác' : 'Tất Cả Ngân Hàng';
-        const volLabel = state.volume === '1500' ? '1.500 GD/tháng' : '2.300 GD/tháng';
+        const VOL_LABELS = { '180': '180 GD/tháng', '600': '600 GD/tháng', '1000': '1.000 GD/tháng', '1500': '1.500 GD/tháng', '2300': '2.300 GD/tháng' };
+        const volLabel = VOL_LABELS[state.volume] || state.volume + ' GD/tháng';
         const payLabel = isAnnual ? 'Trả theo Năm' : 'Trả theo Tháng';
 
         // Summary chips
@@ -988,7 +1073,7 @@
         const noteBanner = document.getElementById('note-banner');
         const noteBannerText = document.getElementById('note-banner-text');
         if (d.pinnacleNote) {
-            noteBannerText.innerHTML = '<strong>Lưu ý về gói SePay:</strong> Đối với tùy chọn <strong>Tất cả Ngân Hàng</strong>, SePay áp dụng mức tối thiểu <strong>Gói Pinnacle (2.300 GD/tháng)</strong>. Vì vậy dù bạn chọn quy mô 1.500 GD, chi phí SePay vẫn tính theo Gói Pinnacle — giá hiển thị dưới đây đã phản ánh điều này.';
+            noteBannerText.innerHTML = '<strong>Lưu ý về gói SePay:</strong> Đối với tùy chọn <strong>Tất cả Ngân Hàng</strong>, SePay áp dụng mức tối thiểu <strong>Gói Pinnacle (2.300 GD/tháng)</strong>. Vì vậy dù bạn chọn quy mô ' + volLabel + ', chi phí SePay vẫn tính theo Gói Pinnacle - giá hiển thị dưới đây đã phản ánh điều này.';
             noteBanner.classList.remove('hidden');
         } else {
             noteBanner.classList.add('hidden');
@@ -1011,7 +1096,7 @@
 
         const callout = document.getElementById('savings-callout');
         if (d.savings) {
-            const monthlyKey = `${state.bank}_${state.volume}_thang`;
+            const monthlyKey = `${state.bank}_${effectiveVolume}_thang`;
             const dm = PRICING[monthlyKey];
             document.getElementById('savings-callout-amount').textContent = `Tiết kiệm ${fmt(d.savings)} / năm`;
             document.getElementById('savings-callout-sub').innerHTML =
