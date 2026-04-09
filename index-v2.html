@@ -1,35 +1,10 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D6HGJE321S"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-D6HGJE321S');
-  </script>
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Creator Delivery Flow – Tự động xác nhận thanh toán & gửi tài liệu | Kiệt Trần</title>
+  <title>Creator Delivery Flow - Dọn gọn luồng thanh toán & gửi tài liệu</title>
   <meta name="description" content="Gói triển khai 7–14 ngày giúp creator không còn phải check bill và gửi tài liệu bằng tay mỗi ngày, nhưng vẫn kiểm soát được toàn bộ người mua." />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Creator Delivery Flow – Tự động xác nhận thanh toán & gửi tài liệu | Kiệt Trần" />
-  <meta property="og:url" content="/" />
-  <meta property="og:image" content="/cover.png" />
-  <meta property="og:image:alt" content="Creator Delivery Flow – Kiệt Trần" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Creator Delivery Flow – Tự động xác nhận thanh toán & gửi tài liệu | Kiệt Trần" />
-  <meta name="twitter:image" content="/cover.png" />
-
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-  <link
-    rel="icon"
-    href="/favicon-32x32.png?v=ed489fb11a9167a4200ff8c4630a2193"
-    type="image/png"
-  />
-
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -101,7 +76,7 @@
       text-decoration: none;
     }
     .nav__links {
-      display: flex; gap: 24px; list-style: none; align-items: center;
+      display: flex; gap: 24px; list-style: none;
     }
     .nav__links a {
       font-size: .82rem; color: var(--ink-2); text-decoration: none;
@@ -503,43 +478,6 @@
       background: var(--green-light);
     }
 
-    /* ─── INFRA PRICING LINK ────────────────────────────── */
-    .infra-link {
-      margin-top: 32px;
-      display: flex; align-items: center; gap: 16px;
-      background: var(--green-pale);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 18px 24px;
-    }
-    .infra-link__icon {
-      font-size: 1.5rem; flex-shrink: 0;
-    }
-    .infra-link__body {
-      flex: 1;
-    }
-    .infra-link__body strong {
-      display: block; font-size: .92rem; font-weight: 700; color: var(--ink); margin-bottom: 3px;
-    }
-    .infra-link__body p {
-      font-size: .82rem; color: var(--ink-3); margin: 0;
-    }
-    .infra-link__btn {
-      font-size: .82rem; font-weight: 700;
-      color: var(--green);
-      background: var(--green-light);
-      border: 1px solid var(--green);
-      border-radius: 40px;
-      padding: 8px 18px; cursor: pointer;
-      text-decoration: none; display: inline-block;
-      white-space: nowrap;
-      transition: background .2s;
-    }
-    .infra-link__btn:hover { background: var(--green-light); opacity: .85; }
-    @media (max-width: 560px) {
-      .infra-link { flex-direction: column; align-items: flex-start; }
-    }
-
     /* ─── FAQ ───────────────────────────────────────────── */
     .faq { display: flex; flex-direction: column; gap: 0; }
     .faq__item {
@@ -657,15 +595,6 @@
       font-size: .92rem; font-weight: 700;
       color: var(--green);
     }
-    .footer__links {
-      display: flex; gap: 20px; list-style: none;
-    }
-    .footer__links a {
-      font-size: .82rem; color: var(--ink-3);
-      text-decoration: none;
-      transition: color .2s;
-    }
-    .footer__links a:hover { color: var(--green); }
     .footer__note {
       font-size: .8rem; color: var(--ink-3);
     }
@@ -691,13 +620,14 @@
   <!-- ──────────────── NAV ──────────────── -->
   <nav class="nav">
     <div class="container nav__inner">
-      <a href="#" class="nav__logo">Kiệt Trần · Creator Delivery Flow</a>
+      <a href="#" class="nav__logo">Creator Delivery Flow</a>
       <ul class="nav__links">
         <li><a href="#how">Cách làm</a></li>
         <li><a href="#deliverables">Quyền lợi</a></li>
         <li><a href="#pricing">Giá</a></li>
         <li><a href="#faq">FAQ</a></li>
       </ul>
+      <!-- REPLACE href below with your contact link (Messenger, form, Calendly...) -->
       <a href="#contact" class="nav__cta-btn">Giữ suất</a>
     </div>
   </nav>
@@ -724,6 +654,7 @@
       </ul>
 
       <div class="hero__cta-group">
+        <!-- REPLACE href with your actual booking/contact link -->
         <a href="#contact" class="btn-primary">Đăng ký giữ suất ngay</a>
         <span class="hero__note">Mỗi đợt chỉ nhận 2 dự án - xem chi tiết bên dưới</span>
       </div>
@@ -741,7 +672,7 @@
       <div class="section__header">
         <span class="tag">Vấn đề thật</span>
         <h2 class="section__title">Bạn không thiếu chăm. Quy trình của bạn đang rò rỉ.</h2>
-        <p class="section__sub">Nếu bạn đang bán đều rồi nhưng mỗi ngày vẫn phải lặp đi lặp lại những thao tác này,<br/>vấn đề không nằm ở bạn.</p>
+        <p class="section__sub">Nếu bạn đang bán đều rồi nhưng mỗi ngày vẫn phải lặp đi lặp lại những thao tác này, vấn đề không nằm ở bạn.</p>
       </div>
 
       <ul class="problem__list">
@@ -787,7 +718,7 @@
       <div class="section__header">
         <span class="tag">Sau khi xong</span>
         <h2 class="section__title">Một luồng vận hành gọn hơn, nhẹ hơn, vẫn kiểm soát được</h2>
-        <p class="section__sub">Không phải tự động hóa 100% như lý thuyết.<br/>Là loại bỏ đúng phần lặp lại tốn sức nhất mỗi ngày.</p>
+        <p class="section__sub">Không phải tự động hóa 100% như lý thuyết. Là loại bỏ đúng phần lặp lại tốn sức nhất mỗi ngày.</p>
       </div>
 
       <div class="outcome__grid">
@@ -805,30 +736,6 @@
           <div class="outcome__card-icon">📊</div>
           <h3>Danh sách luôn cập nhật</h3>
           <p>Bạn biết ai đã mua, ai đã nhận tài liệu - mà không phải tự ghi tay hay nhớ vào kiểm tra.</p>
-        </div>
-      </div>
-
-      <!-- Flow Demo (từ v1) -->
-      <div style="margin-top:48px;text-align:center">
-        <span style="display:block;font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin-bottom:16px">Luồng chạy thực tế trông như thế này</span>
-        <div style="position:relative;max-width:520px;margin:0 auto">
-          <div style="position:absolute;inset:0;background:linear-gradient(to top right,#6366F1,#3B82F6);border-radius:16px;filter:blur(40px);opacity:.18"></div>
-          <div style="position:relative;background:#1E293B;border:1px solid #334155;padding:32px;border-radius:16px;box-shadow:0 25px 50px -12px rgba(0,0,0,.4);text-align:left">
-            <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px;border-bottom:1px solid #334155;padding-bottom:16px">
-              <div style="width:12px;height:12px;border-radius:50%;background:#EF4444;flex-shrink:0"></div>
-              <div style="width:12px;height:12px;border-radius:50%;background:#EAB308;flex-shrink:0"></div>
-              <div style="width:12px;height:12px;border-radius:50%;background:#22C55E;flex-shrink:0"></div>
-              <span style="font-size:12px;color:#94A3B8;font-family:'Courier New',monospace;margin-left:8px">Luong_Ban_Hang.n8n</span>
-            </div>
-            <div style="display:flex;flex-direction:column;gap:16px;font-family:'Courier New',monospace;font-size:14px">
-              <div style="background:rgba(51,65,85,.5);padding:12px;border-radius:4px;color:#4ADE80"><i class="fa-solid fa-qrcode" style="margin-right:8px"></i> Nhận 500k từ Nguyễn Văn A</div>
-              <div style="padding-left:16px;border-left:2px solid #475569;margin-left:8px;display:flex;flex-direction:column;gap:16px">
-                <div style="background:rgba(51,65,85,.5);padding:12px;border-radius:4px;color:#93C5FD"><i class="fa-solid fa-robot" style="margin-right:8px"></i> Xác thực mã KH: WSP-012 (Thành công)</div>
-                <div style="background:rgba(51,65,85,.5);padding:12px;border-radius:4px;color:#C4B5FD"><i class="fa-solid fa-envelope" style="margin-right:8px"></i> Đã gửi Email chứa link Ebook &amp; Zoom</div>
-                <div style="background:rgba(51,65,85,.5);padding:12px;border-radius:4px;color:#FDE047"><i class="fa-brands fa-telegram" style="margin-right:8px"></i> Thông báo Creator: Đơn hàng mới hoàn tất!</div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -1031,6 +938,7 @@
             <li>3 điểm nghẽn lớn nhất được chỉ ra rõ</li>
             <li>Lộ trình ưu tiên: bước nào tự động trước, bước nào chưa cần</li>
           </ul>
+          <!-- REPLACE: your actual booking/contact link -->
           <a href="#contact" class="btn-secondary">Đăng ký Flow Audit</a>
         </div>
 
@@ -1041,6 +949,7 @@
           <h3>Auto Delivery Sprint</h3>
           <p>Dọn gọn luồng thanh toán và gửi tài liệu cho 1 dự án, đồng hành triển khai trong 7–14 ngày.</p>
           <div class="pricing__price">
+            <!-- REPLACE: update these prices when needed -->
             <span class="launch">5.900.000đ</span>
             <span class="original">7.900.000đ</span>
             <span class="period">Giá ưu đãi ra mắt · 1 dự án</span>
@@ -1051,6 +960,7 @@
             <li>7 ngày hỗ trợ sau triển khai</li>
             <li>Video hướng dẫn bàn giao để tự vận hành</li>
           </ul>
+          <!-- REPLACE: your actual booking/contact link -->
           <a href="#contact" class="btn-primary">Đăng ký giữ suất</a>
           <p class="pricing__limit">Chỉ 2 suất mỗi đợt</p>
         </div>
@@ -1061,6 +971,7 @@
           <h3>Scale Workshop Flow</h3>
           <p>Dành cho creator đang chuẩn bị mở rộng workshop - thêm theo dõi học viên, nhắc thông tin trước buổi học và rà lỗi khi số lượng tăng.</p>
           <div class="pricing__price">
+            <!-- REPLACE: update pricing when ready -->
             <span class="launch">7.900.000đ</span>
             <span class="original">10.900.000đ</span>
             <span class="period">Giá ưu đãi ra mắt · Chỉ mở khi phù hợp</span>
@@ -1082,18 +993,9 @@
         <div class="lead-magnet__body">
           <h3>Biết quy trình mình rối, nhưng chưa rõ nên sửa từ đâu?</h3>
           <p>Flow Audit là buổi 90 phút để rà lại toàn bộ luồng hiện tại của bạn, chỉ ra <strong>3 điểm nghẽn lớn nhất</strong> và đưa ra lộ trình ưu tiên rõ ràng - bước nào nên tự động trước, bước nào chưa cần đụng vào.</p>
+          <!-- REPLACE: your actual booking/contact link -->
           <a href="#contact" class="lead-magnet__cta">Đăng ký Flow Audit · 1.800.000đ</a>
         </div>
-      </div>
-
-      <!-- Infrastructure Pricing Link -->
-      <div class="infra-link">
-        <div class="infra-link__icon">🖥️</div>
-        <div class="infra-link__body">
-          <strong>Cần báo giá hạ tầng (VPS, SePay API)?</strong>
-          <p>Xem bảng báo giá chi tiết cho VPS, API SePay và các dịch vụ hạ tầng cần thiết để chạy hệ thống.</p>
-        </div>
-        <a href="bao-gia.html" class="infra-link__btn">Xem báo giá hạ tầng →</a>
       </div>
     </div>
   </section>
@@ -1170,28 +1072,27 @@
     <div class="container">
       <span class="tag">Sẵn sàng bắt đầu</span>
       <h2>Bạn đã bán đều.<br/>Đừng để khâu vận hành ngốn sức thêm.</h2>
-      <p>2 suất đang mở cho đợt này.<br/>Nhắn tin để chốt suất và trao đổi nhanh về dự án của bạn.</p>
+      <p>2 suất đang mở cho đợt này. Điền biểu mẫu hoặc nhắn tin để chốt suất và trao đổi nhanh về dự án của bạn.</p>
 
-      <a href="https://www.facebook.com/tuankiet1708" target="_blank" rel="noopener" class="btn-white">Nhắn tin Facebook để giữ suất</a>
-      <p class="final-cta__note">Hoặc Zalo: <a href="https://zalo.me/0916758967" target="_blank" style="color:inherit;opacity:.85;">0916.758.967</a> · Kiệt phản hồi trong 24 giờ · Chỉ 2 suất mỗi đợt</p>
+      <!-- REPLACE this link with your actual Messenger / Google Form / Calendly / Typeform link -->
+      <a href="https://www.facebook.com/tuankiet1708" target="_blank" rel="noopener" class="btn-white">Nhắn tin hoặc điền biểu mẫu để giữ suất</a>
+      <p class="final-cta__note">Kiệt sẽ phản hồi trong 24 giờ · Chỉ 2 suất mỗi đợt</p>
     </div>
   </section>
 
   <!-- ──────────────── FOOTER ──────────────── -->
   <footer class="footer">
     <div class="container footer__inner">
-      <span class="footer__brand">Kiệt Trần · Creator Delivery Flow</span>
-      <ul class="footer__links">
-        <li><a href="https://www.facebook.com/tuankiet1708" target="_blank">Facebook</a></li>
-        <li><a href="https://zalo.me/0916758967" target="_blank">Zalo: 0916.758.967</a></li>
-        <li><a href="bao-gia.html">Báo giá hạ tầng</a></li>
-      </ul>
-      <span class="footer__note">&copy; 2026 Kiệt Trần. Gói đồng hành triển khai cho creator.</span>
+      <!-- REPLACE: your name or brand name -->
+      <span class="footer__brand">Creator Delivery Flow · Kiet Tran</span>
+      <!-- REPLACE: your contact info if desired -->
+      <span class="footer__note">Gói đồng hành triển khai cho creator bán ebook & workshop</span>
     </div>
   </footer>
 
   <!-- ──────────────── STICKY CTA (mobile) ──────────────── -->
   <div class="sticky-cta">
+    <!-- REPLACE href with your actual contact link -->
     <a href="#contact" class="btn-primary">Giữ suất ngay · 5.900.000đ</a>
   </div>
 
