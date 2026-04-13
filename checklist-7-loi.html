@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Checklist 7 Lỗi Rò Rỉ Luồng Giao Hàng | Creator tự kiểm tra</title>
+  <meta name="description" content="Tự rà 7 lỗi khiến luồng giao hàng số của bạn đang rò rỉ thời gian, năng lượng và doanh thu." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Literata:opsz,wght@7..72,600;7..72,700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f8f7f4;
+      --bg-soft: #ffffff;
+      --ink: #162022;
+      --muted: #526063;
+      --line: #dbe0df;
+      --brand: #0f766e;
+      --brand-dark: #0c5f59;
+      --brand-soft: #ddf2ee;
+      --sand: #f1ebdc;
+      --danger: #dc4a2d;
+      --danger-soft: #fff2ec;
+      --danger-ink: #8a3d2d;
+      --warn-soft: #fffbea;
+      --warn-ink: #7a5a00;
+      --success-soft: #f0fdf4;
+      --success-ink: #166534;
+      --max: 760px;
+      --radius: 18px;
+      --radius-sm: 12px;
+      --shadow: 0 10px 28px rgba(17, 31, 33, 0.08);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Be Vietnam Pro', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--ink);
+      color: #fff;
+      padding: clamp(48px, 8vw, 88px) 24px clamp(40px, 7vw, 72px);
+      text-align: center;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      background: var(--brand);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 99px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-family: 'Literata', Georgia, serif;
+      font-size: clamp(26px, 5vw, 44px);
+      font-weight: 700;
+      line-height: 1.2;
+      max-width: 600px;
+      margin: 0 auto 20px;
+    }
+
+    .hero h1 span { color: #f97316; }
+
+    .hero-sub {
+      font-size: clamp(15px, 2.2vw, 17px);
+      color: rgba(255,255,255,.72);
+      max-width: 520px;
+      margin: 0 auto 28px;
+    }
+
+    .hero-products {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: 0;
+    }
+
+    .pill {
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.18);
+      color: rgba(255,255,255,.85);
+      font-size: 13px;
+      padding: 5px 14px;
+      border-radius: 99px;
+    }
+
+    /* ── MAIN CONTENT ── */
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ── PROGRESS BAR ── */
+    .progress-bar-wrap {
+      background: var(--bg-soft);
+      border-bottom: 1px solid var(--line);
+      padding: 16px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,.06);
+    }
+
+    .progress-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .progress-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .progress-track {
+      flex: 1;
+      height: 8px;
+      background: var(--line);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--brand);
+      border-radius: 99px;
+      width: 0%;
+      transition: width .4s ease;
+    }
+
+    .progress-count {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--brand);
+      white-space: nowrap;
+      min-width: 40px;
+      text-align: right;
+    }
+
+    /* ── CHECKLIST SECTION ── */
+    .checklist-section {
+      padding: clamp(36px, 6vw, 64px) 0 clamp(48px, 8vw, 88px);
+    }
+
+    .section-intro {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .section-intro p {
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .section-intro strong { color: var(--ink); }
+
+    /* ── ERROR CARD ── */
+    .error-card {
+      background: var(--bg-soft);
+      border: 2px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+      margin-bottom: 16px;
+      cursor: pointer;
+      transition: border-color .2s, box-shadow .2s, background .2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .error-card:hover {
+      border-color: #aacac6;
+      box-shadow: var(--shadow);
+    }
+
+    .error-card.checked {
+      border-color: var(--danger);
+      background: var(--danger-soft);
+    }
+
+    .error-card.checked .card-header-number {
+      background: var(--danger);
+      color: #fff;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .card-header-number {
+      width: 38px;
+      height: 38px;
+      min-width: 38px;
+      background: var(--sand);
+      color: var(--ink);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 800;
+      transition: background .2s, color .2s;
+    }
+
+    .card-header-text { flex: 1; }
+
+    .card-title {
+      font-size: clamp(15px, 2.2vw, 17px);
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 4px;
+    }
+
+    .card-subtitle {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .error-card.checked .card-subtitle { color: var(--danger-ink); }
+
+    .card-checkbox {
+      width: 26px;
+      height: 26px;
+      min-width: 26px;
+      border: 2px solid var(--line);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all .2s;
+      margin-top: 6px;
+    }
+
+    .error-card.checked .card-checkbox {
+      background: var(--danger);
+      border-color: var(--danger);
+    }
+
+    .card-checkbox svg {
+      opacity: 0;
+      transform: scale(.6);
+      transition: opacity .2s, transform .2s;
+    }
+
+    .error-card.checked .card-checkbox svg {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Expandable details */
+    .card-details {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .35s ease, opacity .25s ease;
+      opacity: 0;
+    }
+
+    .error-card.open .card-details,
+    .error-card.checked .card-details {
+      max-height: 600px;
+      opacity: 1;
+    }
+
+    .card-details-inner {
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media (max-width: 560px) {
+      .card-details-inner { grid-template-columns: 1fr; }
+    }
+
+    .detail-block h4 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .detail-block ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .detail-block ul li {
+      font-size: 14px;
+      color: var(--ink);
+      display: flex;
+      gap: 8px;
+      line-height: 1.45;
+    }
+
+    .detail-block ul li::before {
+      content: '•';
+      color: var(--muted);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .error-card.checked .detail-block ul li::before { color: var(--danger); }
+
+    .card-self-check {
+      grid-column: 1 / -1;
+      background: var(--brand-soft);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      font-size: 14px;
+      color: var(--brand-dark);
+      line-height: 1.5;
+    }
+
+    .error-card.checked .card-self-check {
+      background: #fde8e2;
+      color: var(--danger-ink);
+    }
+
+    .card-toggle-hint {
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    /* ── RESULT SECTION ── */
+    .result-section {
+      padding: clamp(40px, 7vw, 80px) 0;
+    }
+
+    .result-box {
+      border-radius: var(--radius);
+      padding: clamp(32px, 5vw, 52px) clamp(24px, 4vw, 48px);
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: all .4s ease;
+    }
+
+    .result-score-circle {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin: 0 auto 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .result-score-number {
+      font-size: 36px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .result-score-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .result-badge {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 5px 16px;
+      border-radius: 99px;
+      margin-bottom: 16px;
+    }
+
+    .result-title {
+      font-family: 'Literata', Georgia, serif;
+      font-size: clamp(22px, 4vw, 32px);
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 14px;
+    }
+
+    .result-body {
+      font-size: 16px;
+      max-width: 500px;
+      margin: 0 auto 28px;
+      line-height: 1.65;
+    }
+
+    /* Result states */
+    .result-box.level-0 {
+      background: var(--success-soft);
+      border: 2px solid #bbf7d0;
+    }
+    .result-box.level-0 .result-score-circle { background: #dcfce7; }
+    .result-box.level-0 .result-score-number { color: #166534; }
+    .result-box.level-0 .result-score-label { color: #166534; }
+    .result-box.level-0 .result-badge { background: #bbf7d0; color: #166534; }
+    .result-box.level-0 .result-title { color: #166534; }
+    .result-box.level-0 .result-body { color: #15803d; }
+
+    .result-box.level-1 {
+      background: var(--warn-soft);
+      border: 2px solid #fde68a;
+    }
+    .result-box.level-1 .result-score-circle { background: #fef9c3; }
+    .result-box.level-1 .result-score-number { color: #854d0e; }
+    .result-box.level-1 .result-score-label { color: #854d0e; }
+    .result-box.level-1 .result-badge { background: #fde68a; color: #854d0e; }
+    .result-box.level-1 .result-title { color: #78350f; }
+    .result-box.level-1 .result-body { color: #92400e; }
+
+    .result-box.level-2 {
+      background: #fff7ed;
+      border: 2px solid #fdba74;
+    }
+    .result-box.level-2 .result-score-circle { background: #ffedd5; }
+    .result-box.level-2 .result-score-number { color: #9a3412; }
+    .result-box.level-2 .result-score-label { color: #9a3412; }
+    .result-box.level-2 .result-badge { background: #fdba74; color: #7c2d12; }
+    .result-box.level-2 .result-title { color: #7c2d12; }
+    .result-box.level-2 .result-body { color: #9a3412; }
+
+    .result-box.level-3 {
+      background: var(--danger-soft);
+      border: 2px solid #fca5a5;
+    }
+    .result-box.level-3 .result-score-circle { background: #fee2e2; }
+    .result-box.level-3 .result-score-number { color: #991b1b; }
+    .result-box.level-3 .result-score-label { color: #991b1b; }
+    .result-box.level-3 .result-badge { background: #fca5a5; color: #7f1d1d; }
+    .result-box.level-3 .result-title { color: #7f1d1d; }
+    .result-box.level-3 .result-body { color: #991b1b; }
+
+    .result-box.empty {
+      background: var(--bg-soft);
+      border: 2px dashed var(--line);
+    }
+    .result-box.empty .result-score-circle { background: var(--sand); }
+    .result-box.empty .result-score-number { color: var(--muted); }
+    .result-box.empty .result-score-label { color: var(--muted); }
+    .result-box.empty .result-badge { background: var(--line); color: var(--muted); }
+    .result-box.empty .result-title { color: var(--ink); }
+    .result-box.empty .result-body { color: var(--muted); }
+
+    /* ── CHECKED LIST ── */
+    .checked-list {
+      margin-top: 24px;
+      text-align: left;
+    }
+
+    .checked-list-title {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      opacity: .7;
+    }
+
+    .checked-list-items {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .checked-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      padding: 10px 14px;
+      background: rgba(0,0,0,.05);
+      border-radius: var(--radius-sm);
+      line-height: 1.4;
+    }
+
+    .checked-item-dot {
+      width: 8px;
+      height: 8px;
+      min-width: 8px;
+      border-radius: 50%;
+      background: currentColor;
+      opacity: .6;
+    }
+
+    /* ── CTA BLOCK ── */
+    .cta-block {
+      margin-top: 32px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(0,0,0,.08);
+    }
+
+    .cta-block p {
+      font-size: 15px;
+      margin-bottom: 18px;
+      line-height: 1.6;
+      opacity: .85;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--brand);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: 99px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background .2s, transform .15s;
+    }
+
+    .btn-primary:hover {
+      background: var(--brand-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      background: transparent;
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 11px 24px;
+      border-radius: 99px;
+      border: 2px solid var(--line);
+      cursor: pointer;
+      transition: all .2s;
+      margin-left: 12px;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--muted);
+    }
+
+    /* ── CONCLUSION SECTION ── */
+    .conclusion {
+      background: var(--ink);
+      color: #fff;
+      padding: clamp(48px, 8vw, 88px) 24px;
+      text-align: center;
+    }
+
+    .conclusion h2 {
+      font-family: 'Literata', Georgia, serif;
+      font-size: clamp(22px, 4vw, 34px);
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 20px;
+    }
+
+    .conclusion h2 span { color: #f97316; }
+
+    .conclusion p {
+      font-size: 16px;
+      color: rgba(255,255,255,.72);
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .conclusion-leaks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 28px;
+      margin-bottom: 36px;
+    }
+
+    .leak-tag {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.15);
+      color: rgba(255,255,255,.8);
+      font-size: 14px;
+      padding: 8px 18px;
+      border-radius: 99px;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes bounce-in {
+      0% { transform: scale(.8); opacity: 0; }
+      60% { transform: scale(1.06); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .result-box.animate .result-score-circle {
+      animation: bounce-in .45s ease both;
+    }
+
+    /* ── SHARE ROW ── */
+    .share-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+
+    .share-label {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 99px;
+      border: 1.5px solid var(--line);
+      background: transparent;
+      color: var(--ink);
+      cursor: pointer;
+      transition: all .2s;
+    }
+
+    .share-btn:hover {
+      border-color: var(--brand);
+      color: var(--brand);
+    }
+
+    /* ── RESET BTN ── */
+    .reset-row {
+      text-align: center;
+      margin-top: 32px;
+    }
+
+    .reset-btn {
+      font-size: 13px;
+      color: var(--muted);
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .reset-btn:hover { color: var(--ink); }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="hero-eyebrow">Self-audit · Creator Checklist</span>
+  <h1>Checklist <span>7 Lỗi</span> Khiến Luồng Giao Hàng Của Bạn Đang Bị Rò Rỉ</h1>
+  <p class="hero-sub">Nếu bạn đang bán sản phẩm số, hãy tự rà 7 lỗi dưới đây. Chỉ cần dính 2–3 lỗi, business của bạn đang mất thứ bạn chưa nhìn ra.</p>
+  <div class="hero-products">
+    <span class="pill">Ebook</span>
+    <span class="pill">Mini course</span>
+    <span class="pill">Workshop record</span>
+    <span class="pill">Template</span>
+    <span class="pill">Tài liệu số</span>
+    <span class="pill">Sản phẩm giá thấp–trung</span>
+  </div>
+</section>
+
+<!-- PROGRESS BAR -->
+<div class="progress-bar-wrap">
+  <div class="progress-inner">
+    <span class="progress-label">Đã dính</span>
+    <div class="progress-track">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+    <span class="progress-count" id="progressCount">0 / 7</span>
+  </div>
+</div>
+
+<!-- CHECKLIST -->
+<section class="checklist-section">
+  <div class="container">
+    <div class="section-intro">
+      <p>Bấm vào lỗi nào bạn đang <strong>mắc phải</strong> để đánh dấu. Cuối trang sẽ hiện kết quả và gợi ý tiếp theo.</p>
+    </div>
+
+    <!-- Card 1 -->
+    <div class="error-card" data-index="0" onclick="toggleCard(this)">
+      <div class="card-header">
+        <div class="card-header-number">1</div>
+        <div class="card-header-text">
+          <div class="card-title">Đơn về rồi nhưng vẫn phải kiểm tra chuyển khoản bằng tay</div>
+          <div class="card-subtitle">Xác nhận thanh toán thủ công · 30–60 phút/ngày</div>
+        </div>
+        <div class="card-checkbox">
+          <svg width="14" height="11" viewBox="0 0 14 11" fill="none">
+            <path d="M1 5.5L5.5 10L13 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+      <div class="card-details">
+        <div class="card-details-inner">
+          <div class="detail-block">
+            <h4>Dấu hiệu</h4>
+            <ul>
+              <li>Phải mở app ngân hàng nhiều lần mỗi ngày</li>
+              <li>Dò nội dung chuyển khoản để biết ai đã trả</li>
+              <li>Có lúc khách chuyển rồi nhưng bạn chưa nhận ra</li>
+              <li>Sợ sót bill nếu bận hoặc offline</li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <h4>Hệ quả</h4>
+            <ul>
+              <li>Mất 30–60 phút/ngày cho việc lặp lại</li>
+              <li>Khách chờ lâu, trải nghiệm giảm</li>
+              <li>Không dám để đơn chạy tự nhiên khi offline</li>
+            </ul>
+          </div>
+          <div class="card-self-check">
+            ✅ Nếu mỗi khi có đơn, bạn vẫn phải tự kiểm tra tiền vào thủ công → bạn đang rò rỉ ở bước xác nhận thanh toán
+          </div>
+        </div>
+      </div>
+      <div class="card-toggle-hint">Bấm để xem chi tiết</div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="error-card" data-index="1" onclick="toggleCard(this)">
+      <div class="card-header">
+        <div class="card-header-number">2</div>
+        <div class="card-header-text">
+          <div class="card-title">Khách thanh toán xong nhưng link/tài liệu vẫn gửi thủ công</div>
+          <div class="card-subtitle">Giao hàng không tự động · Dễ gửi nhầm, gửi thiếu</div>
+        </div>
+        <div class="card-checkbox">
+          <svg width="14" height="11" viewBox="0 0 14 11" fill="none">
+            <path d="M1 5.5L5.5 10L13 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+      <div class="card-details">
+        <div class="card-details-inner">
+          <div class="detail-block">
+            <h4>Dấu hiệu</h4>
+            <ul>
+              <li>Copy link rồi gửi từng người qua inbox hoặc email</li>
+              <li>Mỗi sản phẩm lại phải nhớ gửi đúng file, đúng link</li>
+              <li>Có lúc gửi thiếu, gửi nhầm, gửi chậm</li>
+              <li>Khi có nhiều đơn cùng lúc, bắt đầu rối</li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <h4>Hệ quả</h4>
+            <ul>
+              <li>Giao hàng không nhất quán</li>
+              <li>Tăng nguy cơ sai sót</li>
+              <li>Càng có nhiều đơn, càng mệt hơn</li>
+            </ul>
+          </div>
+          <div class="card-self-check">
+            ✅ Nếu khách đã trả tiền nhưng vẫn cần bạn bấm "gửi tay" mới nhận hàng → luồng giao hàng chưa thật sự chạy
+          </div>
+        </div>
+      </div>
+      <div class="card-toggle-hint">Bấm để xem chi tiết</div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="error-card" data-index="2" onclick="toggleCard(this)">
+      <div class="card-header">
+        <div class="card-header-number">3</div>
+        <div class="card-header-text">
+          <div class="card-title">Mọi thứ chỉ chạy khi chính bạn đang online</div>
+          <div class="card-subtitle">Business phụ thuộc vào người · Không có cảm giác "đang vận hành"</div>
+        </div>
+        <div class="card-checkbox">
+          <svg width="14" height="11" viewBox="0 0 14 11" fill="none">
+            <path d="M1 5.5L5.5 10L13 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+      <div class="card-details">
+        <div class="card-details-inner">
+          <div class="detail-block">
+            <h4>Dấu hiệu</h4>
+            <ul>
+              <li>Đi ra ngoài là sợ có đơn</li>
+              <li>Ngủ là sợ khách không được xử lý</li>
+              <li>Không dám đăng bài tối vì ngại phát sinh việc</li>
+              <li>Business phụ thuộc vào việc bạn có mặt</li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <h4>Hệ quả</h4>
+            <ul>
+              <li>Bị trói vào điện thoại 24/7</li>
+              <li>Chỉ có cảm giác "đang trực", không phải "đang vận hành"</li>
+              <li>Tăng trưởng bị chặn bởi thời gian và sức người</li>
+            </ul>
+          </div>
+          <div class="card-self-check">
+            ✅ Nếu bạn offline 2–3 tiếng là lo đơn bị đứng → business đang phụ thuộc vào người, chưa phụ thuộc vào hệ thống
+          </div>
+        </div>
+      </div>
+      <div class="card-toggle-hint">Bấm để xem chi tiết</div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="error-card" data-index="3" onclick="toggleCard(this)">
+      <div class="card-header">
+        <div class="card-header-number">4</div>
+        <div class="card-header-text">
+          <div class="card-title">Không có bước xác nhận rõ ràng sau khi giao hàng</div>
+          <div class="card-subtitle">Trải nghiệm bị đứt đoạn · Tăng inbox hỗ trợ lặp lại</div>
+        </div>
+        <div class="card-checkbox">
+          <svg width="14" height="11" viewBox="0 0 14 11" fill="none">
+            <path d="M1 5.5L5.5 10L13 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+      <div class="card-details">
+        <div class="card-details-inner">
+          <div class="detail-block">
+            <h4>Dấu hiệu</h4>
+            <ul>
+              <li>Khách nhận được rồi nhưng bạn không biết</li>
+              <li>Khách không thấy email/link nhưng bạn cũng không phát hiện</li>
+              <li>Không có tin nhắn "bạn đã nhận thành công"</li>
+              <li>Khi khách báo chưa thấy, phải kiểm tra lại từ đầu</li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <h4>Hệ quả</h4>
+            <ul>
+              <li>Trải nghiệm khách hàng bị đứt đoạn</li>
+              <li>Tăng inbox hỗ trợ lặp lại</li>
+              <li>Mất thời gian xử lý lỗi nhỏ nhưng tốn năng lượng</li>
+            </ul>
+          </div>
+          <div class="card-self-check">
+            ✅ Nếu sau khi gửi hàng xong, bạn không có cách nào biết khách đã nhận hay chưa → đang rò rỉ ở bước hậu giao hàng
+          </div>
+        </div>
+      </div>
+      <div class="card-toggle-hint">Bấm để xem chi tiết</div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="error-card" data-index="4" onclick="toggleCard(this)">
+      <div class="card-header">
+        <div class="card-header-number">5</div>
+        <div class="card-header-text">
+          <div class="card-title">Thông tin khách nằm rải rác ở nhiều nơi</div>
+          <div class="card-subtitle">Dữ liệu phân mảnh · Mở 3–4 app để ghép thông tin</div>
+        </div>
+        <div class="card-checkbox">
+          <svg width="14" height="11" viewBox="0 0 14 11" fill="none">
+            <path d="M1 5.5L5.5 10L13 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+      <div class="card-details">
+        <div class="card-details-inner">
+          <div class="detail-block">
+            <h4>Dấu hiệu</h4>
+            <ul>
+              <li>Người ở form, người ở inbox, người chuyển khoản trước nhắn tin sau</li>
+              <li>Phải mở 3–4 app để ghép thông tin lại</li>
+              <li>Khó kiểm tra khi có vấn đề phát sinh</li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <h4>Hệ quả</h4>
+            <ul>
+              <li>Dễ nhầm tên, nhầm đơn, nhầm sản phẩm</li>
+              <li>Khó kiểm tra khi có vấn đề</li>
+              <li>Mất nhiều thời gian chỉ để nối dữ liệu</li>
+            </ul>
+          </div>
+          <div class="card-self-check">
+            ✅ Nếu bạn cần mở nhiều tab mới biết một khách đã mua gì và đã nhận gì chưa → dữ liệu đang phân mảnh
+          </div>
+        </div>
+      </div>
+      <div class="card-toggle-hint">Bấm để xem chi tiết</div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="error-card" data-index="5" onclick="toggleCard(this)">
+      <div class="card-header">
+        <div class="card-header-number">6</div>
+        <div class="card-header-text">
+          <div class="card-title">Không có kịch bản xử lý khi phát sinh lỗi</div>
+          <div class="card-subtitle">Workflow chưa có vùng đệm an toàn · Ngại scale</div>
+        </div>
+        <div class="card-checkbox">
+          <svg width="14" height="11" viewBox="0 0 14 11" fill="none">
+            <path d="M1 5.5L5.5 10L13 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+      <div class="card-details">
+        <div class="card-details-inner">
+          <div class="detail-block">
+            <h4>Dấu hiệu</h4>
+            <ul>
+              <li>Chuyển khoản sai nội dung là đứng hình</li>
+              <li>Khách nhập sai email là phải xử lý tay</li>
+              <li>Link lỗi hoặc gửi thiếu → mỗi lần xử lý kiểu khác nhau</li>
+              <li>Không có checklist lỗi nào xử lý ra sao</li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <h4>Hệ quả</h4>
+            <ul>
+              <li>Mỗi lỗi nhỏ đều làm mất đà</li>
+              <li>Càng nhiều khách, càng dễ quá tải</li>
+              <li>Ngại scale vì sợ "nếu có lỗi thì sao"</li>
+            </ul>
+          </div>
+          <div class="card-self-check">
+            ✅ Nếu chỉ cần một tình huống lệch chuẩn là phải nhảy vào xử lý từ đầu → workflow chưa có vùng đệm an toàn
+          </div>
+        </div>
+      </div>
+      <div class="card-toggle-hint">Bấm để xem chi tiết</div>
+    </div>
+
+    <!-- Card 7 -->
+    <div class="error-card" data-index="6" onclick="toggleCard(this)">
+      <div class="card-header">
+        <div class="card-header-number">7</div>
+        <div class="card-header-text">
+          <div class="card-title">Bạn chưa đo được mình đang mất bao nhiêu vì làm tay</div>
+          <div class="card-subtitle">Chi phí cơ hội vô hình · Tiếp tục trì hoãn vì tưởng vẫn ổn</div>
+        </div>
+        <div class="card-checkbox">
+          <svg width="14" height="11" viewBox="0 0 14 11" fill="none">
+            <path d="M1 5.5L5.5 10L13 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+      <div class="card-details">
+        <div class="card-details-inner">
+          <div class="detail-block">
+            <h4>Dấu hiệu</h4>
+            <ul>
+              <li>Biết mình mệt nhưng không biết mệt ở đâu</li>
+              <li>Thấy nhiều việc lặp lại nhưng chưa từng đo thời gian</li>
+              <li>Nghĩ "chưa cần hệ thống đâu, đơn chưa nhiều"</li>
+              <li>Chỉ nhìn chi phí tool, không nhìn chi phí cơ hội</li>
+            </ul>
+          </div>
+          <div class="detail-block">
+            <h4>Hệ quả</h4>
+            <ul>
+              <li>Bài viết không dám đăng</li>
+              <li>Traffic không dám đẩy</li>
+              <li>Đơn hàng không dám nhận thêm</li>
+              <li>Thời gian nghỉ ngơi bị ăn mòn mỗi ngày</li>
+            </ul>
+          </div>
+          <div class="card-self-check">
+            ✅ Nếu bạn chưa từng tính mình mất bao nhiêu giờ/tuần cho các việc lặp lại → đang trả giá mà không có số liệu để thấy
+          </div>
+        </div>
+      </div>
+      <div class="card-toggle-hint">Bấm để xem chi tiết</div>
+    </div>
+
+    <!-- RESET -->
+    <div class="reset-row">
+      <button class="reset-btn" onclick="resetAll()">Làm lại từ đầu</button>
+    </div>
+  </div>
+</section>
+
+<!-- RESULT -->
+<section class="result-section">
+  <div class="container">
+    <div class="result-box empty animate" id="resultBox">
+      <div class="result-score-circle" id="resultCircle">
+        <span class="result-score-number" id="resultNumber">0</span>
+        <span class="result-score-label">lỗi</span>
+      </div>
+      <span class="result-badge" id="resultBadge">Chưa có lỗi nào</span>
+      <h2 class="result-title" id="resultTitle">Bắt đầu đánh dấu các lỗi bạn đang gặp</h2>
+      <p class="result-body" id="resultBody">Bấm vào từng lỗi ở phía trên để đánh dấu những gì bạn đang gặp phải. Kết quả và nhận xét sẽ hiện ở đây.</p>
+
+      <div class="checked-list" id="checkedList" style="display:none">
+        <div class="checked-list-title">Các lỗi bạn đang dính</div>
+        <div class="checked-list-items" id="checkedListItems"></div>
+      </div>
+
+      <div class="cta-block" id="ctaBlock" style="display:none">
+        <p id="ctaText"></p>
+        <button class="btn-primary" onclick="scrollToTop()">Xem lại từng lỗi</button>
+        <button class="btn-secondary" onclick="resetAll()">Làm lại</button>
+      </div>
+    </div>
+
+    <div class="share-row" id="shareRow" style="display:none">
+      <span class="share-label">Chia sẻ kết quả:</span>
+      <button class="share-btn" onclick="copyResult()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copy kết quả
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- CONCLUSION -->
+<section class="conclusion">
+  <div class="container">
+    <h2>Bạn không cần đợi thật nhiều đơn<br>rồi mới làm <span>hệ thống.</span></h2>
+    <p>Bạn cần một luồng đủ chắc để dám đón nhiều đơn hơn.</p>
+    <div class="conclusion-leaks">
+      <span class="leak-tag">⏱ Thời gian bị chia nhỏ</span>
+      <span class="leak-tag">⚡ Năng lượng bị bào mòn</span>
+      <span class="leak-tag">💬 Trải nghiệm không ổn định</span>
+      <span class="leak-tag">📈 Cơ hội bạn tự bỏ qua</span>
+    </div>
+    <p>Rò rỉ lớn nhất không nằm ở tiền tool — mà nằm ở những thứ rất khó đo bằng tiền.</p>
+  </div>
+</section>
+
+<script>
+  const ERROR_TITLES = [
+    'Kiểm tra chuyển khoản bằng tay',
+    'Gửi link/tài liệu thủ công',
+    'Chỉ chạy khi bạn online',
+    'Không có xác nhận sau giao hàng',
+    'Thông tin khách rải rác nhiều nơi',
+    'Không có kịch bản xử lý lỗi',
+    'Chưa đo được chi phí làm tay',
+  ];
+
+  const RESULTS = [
+    {
+      level: 'empty',
+      badge: '✨ Chưa có lỗi',
+      title: 'Bắt đầu đánh dấu các lỗi bạn đang gặp',
+      body: 'Bấm vào từng lỗi ở phía trên để đánh dấu. Kết quả sẽ hiện ở đây.',
+      cta: '',
+    },
+    {
+      level: 'level-0',
+      badge: '✨ 0–1 lỗi · Khá ổn',
+      title: 'Luồng giao hàng của bạn đang khá ổn',
+      body: 'Bạn chỉ cần tối ưu thêm một vài chỗ để mượt hơn. Hầu hết creator mới bắt đầu không đạt được mức này — bạn đang đi đúng hướng.',
+      cta: 'Tối ưu thêm để luồng chạy mượt hoàn toàn, bạn sẽ thoải mái đẩy traffic và nhận thêm đơn mà không cần lo.',
+    },
+    {
+      level: 'level-1',
+      badge: '⚠️ 2–3 lỗi · Đang rò rỉ',
+      title: 'Workflow đã bắt đầu rò rỉ',
+      body: 'Hiện tại bạn vẫn xử lý được, nhưng càng bán nhiều sẽ càng mệt. Đây là giai đoạn dễ trì hoãn nhất — vì chưa đau đủ để sửa.',
+      cta: 'Đây là thời điểm tốt nhất để fix — trước khi scale. Nếu để đến khi có nhiều đơn hơn, bạn sẽ không còn đủ năng lượng để dọn.',
+    },
+    {
+      level: 'level-2',
+      badge: '⚠️ 4–5 lỗi · Cần dọn gọn',
+      title: 'Bạn không thiếu doanh thu tiềm năng',
+      body: 'Bạn đang thiếu một luồng giao hàng đủ chắc để giữ nhịp tăng trưởng. Tăng traffic bây giờ sẽ chỉ làm bạn kiệt sức nhanh hơn.',
+      cta: 'Ưu tiên dọn những lỗi nặng nhất trước: xác nhận thanh toán và giao hàng tự động. Hai bước này giải phóng nhiều thời gian nhất.',
+    },
+    {
+      level: 'level-3',
+      badge: '🚨 6–7 lỗi · Phụ thuộc sức người',
+      title: 'Business của bạn đang phụ thuộc quá nhiều vào sức người',
+      body: 'Nếu không chỉnh sớm, bạn sẽ rất khó scale mà vẫn nhẹ đầu. Mỗi đơn hàng mới đang là gánh nặng, không phải niềm vui.',
+      cta: 'Đây không phải lúc để thêm traffic hay tung sản phẩm mới. Ưu tiên số 1 là dựng luồng giao hàng đủ chắc — rồi mọi thứ mới có thể scale.',
+    },
+  ];
+
+  let checkedState = new Array(7).fill(false);
+
+  function getResultLevel(count) {
+    if (count === 0) return 0;
+    if (count <= 1) return 1;
+    if (count <= 3) return 2;
+    if (count <= 5) return 3;
+    return 4;
+  }
+
+  function toggleCard(card) {
+    const idx = parseInt(card.dataset.index);
+    const isChecked = card.classList.contains('checked');
+
+    if (isChecked) {
+      card.classList.remove('checked');
+      card.classList.add('open');
+      checkedState[idx] = false;
+    } else {
+      card.classList.add('checked');
+      card.classList.remove('open');
+      checkedState[idx] = true;
+    }
+
+    updateProgress();
+    updateResult();
+  }
+
+  function updateProgress() {
+    const count = checkedState.filter(Boolean).length;
+    const pct = (count / 7) * 100;
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressCount').textContent = count + ' / 7';
+  }
+
+  function updateResult() {
+    const count = checkedState.filter(Boolean).length;
+    const levelIdx = getResultLevel(count);
+
+    const box = document.getElementById('resultBox');
+    const circle = document.getElementById('resultCircle');
+    const numEl = document.getElementById('resultNumber');
+    const badgeEl = document.getElementById('resultBadge');
+    const titleEl = document.getElementById('resultTitle');
+    const bodyEl = document.getElementById('resultBody');
+    const checkedListEl = document.getElementById('checkedList');
+    const checkedItemsEl = document.getElementById('checkedListItems');
+    const ctaBlock = document.getElementById('ctaBlock');
+    const ctaText = document.getElementById('ctaText');
+    const shareRow = document.getElementById('shareRow');
+
+    // Remove all level classes
+    box.className = 'result-box';
+
+    const data = count === 0 ? RESULTS[0] : RESULTS[levelIdx];
+    box.classList.add(count === 0 ? 'empty' : `level-${levelIdx - 1}`);
+    box.classList.add('animate');
+
+    // Trigger animation
+    void box.offsetWidth;
+
+    numEl.textContent = count;
+    badgeEl.textContent = data.badge;
+    titleEl.textContent = data.title;
+    bodyEl.textContent = data.body;
+
+    // Checked list
+    const checkedIndices = checkedState.map((v, i) => v ? i : -1).filter(i => i >= 0);
+    if (checkedIndices.length > 0) {
+      checkedListEl.style.display = 'block';
+      checkedItemsEl.innerHTML = checkedIndices.map(i => `
+        <div class="checked-item">
+          <div class="checked-item-dot"></div>
+          <span>Lỗi ${i + 1}: ${ERROR_TITLES[i]}</span>
+        </div>
+      `).join('');
+    } else {
+      checkedListEl.style.display = 'none';
+    }
+
+    // CTA
+    if (count > 0 && data.cta) {
+      ctaBlock.style.display = 'block';
+      ctaText.textContent = data.cta;
+      shareRow.style.display = 'flex';
+    } else {
+      ctaBlock.style.display = 'none';
+      shareRow.style.display = 'none';
+    }
+
+    // Scroll result into view smoothly on first check
+    if (count === 1) {
+      setTimeout(() => {
+        document.querySelector('.result-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 300);
+    }
+  }
+
+  function resetAll() {
+    checkedState = new Array(7).fill(false);
+    document.querySelectorAll('.error-card').forEach(card => {
+      card.classList.remove('checked', 'open');
+    });
+    updateProgress();
+    updateResult();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function scrollToTop() {
+    document.querySelector('.checklist-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function copyResult() {
+    const count = checkedState.filter(Boolean).length;
+    const levelIdx = getResultLevel(count);
+    const data = count === 0 ? RESULTS[0] : RESULTS[levelIdx];
+    const checkedNames = checkedState
+      .map((v, i) => v ? `Lỗi ${i + 1}: ${ERROR_TITLES[i]}` : null)
+      .filter(Boolean);
+
+    let text = `Checklist 7 Lỗi Rò Rỉ Luồng Giao Hàng\n`;
+    text += `Kết quả: ${count}/7 lỗi · ${data.badge}\n`;
+    if (checkedNames.length > 0) {
+      text += `\nCác lỗi đang dính:\n${checkedNames.map(n => `• ${n}`).join('\n')}`;
+    }
+
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.querySelector('.share-btn');
+      const orig = btn.innerHTML;
+      btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Đã copy!`;
+      btn.style.borderColor = 'var(--brand)';
+      btn.style.color = 'var(--brand)';
+      setTimeout(() => {
+        btn.innerHTML = orig;
+        btn.style.borderColor = '';
+        btn.style.color = '';
+      }, 2000);
+    });
+  }
+
+  // Init
+  updateProgress();
+  updateResult();
+</script>
+</body>
+</html>
