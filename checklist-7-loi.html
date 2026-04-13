@@ -692,9 +692,63 @@
     }
 
     .reset-btn:hover { color: var(--ink); }
+
+    /* ── TOP NAV ── */
+    .topnav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(248,247,244,.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    .topnav__inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 52px;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    }
+    .topnav__back {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: .84rem; font-weight: 600;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .topnav__back:hover { color: var(--brand); }
+    .topnav__back svg { flex-shrink: 0; }
+    .topnav__brand {
+      font-size: .84rem; font-weight: 700;
+      color: var(--brand);
+      text-decoration: none;
+    }
+    .topnav__cta {
+      font-size: .8rem; font-weight: 700;
+      color: #fff; background: var(--brand);
+      border-radius: 40px;
+      padding: 7px 18px;
+      text-decoration: none;
+      transition: background .2s;
+      white-space: nowrap;
+    }
+    .topnav__cta:hover { background: var(--brand-dark); }
+    @media (max-width: 480px) {
+      .topnav__cta { display: none; }
+    }
   </style>
 </head>
 <body>
+
+<!-- TOP NAV -->
+<nav class="topnav">
+  <div class="topnav__inner">
+    <a href="/" class="topnav__back">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Trang chủ
+    </a>
+    <a href="/" class="topnav__brand">Creator Delivery Flow</a>
+    <a href="/#contact" class="topnav__cta">Giữ suất</a>
+  </div>
+</nav>
 
 <!-- HERO -->
 <section class="hero">
