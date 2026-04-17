@@ -28,13 +28,13 @@
     />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Barlow:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #4F46E5;
-            --primary-hover: #4338CA;
-            --primary-light: rgba(79, 70, 229, 0.08);
-            --secondary: #6366F1;
+            --primary: #00705a;
+            --primary-hover: #005a47;
+            --primary-light: rgba(0, 112, 90, 0.08);
+            --secondary: #00a37c;
             --success: #10B981;
             --success-light: #D1FAE5;
             --warning: #F59E0B;
@@ -53,8 +53,10 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        h1, h2, h3, h4, h5, h6 { font-family: 'Bricolage Grotesque', sans-serif; }
+
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Barlow', sans-serif;
             background: var(--bg);
             color: var(--text);
             line-height: 1.6;
@@ -194,8 +196,8 @@
             white-space: nowrap;
         }
         .option-btn:hover:not(.active) {
-            border-color: #C7D2FE;
-            background: #EEF2FF;
+            border-color: #a3d5ca;
+            background: #e6f4f1;
             color: var(--primary);
         }
         .option-btn.active {
@@ -226,7 +228,7 @@
             color: #065F46;
         }
         .option-btn.active .badge-tag {
-            background: rgba(79,70,229,0.15);
+            background: rgba(0,112,90,0.15);
             color: var(--primary);
         }
 
@@ -384,7 +386,7 @@
             margin-top: 0.3rem;
         }
         .metric-card.highlight {
-            background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+            background: linear-gradient(135deg, #00705a 0%, #0a9e7a 100%);
             border-color: transparent;
         }
         .metric-card.highlight .mc-label,
@@ -490,11 +492,11 @@
         .total-year1-row { border-top: 2px solid #F59E0B; }
 
         .total-year2-row td {
-            background: #E0E7FF;
+            background: #d0eee8;
             font-weight: 700 !important;
         }
-        .total-year2-row td:first-child { border-left: 4px solid #4338CA !important; }
-        .total-year2-row { border-top: 2px solid #6366F1; }
+        .total-year2-row td:first-child { border-left: 4px solid #005a47 !important; }
+        .total-year2-row { border-top: 2px solid #00a37c; }
 
         .savings-row td {
             background: var(--success-light);
@@ -1191,13 +1193,13 @@
 
         // Year 2+ total
         rows += `
-        <tr class="total-year2-row"${isAnnual ? ' style="border:2px solid #6366F1;"' : ''}>
+        <tr class="total-year2-row"${isAnnual ? ' style="border:2px solid #00a37c;"' : ''}>
             <td>
-                <strong style="color:#3730A3;font-size:1.05rem;">🔄 TỔNG THANH TOÁN TỪ NĂM 2</strong><br>
-                <span style="font-size:0.85em;color:#4F46E5;">(Chỉ gồm gói gia hạn hệ thống SePay + VPS 123Host)</span>
+                <strong style="color:#005a47;font-size:1.05rem;">🔄 TỔNG THANH TOÁN TỪ NĂM 2</strong><br>
+                <span style="font-size:0.85em;color:#00705a;">(Chỉ gồm gói gia hạn hệ thống SePay + VPS 123Host)</span>
             </td>
-            <td><span style="font-size:0.8rem;color:#4F46E5;font-weight:500;">${isAnnual ? 'Trả trước theo năm' : 'Quy đổi hằng năm'}</span></td>
-            <td>${isAnnual ? `<strong style="color:#4338CA;font-size:1.15rem;">${fmt(d.year2Annual)}</strong>` : `<span style="color:#3730A3;opacity:0.8;">${fmt(d.year2Annual)}</span>`}</td>
+            <td><span style="font-size:0.8rem;color:#00705a;font-weight:500;">${isAnnual ? 'Trả trước theo năm' : 'Quy đổi hằng năm'}</span></td>
+            <td>${isAnnual ? `<strong style="color:#005a47;font-size:1.15rem;">${fmt(d.year2Annual)}</strong>` : `<span style="color:#005a47;opacity:0.8;">${fmt(d.year2Annual)}</span>`}</td>
         </tr>`;
 
         // Savings row (only for annual)
