@@ -455,8 +455,9 @@
     .pricing-head h2 { font-size: clamp(24px, 3.2vw, 36px); margin-top: 12px; }
     .pricing-head p { margin-top: 10px; font-size: 15px; }
     .pricing-grid {
-      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px;
+      display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px;
     }
+    .pricing-grid .price { font-size: clamp(28px, 3vw, 42px); }
     .price-card {
       border: 1px solid var(--line); border-radius: var(--radius);
       background: #fff; padding: 22px;
@@ -469,8 +470,9 @@
       font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px;
     }
     .price-card h3 { font-family: "Barlow", sans-serif; font-size: 19px; margin-bottom: 6px; }
-    .price-card > p:not(.price):not(.price-orig) { font-size: 13px; margin-bottom: 4px; }
+    .price-card > p:not(.price):not(.price-orig) { font-size: 13px; line-height: 1.5; margin-bottom: 4px; min-height: 4.5em; }
     .price-orig {
+      font-family: "Bricolage Grotesque", sans-serif;
       font-size: clamp(24px, 2.5vw, 26px);
       color: #9aabae;
       text-decoration: line-through;
@@ -499,10 +501,24 @@
       display: block; font-family: "Barlow", sans-serif;
       font-size: 12px; color: var(--muted); margin-top: 3px; font-weight: 500; letter-spacing: 0;
     }
-    .price-card ul { display: grid; gap: 8px; flex: 1; }
+    .price-per-project {
+      margin: -2px 0 16px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255,255,255,0.15);
+    }
+    .price-per-project strong {
+      font-family: "Bricolage Grotesque", sans-serif;
+      font-size: clamp(20px, 2vw, 26px);
+      color: rgba(255,255,255,0.9); letter-spacing: -0.02em; line-height: 1;
+    }
+    .price-per-project small {
+      display: block; font-family: "Barlow", sans-serif;
+      font-size: 11px; color: rgba(255,255,255,0.5); font-weight: 500; margin-top: 5px;
+    }
+    .price-card ul { display: grid; gap: 0; flex: 1; align-content: start; }
     .price-card li {
-      list-style: none; border-bottom: 1px dashed #d9e0df;
-      padding-bottom: 8px; color: #344347; font-size: 14px;
+      list-style: none; border-bottom: 1px dashed rgba(0,0,0,0.07);
+      padding: 6px 0 2px; color: #344347; font-size: 14px; line-height: 1.35;
     }
     .price-card li:last-child { border-bottom: none; }
     .price-card .btn { margin-top: 14px; }
@@ -722,7 +738,10 @@
     @media (max-width: 1060px) {
       .hero-grid, .pain-layout, .fit-grid, .final-grid { grid-template-columns: 1fr; }
       .mechanism-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .auto-grid, .value-grid, .pricing-grid { grid-template-columns: 1fr; }
+      .auto-grid, .value-grid { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .pricing-grid .price { font-size: clamp(40px, 8vw, 54px); }
+      .price-card > p:not(.price):not(.price-orig) { min-height: 0; }
       .price-card.featured { transform: none; }
       .flow-map { max-width: 100%; }
     }
@@ -1491,7 +1510,29 @@
           <p>Giá hiển thị công khai. Không mơ hồ, không ẩn phí. Giữ đúng phạm vi đã mô tả.</p>
         </header>
         <div class="pricing-grid">
-          <article class="price-card reveal" style="--delay: 200ms;">
+          <article class="price-card featured reveal" style="--delay: 200ms;">
+            <span class="tag">Beginner</span>
+            <h3>Creator Beginner</h3>
+            <p>Dành cho creator chỉ muốn trả tiền và nhận workflow chạy được - không cần tự xử lý bất kỳ kỹ thuật nào.</p>
+            <p class="price">
+              789.000đ
+              <small>Phí kết nối · trả 1 lần duy nhất</small>
+            </p>
+            <div class="price-per-project">
+              <strong>+199.000đ / dự án</strong>
+              <small>Phí setup · áp dụng cho mọi dự án kể cả lần đầu</small>
+            </div>
+            <ul>
+              <li>Tư vấn nhu cầu 1:1 tối đa 90 phút</li>
+              <li>Setup hoàn chỉnh workflow đã chốt trong buổi tư vấn · 7-14 ngày</li>
+              <li>Hỗ trợ kỹ thuật & xử lý sự cố khi cần</li>
+              <li>Quản lý danh sách khách đã thanh toán thành công</li>
+              <li>Chạy suốt thời gian dự án, tự dừng khi hoàn thành</li>
+            </ul>
+            <a class="btn btn-primary" href="#contact">Bắt đầu với Beginner</a>
+          </article>
+
+          <article class="price-card reveal" style="--delay: 240ms;">
             <span class="tag">Kiểm tra</span>
             <h3>Flow Audit</h3>
             <p>Dành cho creator biết quy trình đang rối nhưng chưa rõ nên tối ưu từ đâu trước.</p>
@@ -1510,7 +1551,7 @@
             <a class="btn btn-outline" href="#contact">Đăng ký Flow Audit</a>
           </article>
 
-          <article class="price-card featured reveal" style="--delay: 240ms;">
+          <article class="price-card reveal" style="--delay: 280ms;">
             <span class="tag">Triển khai</span>
             <h3>Auto Delivery Sprint</h3>
             <p>Dành cho creator đã đau rõ ở hậu thanh toán, muốn xử lý gọn cho 1 dự án cụ thể.</p>
@@ -1521,16 +1562,16 @@
             <p class="price-orig">8.500.000đ</p>
             <span class="price-discount">Tiết kiệm 31%</span>
             <ul>
-              <li>Toàn bộ quyền lợi triển khai</li>
+              <li>Toàn bộ Flow Audit</li>
               <li>Đồng hành 7-14 ngày</li>
               <li>7 ngày hỗ trợ sau triển khai</li>
               <li>Video hướng dẫn bàn giao</li>
               <li>Chỉ 2 suất mỗi đợt</li>
             </ul>
-            <a class="btn btn-primary" href="#contact">Giữ suất triển khai</a>
+            <a class="btn btn-outline" href="#contact">Giữ suất triển khai</a>
           </article>
 
-          <article class="price-card reveal" style="--delay: 280ms;">
+          <article class="price-card reveal" style="--delay: 320ms;">
             <span class="tag">Mở rộng</span>
             <h3>Scale Workshop Flow</h3>
             <p>Dành cho creator đang chuẩn bị scale workshop và cần thêm lớp vận hành phía sau.</p>
